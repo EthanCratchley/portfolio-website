@@ -314,20 +314,25 @@ section {
   margin: auto 0;
 }
 
-/* EXPERIENCE SECTION */
+/* SKILLS SECTION */
 
-#experience {
+#skills {
   position: relative;
 }
 
-.experience-sub-title {
+.skills-sub-title {
   color: rgb(85, 85, 85);
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
 
-.experience-details-container {
+.skills-details-container {
+  font-size: 1.5rem; 
+  line-height: 0.4;
+  
+  padding: 1rem; 
+
   display: flex;
   justify-content: center;
   flex-direction: column;
