@@ -1,0 +1,9 @@
+1. Projects on seprate page
+- Project sections
+- Filter between types of projects (school, personal, work)
+2. Notes page
+- Library
+- Microblog
+- Notes
+3. Dark Mode
+4. Update Resume
