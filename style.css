@@ -36,7 +36,7 @@ nav,
 nav {
   justify-content: space-around;
   align-items: center;
-  height: 10vh;
+  height: 15vh;
 }
 
 .nav-links {
@@ -514,3 +514,50 @@ footer p {
 .filter-buttons button:nth-child(4) { /* Work */
   background-color: rgb(213, 36, 36);
 }
+
+/* NOTES PAGE */ 
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between boxes */
+  margin-top: 50px;
+}
+
+.clickable-container {
+  display: block;
+  width: 200px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+  background-color: #f0f0f0; /* Background color */
+  color: black; /* Text color */
+  text-align: center;
+  line-height: 200px; /* Vertically center text */
+  border-radius: 10px; /* Rounded corners */
+  text-decoration: none; /* Remove underline from links */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.clickable-container:hover {
+  transform: scale(1.05); /* Slight increase in size on hover */
+  background-color: #e0e0e0; /* Slightly darker on hover */
+  color: black; 
+}
+
+.notes-main {
+  position: relative;
+  /* Other styles for your main content */
+}
+
+.notes-main::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%; /* Adjust as needed */
+  border-top: 1px solid #ccc; /* Subtle line */
+  width: 75%; /* 3/4 of the container width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
