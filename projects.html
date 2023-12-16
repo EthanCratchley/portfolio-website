@@ -1,96 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="ec.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <section id="projects">
-        <h1 class="title">Projects</h1>
-        <div class="skills-details-container">
-          <div class="about-containers">
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/project-1.png"
-                  alt="Project 1"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="skills-sub-title project-title">Project One</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/EthanCratchley'"
-                >
-                  Github
-                </button>
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/EthanCratchley'"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/project-2.png"
-                  alt="Project 2"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="skills-sub-title project-title">Project Two</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/EthanCratchley'"
-                >
-                  Github
-                </button>
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/EthanCratchley'"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/project-3.png"
-                  alt="Project 3"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="skills-sub-title project-title">Project Three</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/EthanCratchley'"
-                >
-                  Github
-                </button>
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/EthanCratchley'"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
-      </section>
+  <nav id="desktop-nav">
+    <div class="logo">Ethan Cratchley</div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="filter-buttons">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('school')">School</button>
+    <button onclick="filterProjects('personal')">Personal</button>
+    <button onclick="filterProjects('work')">Work</button>
+  </div>
+
+  <div class="projects-container">
+    <!-- School Project -->
+    <div class="project" data-category="school">
+      <h3>School Project 1</h3>
+      <img src="path_to_image.jpg" alt="Project Image"> <!-- Add your image here -->
+      <!-- More project details here -->
+    
+      <div class="project-buttons">
+        <a href="github_link" class="btn project-btn">GitHub Link</a> <!-- Replace with actual link -->
+        <a href="live_demo_link" class="btn project-btn">Live Demo</a> <!-- Replace with actual link -->
+      </div>
+    </div>
+    <!-- Repeat for other projects -->
+    <!-- Personal Project -->
+    <div class="project" data-category="personal">
+      <h3>Personal Project 1</h3>
+      <img src="path_to_image.jpg" alt="Project Image"> <!-- Add your image here -->
+      <!-- More project details here -->
+    
+      <div class="project-buttons">
+        <a href="github_link" class="btn project-btn">GitHub Link</a> <!-- Replace with actual link -->
+        <a href="live_demo_link" class="btn project-btn">Live Demo</a> <!-- Replace with actual link -->
+      </div>
+    </div>
+    <!-- Work Project -->
+    <div class="project" data-category="work">
+      <h3>Work Project 1</h3>
+      <img src="path_to_image.jpg" alt="Project Image"> <!-- Add your image here -->
+      <!-- More project details here -->
+    
+      <div class="project-buttons">
+        <a href="github_link" class="btn project-btn">GitHub Link</a> <!-- Replace with actual link -->
+        <a href="live_demo_link" class="btn project-btn">Live Demo</a> <!-- Replace with actual link -->
+      </div>
+    </div>-
+  </div> <!-- Closing tag for projects-container -->
+
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2024 Ethan Cratchley. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
