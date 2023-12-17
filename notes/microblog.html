@@ -2,71 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" type="x-icon" href="./assets/ec.png">
+  <link rel="shortcut icon" type="x-icon" href="../assets/ec.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Microblog</title>
-  <link rel="stylesheet" href="notes_styles.css"> <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="mb.css"> <!-- Link to your CSS file -->
 </head>
-<body>
-<main class="notes-main"></main>
+<body>  
   <nav id="desktop-nav">
     <div class="logo">Ethan Cratchley</div>
     <div>
       <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="notes.html">Notes</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../notes.html">Notes</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
-
-  <main class="notes-main"></main>
-  <header>
-    <h1>Microblog</h1>
-  </header>
-
-  <main class="library-content">
-    <section class="library-section">
-      <h3>Recommendations</h3>
-      <ul>
-        <li><a href="movies.html">Movies</a></li>
-        <li><a href="podcasts.html">Podcasts</a></li>
-        <li><a href="books.html">Books</a></li>
-        <li><a href="internet-goldmine.html">Internet Gold Mine</a></li>
-      </ul>
-    </section>
-
-    <section class="library-section">
-      <h3>Technical</h3>
-      <ul>
-        <li><a href="papers.html">Papers</a></li>
-        <li><a href="videos.html">Videos</a></li>
-        <li><a href="textbooks.html">Textbooks</a></li>
-        <li><a href="courses.html">Courses</a></li>
-      </ul>
-    </section>
-
-    <section class="library-section">
-      <h3>Personal</h3>
-      <ul>
-        <li><a href="fitness.html">Fitness</a></li>
-        <li><a href="health-wellness.html">Health and Wellness</a></li>
-        <li><a href="finances.html">Finances</a></li>
-        <li><a href="products.html">Products</a></li>
-      </ul>
-    </section>
+  
+  <main>
+    <main class="notes-main"></main>
+    <h1 class="microblog-title">Microblog</h1>
+    <div class="content-container">
+      <div class="post-preview" onclick="location.href='post.html';">
+        <h2 class="post-title">Project Title</h2>
+        <p class="sneak-peek">A short description or sneak peek of the content.</p>
+        <span class="post-year">2023</span>
+      </div>
+      </div>
+      <div class="content-container">
+        <div class="post-preview" onclick="location.href='post.html';">
+          <h2 class="post-title">Project Title 2</h2>
+          <p class="sneak-peek">A short description or sneak peek of the content.</p>
+          <span class="post-year">2023</span>
+        </div>
+    </div>
   </main>
+
   <footer>
     <nav>
       <div class="nav-links-container">
         <ul class="nav-links">
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="notes.html">Notes</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../notes.html">Notes</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
         </ul>
       </div>
     </nav>

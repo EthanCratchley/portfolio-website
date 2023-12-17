@@ -194,60 +194,56 @@ a:hover {
       gap: 1rem;
     }
 
-/* LIBRARY PAGE */
+/* MICROBLOG */
 
-header {
-    margin-top: 20px; /* Adjust as needed */
+.content-container {
+    max-width: 800px; /* Or your preferred maximum width */
+    margin: auto; /* This centers the container */
+    padding: 20px;
   }
   
-  header h1 {
-    color: black;
+  .microblog-title {
+    text-align: left;
+    padding-left: 12rem; /* Adjust this value to align with "Ethan Cratchley" */
+    margin-top: 0;
+  }  
+  
+  .post-preview {
+    display: flex; /* Aligns children inline */
+    align-items: center; /* Centers children vertically */
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
   }
   
-  header h2 {
-    color: grey;
+  .post-title {
+    margin-right: 20px; /* Adds space after the title */
+    flex-grow: 1; /* Allows title to take up available space */
   }
   
-  .library-content {
-    margin: 15px;
-    /* Additional styling as needed */
+  .sneak-peek {
+    margin-right: 20px; /* Adds space after the sneak peek */
+    flex-grow: 2; /* Allows sneak peek to take up more available space */
+  }
+  
+  .post-year {
+    white-space: nowrap; /* Ensures the year does not wrap to a new line */
+  }  
+  
+  /* Clearfix to fix the float */
+  .post-preview::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Add responsive behavior */
+  @media (max-width: 600px) {
+    .content-container {
+      padding: 10px;
+    }
   }
 
-  .library-section ul {
-    padding-left: 20px; /* This creates an indentation for the entire list */
-  }
-  
-  .library-section ul li {
-    text-indent: -10px; /* This slightly negates the indentation for list items */
-    margin-left: 10px; /* This will effectively indent list items */
-    list-style-position: inside; /* Positions the bullet inside the indented area */
-  }
-  
-  .library-section ul li a {
-    text-decoration: none;
-    color: rgb(121, 121, 121); /* Or your preferred link color */
-    transition: color 0.3s ease;
-  }
-  
-  .library-section ul li a:hover {
-    color: darkblue; /* Or a different color on hover */
-  }
-  
-  header {
-    padding: 0 12rem; /* Use the same padding for horizontal alignment */
-  }
-
-  .library-content {
-    padding: 0 12rem; /* Use the same padding for horizontal alignment */
-  }
-
-  .library-section {
-    /* Additional styles for the section */
-    margin-bottom: 20px; /* Adjust space between sections */
-  }
-  
-  
-/* FOOTER SECTION */
+  /* FOOTER SECTION */
 
 footer {
     height: 26vh;
@@ -258,77 +254,21 @@ footer {
     text-align: center;
   }
 
-.notes-main {
-  position: relative;
-  /* Other styles for your main content */
-}
+  /* GREY BAR TOP */
 
-.notes-main::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%; /* Adjust as needed */
-  border-top: 1px solid #ccc; /* Subtle line */
-  width: 75%; /* 3/4 of the container width */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ALEXANDRIA IMAGE */
-
-.center-image {
-  display: block;      /* Images are inline by default */
-  margin: 0 auto;      /* This will center the image */
-  max-width: 100%;     /* This makes the image responsive */
-  height: auto;        /* This will maintain the aspect ratio */
-  width: 425px;        /* Adjust width as needed to make the image smaller */
-}
-
-/* MICROBLOG */
-
-.content-container {
-  max-width: 800px; /* Or your preferred maximum width */
-  margin: auto; /* This centers the container */
-  padding: 20px;
-}
-
-.microblog-title {
-  text-align: center;
-  /* Additional styling for the microblog page title */
-}
-
-.post-preview {
-  cursor: pointer;
-  border-bottom: 1px solid #ccc; /* Add a subtle line between posts */
-  padding: 20px 0;
-}
-
-.post-title {
-  color: #000; /* Title color */
-  margin: 0;
-}
-
-.sneak-peek {
-  color: #666; /* Sneak peek text color */
-  margin: 10px 0;
-}
-
-.post-year {
-  float: right; /* Aligns the year to the right */
-  color: #999; /* Year text color */
-}
-
-/* Clearfix to fix the float */
-.post-preview::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Add responsive behavior */
-@media (max-width: 600px) {
-  .content-container {
-    padding: 10px;
+  .notes-main {
+    position: relative;
+    /* Other styles for your main content */
   }
-}
+  
+  .notes-main::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%; /* Adjust as needed */
+    border-top: 1px solid #ccc; /* Subtle line */
+    width: 75%; /* 3/4 of the container width */
+    margin-left: auto;
+    margin-right: auto;
+  }
