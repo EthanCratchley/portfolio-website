@@ -1,6 +1,7 @@
-2. Notes page
-- Library
-- Microblog
-- Notes
-3. Dark Mode
-4. Update Resume
+Future Updates:
+- Dark mode?
+- Update profile pic
+- Update Resume
+- Add to notes page 
+- Add projects 
+- chnage about me and skills
