@@ -196,17 +196,17 @@ a:hover {
 
 /* MICROBLOG */
 
+.microblog-title {
+    text-align: left;
+    padding-left: 12rem; /* Adjust this value to align with "Ethan Cratchley" */
+    padding-top: 10px;
+  }  
+
 .content-container {
     max-width: 800px; /* Or your preferred maximum width */
     margin: auto; /* This centers the container */
-    padding: 20px;
+    padding: 10px;
   }
-  
-  .microblog-title {
-    text-align: left;
-    padding-left: 12rem; /* Adjust this value to align with "Ethan Cratchley" */
-    margin-top: 0;
-  }  
   
   .post-preview {
     display: flex; /* Aligns children inline */
@@ -218,6 +218,7 @@ a:hover {
   .post-title {
     margin-right: 20px; /* Adds space after the title */
     flex-grow: 1; /* Allows title to take up available space */
+    font-size: 1.25em;
   }
   
   .sneak-peek {
@@ -235,6 +236,14 @@ a:hover {
     display: table;
     clear: both;
   }
+
+  /* To remove the line between blog posts */
+.post-preview {
+    border-bottom: none; /* This will remove the border line */
+    margin-bottom: 0px; /* Reduce the bottom margin to decrease the gap */
+    padding: 0px 0; /* Adjust padding as needed */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
   
   /* Add responsive behavior */
   @media (max-width: 600px) {
@@ -242,6 +251,12 @@ a:hover {
       padding: 10px;
     }
   }
+
+  .post-preview:hover {
+    background-color: #f9f9f9; /* Light grey background on hover */
+    background-color: #f7f7f7; /* Slight grey background color on hover */
+  }
+  
 
   /* FOOTER SECTION */
 
@@ -271,4 +286,14 @@ footer {
     width: 75%; /* 3/4 of the container width */
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* IMAGEs */
+
+.center-image {
+    display: block;      /* Images are inline by default */
+    margin: 0 auto;      /* This will center the image */
+    max-width: 100%;     /* This makes the image responsive */
+    height: auto;        /* This will maintain the aspect ratio */
+    width: 425px;        /* Adjust width as needed to make the image smaller */
   }
