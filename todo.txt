@@ -5,3 +5,4 @@ Future Updates:
 - Add to notes page 
 - Add projects 
 - chnage about me and skills
+- Get EC Image up on Google Search
