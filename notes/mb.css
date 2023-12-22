@@ -211,6 +211,8 @@ a:hover {
   .post-preview {
     display: flex; /* Aligns children inline */
     align-items: center; /* Centers children vertically */
+    align-items: flex-end; /* Aligns children to the bottom */
+    justify-content: space-between; /* Spaces children out */
     border-bottom: 1px solid #ccc;
     padding: 20px 0;
   }
@@ -219,16 +221,21 @@ a:hover {
     margin-right: 20px; /* Adds space after the title */
     flex-grow: 1; /* Allows title to take up available space */
     font-size: 1.25em;
+    top: -5px; /* Adjusts the position upwards by 10 pixels */
+    position: relative;
   }
   
   .sneak-peek {
     margin-right: 20px; /* Adds space after the sneak peek */
     flex-grow: 2; /* Allows sneak peek to take up more available space */
+    top: -18px; /* Adjusts the position upwards by 10 pixels */
   }
-  
+
   .post-year {
-    white-space: nowrap; /* Ensures the year does not wrap to a new line */
-  }  
+    position: relative; /* Enables the use of top/right/bottom/left for positioning */
+    top: -18px; /* Adjusts the position upwards by 10 pixels */
+    white-space: wrap;
+  }
   
   /* Clearfix to fix the float */
   .post-preview::after {
@@ -243,13 +250,6 @@ a:hover {
     margin-bottom: 0px; /* Reduce the bottom margin to decrease the gap */
     padding: 0px 0; /* Adjust padding as needed */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-  
-  /* Add responsive behavior */
-  @media (max-width: 600px) {
-    .content-container {
-      padding: 10px;
-    }
   }
 
   .post-preview:hover {
@@ -288,7 +288,7 @@ footer {
     margin-right: auto;
   }
 
-  /* IMAGEs */
+  /* IMAGES */
 
 .center-image {
     display: block;      /* Images are inline by default */
@@ -297,3 +297,22 @@ footer {
     height: auto;        /* This will maintain the aspect ratio */
     width: 425px;        /* Adjust width as needed to make the image smaller */
   }
+
+/* POSTS */
+
+.content-container p {
+  line-height: 1.6; /* Adjust the line height for paragraph text */
+  margin-bottom: 1em; /* Adjust the space between paragraphs */
+}
+
+/* If you have headings in your content, you may want to adjust their line spacing too */
+.content-container h1,
+.content-container h2,
+.content-container h3,
+.content-container h4,
+.content-container h5,
+.content-container h6 {
+  line-height: 1.4; /* Adjust the line height for headings */
+  margin-top: 1em; /* Space above the heading */
+  margin-bottom: 0.5em; /* Space below the heading */
+}

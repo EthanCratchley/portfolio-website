@@ -2,21 +2,12 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: "Inconsolata", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-p {
-  color: rgb(85, 85, 85);
 }
 
 /* TRANSITION */
@@ -197,7 +188,6 @@ a:hover {
 /* MICROBLOG */
 
 .microblog-title {
-    text-align: left;
     padding-left: 12rem; /* Adjust this value to align with "Ethan Cratchley" */
     padding-top: 10px;
   }  
@@ -207,56 +197,6 @@ a:hover {
     margin: auto; /* This centers the container */
     padding: 10px;
   }
-  
-  .post-preview {
-    display: flex; /* Aligns children inline */
-    align-items: center; /* Centers children vertically */
-    border-bottom: 1px solid #ccc;
-    padding: 20px 0;
-  }
-  
-  .post-title {
-    margin-right: 20px; /* Adds space after the title */
-    flex-grow: 1; /* Allows title to take up available space */
-    font-size: 1.25em;
-  }
-  
-  .sneak-peek {
-    margin-right: 20px; /* Adds space after the sneak peek */
-    flex-grow: 2; /* Allows sneak peek to take up more available space */
-  }
-  
-  .post-year {
-    white-space: nowrap; /* Ensures the year does not wrap to a new line */
-  }  
-  
-  /* Clearfix to fix the float */
-  .post-preview::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  /* To remove the line between blog posts */
-.post-preview {
-    border-bottom: none; /* This will remove the border line */
-    margin-bottom: 0px; /* Reduce the bottom margin to decrease the gap */
-    padding: 0px 0; /* Adjust padding as needed */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-  
-  /* Add responsive behavior */
-  @media (max-width: 600px) {
-    .content-container {
-      padding: 10px;
-    }
-  }
-
-  .post-preview:hover {
-    background-color: #f9f9f9; /* Light grey background on hover */
-    background-color: #f7f7f7; /* Slight grey background color on hover */
-  }
-  
 
   /* FOOTER SECTION */
 
@@ -288,7 +228,7 @@ footer {
     margin-right: auto;
   }
 
-  /* IMAGEs */
+  /* IMAGES */
 
 .center-image {
     display: block;      /* Images are inline by default */
@@ -317,7 +257,53 @@ footer {
   margin-bottom: 0.5em; /* Space below the heading */
 }
 
-/* For more control over the text, you can also adjust the letter-spacing */
-.content-container {
-  letter-spacing: 0.5px; /* Adjust the space between letters */
+/* MARKDOWN */
+
+/* Isolated styles for the markdown content container */
+.markdownContent {
+  /* Any specific styles for markdown content go here */
+  line-height: 1.6; /* Example line-height */
+  font-size: 16px; /* Example font-size */
+}
+
+/* Reset styles for elements within the markdown content container */
+.markdownContent p, 
+.markdownContent h1, 
+.markdownContent h2, 
+.markdownContent h3, 
+.markdownContent h4, 
+.markdownContent h5, 
+.markdownContent h6 {
+  margin: 0 0 10px 0; /* Resets margin and adds bottom margin for spacing */
+  padding: 0; /* Resets padding */
+  color: inherit; /* Ensures font color is inherited from #markdownContent */
+  /* Other resets as needed */
+}
+
+/* Code Block Styling */
+.content-container pre {
+  background-color: #f5f5f5; /* Light grey background */
+  border: 1px solid #ddd; /* Light border */
+  padding: 10px; /* Padding inside the code block */
+  overflow-x: auto; /* Enables horizontal scrolling for long lines of code */
+}
+
+.content-container code {
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+  font-size: 0.95em; /* Slightly smaller font size */
+}
+
+.content-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.content-container th, .content-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.content-container th {
+  text-align: left;
+  background-color: #f2f2f2;
 }
