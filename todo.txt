@@ -6,3 +6,4 @@ Future Updates:
 - Add projects 
 - chnage about me and skills
 - Get EC Image up on Google Search
+- Fix underlining hover on microblog
