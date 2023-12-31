@@ -209,14 +209,19 @@ a:hover {
   }
   
   .post-preview {
-    display: flex; /* Aligns children inline */
-    align-items: center; /* Centers children vertically */
-    align-items: flex-end; /* Aligns children to the bottom */
-    justify-content: space-between; /* Spaces children out */
-    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 20px 0;
+    transition: background-color 0.3s ease, border-bottom 0.3s ease; /* Add transition for border */
   }
   
+  /* Hover effect */
+  .post-preview:hover {
+    background-color: #f7f7f7; /* Light grey background on hover */
+    border-bottom: 1px solid #ccc; /* Grey underline on hover */
+  }
+
   .post-title {
     margin-right: 20px; /* Adds space after the title */
     flex-grow: 1; /* Allows title to take up available space */
