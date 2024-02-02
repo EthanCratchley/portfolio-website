@@ -87,3 +87,5 @@ The bottom line is that if you don't cut out complexity from your life, business
 ##### Disclamer:
 
 I may come back to this post and make changes and add thoughts at anytime. All thoughts are my own and simply an expression of ideas/thoughts.
+
+feel free to email me @ ethankcratchley@gmail.com for feedback on my writing etc. always looking to improve and learn
