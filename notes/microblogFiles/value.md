@@ -10,7 +10,7 @@ Keith Gill aka Roraring Kitty aka DeepFuckingValue held GME for months before he
 
 The idea that although you may have uncovered value and you may be correct is great! But that really doesn't matter if nobody agrees with you or nobody cares. This is because what shifts the value of a stock is not just the intrinsic value of a company but more importantly the sentiment of the company. 
 
-I understand that everything is priced in, but the idea that **Value = Price** is false on any term less than at least 3-5 years! The reality is that the value lies in the eyes of the market and even more then that, the value lies in how the market determines value. As we saw with both the unreasonable valuation of GME when it was skyrocketing in price as well as when it was being shorted to death.
+I understand that everything is priced in, but the idea that **Value = Price** is false! The reality is that the value lies in the eyes of the market and even more then that, the value lies in how the market determines value. As we saw with both the unreasonable valuation of GME when it was skyrocketing in price as well as when it was being shorted to death.
 
 # 2008 Financial Crisis
 
