@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date/Time Who Cares</title>
+  <link rel="stylesheet" href="../mb.css"> <!-- Link to your CSS file -->
+</head>
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+<body>  
+  <nav id="desktop-nav">
+    <div class="logo">Ethan Cratchley</div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="../../index.html#about">About</a></li>
+        <li><a href="../../index.html#skills">Skills</a></li>
+        <li><a href="../../projects.html">Projects</a></li>
+        <li><a href="../../notes.html">Notes</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <main class="notes-main"></main>
+    <h1 class="microblog-title">Date/Time? Who Cares</h1>
+    <div class="content-container">
+        <div id="markdownContent"></div>
+  </main>
+
+  <footer>
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="../../index.html#about">About</a></li>
+          <li><a href="../../index.html#skills">Skills</a></li>
+          <li><a href="../../projects.html">Projects</a></li>
+          <li><a href="../../notes.html">Notes</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright &#169; 2024 Ethan Cratchley. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+  <script>
+    // When the window is fully loaded, execute this function
+    window.onload = function() {
+      // Initialize a new showdown converter
+      var converter = new showdown.Converter();
+
+      // Use AJAX to load the Markdown content from a .md file
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // When successful, convert the Markdown to HTML
+          var htmlContent = converter.makeHtml(xhr.responseText);
+          // Inject the HTML into the page
+          document.getElementById('markdownContent').innerHTML = htmlContent;
+        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+          // If there is an error, display a message
+          document.getElementById('markdownContent').innerHTML = 'Error loading content...';
+        }
+      };
+      // Specify the path to the .md file
+      xhr.open('GET', 'whocares.md', true);
+      // Send the request
+      xhr.send();
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
