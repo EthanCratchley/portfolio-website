@@ -10,7 +10,7 @@ Keith Gill aka Roraring Kitty aka DeepFuckingValue held GME for months before he
 
 The idea that although you may have uncovered value and you may be correct is great! But that really doesn't matter if nobody agrees with you or nobody cares. This is because what shifts the value of a stock is not just the intrinsic value of a company but more importantly the sentiment of the company. 
 
-I understand that everything is priced in, but the idea that **Value = Price** is false! The reality is that the value lies in the eyes of the market and even more then that, the value lies in how the market determines value. As we saw with both the unreasonable valuation of GME when it was skyrocketing in price as well as when it was being shorted to death.
+I understand that everything is priced in, but the idea that **Intrisic Value = Price** is false. The reality is that the value lies in the eyes of the market and even more then that, the value lies in how many people agree with that valuation. As we saw with both the unreasonable valuation of GME when it was skyrocketing in price as well as when it was being shorted to death.
 
 # 2008 Financial Crisis
 
@@ -22,7 +22,7 @@ Burry had thousands of investors money on the line and was down over 20% on his 
 
 If there is anything I would take away from this it is that your opinion on the valuation of a company (or your opinion on anything really) doesn't really matter if nobody knows/cares/agrees. 
 
-Knowing this it doesn't mean we should go around shilling stocks or beleifs to people. Instead it means that before making a decision or investment we need to take into account the market sentiment as a qualitative piece of data to consider.
+Knowing this it doesn't mean we should go around shilling stocks or beleifs to people. But it also does not mean that you should give up on your opinion and beleifs. Instead it means that before making a decision or investment we need to take into account the market sentiment as a qualitative piece of data to consider.
 
 I'll leave you with a quote from Winston Churchill, *"History is written by the victors."*
 
