@@ -1,3 +1,4 @@
+/* General styles */
 body {
     margin: 0;
     font-family: "Baskervville", serif;
@@ -32,6 +33,7 @@ nav a:hover {
     background-color: #555; /* Darker grey on hover */
 }
 
+/* Title and subtitle */
 .title {
     padding-left: 100px; /* Decent amount of left padding */
     font-size: 2.5em;
@@ -43,6 +45,7 @@ nav a:hover {
     font-size: 1.5em;
 }
 
+/* Content */
 .content {
     padding-left: 150px; /* More left padding */
     font-size: 1em;
@@ -50,6 +53,7 @@ nav a:hover {
     margin-bottom: 100px; /* Space below content */
 }
 
+/* Projects grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -82,27 +86,53 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-.social-icons {
+/* Notes section */
+.notes-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.video-container {
+    margin-bottom: 40px;
+}
+
+.video-container video {
+    width: 400px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    border: none;
+}
+
+.boxes-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 20px;
-    padding-left: 150px;
 }
 
-.social-icons img {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+.box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
 }
 
-.social-icons img:hover {
-    transform: scale(1.4);
-    opacity: 0.8;
+.box:hover {
+    transform: scale(1.05);
+    background-color: #555;
 }
 
-/* Contact */
+.box h3 {
+    margin: 0;
+    color: #D1D5DB;
+}
 
+/* Contact section */
 .contact-section {
     text-align: center;
     padding: 50px 0;
@@ -150,7 +180,7 @@ footer {
 }
 
 .footer-left img:hover {
-    transform: scale(1.5);
+    transform: scale(1.4);
     opacity: 0.8;
 }
 
@@ -167,7 +197,7 @@ footer {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 5s ease-out, transform 5s ease-out;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .fade-in-visible {
