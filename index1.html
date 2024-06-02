@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="shortcut icon" type="x-icon" href="./assets/ec.png">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ethan Cratchley</title>
-        <link rel="stylesheet" href="styles1.css" />
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-    
-          gtag('config', 'G-Q0VMMDZE5J');
-        </script>
-      </head>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="./assets/ec.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethan Cratchley</title>
+    <link rel="stylesheet" href="styles1.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-Q0VMMDZE5J');
+    </script>
+  </head>
 <body>
     <header>
         <nav>
             <ul>
-            <section class="fade-in" id="home">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#resume">Resume</a></li>
+                <li><a href="#" onclick="window.open('./assets/EthanKCratchleyResume.pdf')">Resume</a></li>
                 <li><a href="#notes">Notes</a></li>
                 <li><a href="#contact">Contact</a></li>
-            </section>
             </ul>
         </nav>
     </header>
@@ -34,23 +32,57 @@
         <section class="fade-in" id="home">
             <h1 class="title">Ethan Cratchley</h1>
             <h2 class="subtitle">Current:</h2>
-            <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+            <p class="content">
+                Hey, I'm Ethan! I'm currently studying Business Administration at Capilano University, I am seeking to transfer schools to UBC or SFU. Along with that I plan to enroll in a Business Administration and Computer Science Joint Major program.
+                <br>
+                <br>
+                Along with my studying I am also a member of the Enactus Capilano Square One Financial and Sustainability teams. Additionally, I am also currently employed at Seymour Golf and Country Club as a Senior Golf Attendant as well as a Soccer Referee for the NSYSA.
+                <br>
+                <br>
+                I am currently working on finishing up a new project I have been working on called "Financial Fast Feed". This project uses Python, GPT API, CSS, JavaScript, MongoDB, Vercel, Next.js, and React to fetch financial news RSS Feeds and then summarize, store, and display them.
+                <br>
+                <br>
+                I am passionate about continuously challenging myself and learning new skills. In my free time I enjoy programming, finance, fitness, golf, chess, and more. 
+                <br>
+                <br>
+                In the future I hope to work in the intersection of Finance and Computer Science.
+            </p>
         </section>
         <section class="fade-in" id="projects">
             <h2 class="subtitle">Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of Project 1. <a href="#">Learn more</a></p>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3><a href="#">Project 1</a></h3>
+                    <p>Description of Project 1.</p>
+                </div>
+                <div class="project">
+                    <h3><a href="#">Project 2</a></h3>
+                    <p>Description of Project 2.</p>
+                </div>
+                <div class="project">
+                    <h3><a href="#">Project 3</a></h3>
+                    <p>Description of Project 3.</p>
+                </div>
+                <div class="project">
+                    <h3><a href="#">Project 4</a></h3>
+                    <p>Description of Project 4.</p>
+                </div>
+                <div class="project">
+                    <h3><a href="#">Project 5</a></h3>
+                    <p>Description of Project 5.</p>
+                </div>
             </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of Project 2. <a href="#">Learn more</a></p>
-            </div>
-            <!-- Add more projects as needed -->
         </section>
     </main>
     <footer>
-        <!-- Footer content -->
+        <div class="footer-left">
+            <a href="https://github.com/EthanCratchley"><img src="./assets/github.png" alt="My Github profile" class="icon" /></a>
+            <a href="mailto:ethankcratchley@gmail.com"><img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" /></a>
+            <a href="https://www.linkedin.com/in/ethan-cratchley/"><img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" /></a>
+        </div>
+        <div class="footer-right">
+            <p>© 2024</p>
+        </div>
     </footer>
     <script src="script1.js"></script>
 </body>
