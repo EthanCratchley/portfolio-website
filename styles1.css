@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Baskervville", serif;
     background-color: #1E1E1E;
     color: #D1D5DB;
 }
@@ -101,6 +101,34 @@ nav a:hover {
     opacity: 0.8;
 }
 
+
+/* Contact */
+
+.contact-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.contact-photo {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.contact-links p {
+    margin: 10px 0;
+}
+
+.contact-links a {
+    color: #D1D5DB;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
 /* Footer */
 footer {
     display: flex;
@@ -140,7 +168,7 @@ footer {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 5s ease-out, transform 5s ease-out;
 }
 
 .fade-in-visible {
