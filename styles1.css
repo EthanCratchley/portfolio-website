@@ -46,11 +46,94 @@ nav a:hover {
 .content {
     padding-left: 150px; /* More left padding */
     font-size: 1em;
+    line-height: 1.6; /* Line spacing for readability */
+    margin-bottom: 100px; /* Space below content */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 150px; /* Left padding to align with other content */
+    margin-top: 50px; /* Padding at the top of the projects section */
+    padding-bottom: 65px; /* Additional padding below */
 }
 
 .project {
-    padding-left: 150px; /* More left padding */
-    margin-top: 50px;
+    padding: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+.project a {
+    text-decoration: none;
+    color: #D1D5DB;
+}
+
+.project p {
+    margin: 10px 0 0;
+}
+
+.project:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-left: 150px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.4);
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 150px;
+    background-color: #1E1E1E;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-left img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.footer-left img:hover {
+    transform: scale(1.5);
+    opacity: 0.8;
+}
+
+.footer-left a {
+    display: inline-block;
+}
+
+.footer-right {
+    text-align: right;
+    color: #D1D5DB;
 }
 
 /* Fade-in effect */
