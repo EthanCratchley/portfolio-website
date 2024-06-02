@@ -1,3 +1,0 @@
-    background-color: #1E1E1E; /* Grey background color */
-
-    color: #D1D5DB;

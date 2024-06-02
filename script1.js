@@ -1,21 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Apply fade-in effect on page load
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-        el.classList.add('fade-in-visible');
-    });
+function toggleMenu() {
+    const menu = document.querySelector(".menu-links");
+    const icon = document.querySelector(".hamburger-icon");
+    menu.classList.toggle("open");
+    icon.classList.toggle("open");
+  }
 
-    // Apply fade-in effect on scroll
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(el => {
-        observer.observe(el);
+  function filterProjects(category) {
+    const projects = document.querySelectorAll('.project');
+  
+    projects.forEach(project => {
+      if (category === 'all' || project.dataset.category === category) {
+        project.style.display = '';
+      } else {
+        project.style.display = 'none';
+      }
     });
-});
+  }
