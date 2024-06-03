@@ -261,7 +261,7 @@ footer {
     display: block;
     margin: 0 auto 40px; /* Ensure there's a margin of 40px below the image */
     height: auto;
-    max-width: 100%; /* Set the image to medium size, adjust the percentage as needed */
+    max-width: 40%; /* Set the image to medium size, adjust the percentage as needed */
 }
 
 .content-container {
