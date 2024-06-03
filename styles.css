@@ -175,7 +175,7 @@ nav a:hover {
 
 .center-image {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 40px; /* Add margin-bottom to separate the image from the content */
     height: auto;
     max-width: 40%; /* Set the image to medium size, adjust the percentage as needed */
 }
@@ -259,9 +259,9 @@ footer {
 
 .center-image {
     display: block;
-    margin: 0 auto 40px; /* Add margin-bottom to separate the image from the content */
+    margin: 0 auto 40px; /* Ensure there's a margin of 40px below the image */
     height: auto;
-    max-width: 40%; /* Set the image to medium size, adjust the percentage as needed */
+    max-width: 100%; /* Set the image to medium size, adjust the percentage as needed */
 }
 
 .content-container {
@@ -270,6 +270,7 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    margin-top: 40px; /* Add a margin-top to create space above the content */
 }
 
 .post-preview {
