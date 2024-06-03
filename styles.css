@@ -386,6 +386,13 @@ footer {
     margin-bottom: 40px;
 }
 
+.center-image {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    max-width: 40%; /* Set the image to medium size, adjust the percentage as needed */
+}
+
 .library-content {
     max-width: 800px;
     margin: 0 auto;
@@ -407,6 +414,16 @@ footer {
 
 .library-section li {
     margin-bottom: 10px;
+}
+
+.library-section a {
+    color: #D1D5DB;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.library-section a:hover {
+    color: #555; /* Darker grey on hover */
 }
 
 /* Fade-in effect */
