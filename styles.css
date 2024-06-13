@@ -40,7 +40,7 @@ nav a:hover {
 }
 
 .subtitle {
-    padding-left: 150px; /* More left padding */
+    padding-left: 100px; /* Match the left padding of the title */
     margin-top: 50px;
     font-size: 1.5em;
 }
@@ -168,8 +168,16 @@ nav a:hover {
 }
 
 /* Library section */
-.library-main header {
+.library-main {
     text-align: center;
+    padding: 50px 0;
+}
+
+.library-title {
+    margin-bottom: 10px;
+}
+
+.library-subtitle {
     margin-bottom: 40px;
 }
 
@@ -181,7 +189,8 @@ nav a:hover {
 }
 
 .library-content {
-    padding: 0 150px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .library-section {
@@ -321,6 +330,7 @@ footer {
 }
 
 .library-section {
+    text-align: center;
     margin-bottom: 40px;
 }
 
