@@ -30,7 +30,7 @@ Complexity can be either broughout upon by ourselves or it can be forced upon us
 
 This could go on quite literally forever, eventually you will have done nothing, learned nothing, and managed to waste your time while feeling productive. 
 
-You could argue this is an issue of procrastination but I would say that it is actually more of a byproduct of complexity. Often when people do these things it is not because they are to lazy to start but rather because they ar confused and overwhelmed. They hear profesionals talk about so many different things and feel that they need to integrate them all to be most efficent.
+You could argue this is an issue of procrastination but I would say that it is actually more of a byproduct of complexity. Often when people do these things it is not because they are to lazy to start but rather because they are confused and overwhelmed. They hear profesionals talk about so many different things and feel that they need to integrate them all to be most efficent.
 
 ### Societies Complexities:
 

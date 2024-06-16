@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand First</title>
+    <link rel="stylesheet" href="../styles.css"> <!-- Link to your main CSS file -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q0VMMDZE5J');
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../notes.html">Notes</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+                <li><a href="#" onclick="window.open('../../assets/EthanKCratchleyResume.pdf')">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="fade-in microblog-post-main">
+            <h1 class="microblog-title">Brand First, Product Second</h1>
+            <div class="content-container">
+                <div id="markdownContent"></div>
+            </div>
+        </section>
+    </main>
+    <footer class="fade-in">
+        <div class="footer-left">
+            <a href="https://github.com/EthanCratchley"><img src="/assets/github.png" alt="My Github profile" class="icon" /></a>
+            <a href="mailto:ethankcratchley@gmail.com"><img src="/assets/email.png" alt="Email icon" class="icon contact-icon email-icon" /></a>
+            <a href="https://www.linkedin.com/in/ethan-cratchley/"><img src="/assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" /></a>
+        </div>
+        <div class="footer-right">
+            <p>© 2024</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script>
+        window.onload = function() {
+            var converter = new showdown.Converter();
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var htmlContent = converter.makeHtml(xhr.responseText);
+                    document.getElementById('markdownContent').innerHTML = htmlContent;
+                } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                    document.getElementById('markdownContent').innerHTML = 'Error loading content...';
+                }
+            };
+            xhr.open('GET', 'brandfirst.md', true);
+            xhr.send();
+        };
+    </script>
+    <script src="../script.js"></script>
+</body>
+</html>
