@@ -30,27 +30,27 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #555; /* Darker grey on hover */
+    background-color: #555; 
 }
 
 /* Title and subtitle */
 .title {
-    padding-left: 100px; /* Decent amount of left padding */
+    padding-left: 100px; 
     font-size: 2.5em;
 }
 
 .subtitle {
-    padding-left: 100px; /* Match the left padding of the title */
+    padding-left: 100px;
     margin-top: 50px;
     font-size: 1.5em;
 }
 
 /* Content */
 .content {
-    padding-left: 150px; /* More left padding */
+    padding-left: 150px; 
     font-size: 1em;
-    line-height: 1.6; /* Line spacing for readability */
-    margin-bottom: 100px; /* Space below content */
+    line-height: 1.6;
+    margin-bottom: 100px; 
 }
 
 /* Projects grid */
@@ -58,9 +58,9 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 0 150px; /* Left padding to align with other content */
-    margin-top: 50px; /* Padding at the top of the projects section */
-    padding-bottom: 65px; /* Additional padding below */
+    padding: 0 150px; 
+    margin-top: 50px;
+    padding-bottom: 65px; 
 }
 
 .project {
@@ -97,8 +97,8 @@ nav a:hover {
 }
 
 .video-container video {
-    width: 400px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 400px; 
+    height: auto; 
     max-width: 100%;
     border: none;
 }
@@ -137,7 +137,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 140px); /* Adjust height to account for header and footer */
+    height: calc(100vh - 140px); 
     text-align: center;
 }
 
@@ -148,7 +148,7 @@ nav a:hover {
 }
 
 .contact-photo {
-    width: auto; /* Adjust the size as needed */
+    width: auto; 
     height: 400px;
     margin-bottom: 20px;
 }
@@ -183,9 +183,9 @@ nav a:hover {
 
 .center-image {
     display: block;
-    margin: 0 auto 40px; /* Add margin-bottom to separate the image from the content */
+    margin: 0 auto 40px; 
     height: auto;
-    max-width: 40%; /* Set the image to medium size, adjust the percentage as needed */
+    max-width: 40%; 
 }
 
 .library-content {
@@ -218,7 +218,7 @@ nav a:hover {
 }
 
 .library-section a:hover {
-    color: #555; /* Darker grey on hover */
+    color: #555;
 }
 
 /* Footer */
@@ -268,9 +268,9 @@ footer {
 
 .center-imag {
     display: block;
-    margin: 0 auto 40px; /* Ensure there's a margin of 40px below the image */
+    margin: 0 auto 40px; 
     height: auto;
-    max-width: 35%; /* Set the image to medium size, adjust the percentage as needed */
+    max-width: 35%; 
 }
 
 .content-container {
@@ -279,15 +279,15 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    margin-top: 40px; /* Add a margin-top to create space above the content */
+    margin-top: 40px; 
 }
 
 .post-preview {
     background-color: #333;
     padding: 20px;
     border-radius: 10px;
-    width: 25%; /* Adjust to make the post previews smaller */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 25%; 
+    box-sizing: border-box; 
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -320,9 +320,9 @@ footer {
 
 .center-image {
     display: block;
-    margin: 0 auto 40px; /* Add margin-bottom to separate the image from the content */
+    margin: 0 auto 40px; 
     height: auto;
-    max-width: 25%; /* Set the image to medium size, adjust the percentage as needed */
+    max-width: 25%; 
 }
 
 .library-content {
@@ -355,12 +355,12 @@ footer {
 }
 
 .library-section a:hover {
-    color: #555; /* Darker grey on hover */
+    color: #555; 
 }
 
 /* Microblog post section */
 .microblog-post-main {
-    padding: 50px 150px; /* Adjust padding as needed */
+    padding: 50px 150px;
     text-align: left;
 }
 
@@ -383,7 +383,7 @@ footer {
 
 /* Library notes section */
 .library-main {
-    padding: 50px 150px; /* Adjust padding as needed */
+    padding: 50px 150px;
     text-align: left;
 }
 
@@ -401,7 +401,7 @@ footer {
     display: block;
     margin: 0 auto;
     height: auto;
-    max-width: 40%; /* Set the image to medium size, adjust the percentage as needed */
+    max-width: 40%;
 }
 
 .library-content {
@@ -434,7 +434,7 @@ footer {
 }
 
 .library-section a:hover {
-    color: #555; /* Darker grey on hover */
+    color: #555; 
 }
 
 /* Fade-in effect */
