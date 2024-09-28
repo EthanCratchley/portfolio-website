@@ -10,29 +10,6 @@ I am not arguing that we should get rid of date and time as that would cause mor
 
 ![My Image] (time.png)
 
-if i had limited time  
-i wouldn't worry  
-i wouldn't wine  
-i wouldn't wait  
-
-if i had limited time  
-i wouldn't think  
-i wouldn't tremble  
-i would try  
-
-if i had limited time  
-i wouldn't care  
-i would cherish  
-i would create  
-
-if i had limited time  
-i wouldn't waste it  
-
-if i had limited time  
-i would  
-
-![My Image] (time2.png)
-
 ##### Disclamer:
 
 I may come back to this post and make changes and add thoughts at anytime. All thoughts are my own and simply an expression of ideas/thoughts.
