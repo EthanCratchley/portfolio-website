@@ -1,6 +1,6 @@
 Complexity is a disease, it has infected the many minds and industries of our world today.
 
-**People are always looking for what to add to their life**. Often what they should be looking for is the oposite. That being, **"What should I remove from my life?"**
+**People are always looking for what to add to their life**. Often what they should be looking for is the opposite. That being, **"What should I remove from my life?"**
 
 This is a result of the complexity that fills our mind in todays society. It is not always obvious when it is happening and I myself am a victim of this. So we need to ask ourselves, Why do we have complexity? How do we get rid of it?
 
@@ -17,7 +17,7 @@ Complexity can be either broughout upon by ourselves or it can be forced upon us
 2. What do you need to code it?
 3. How can you code it as efficently as possible?
 
-#### <br> Instead the process for many ends up looking somethging like:
+#### <br> Instead the process for many ends up looking something like:
 
 1. How can I be most productive in learning programming?
 2. What are the best tools for productivity?
