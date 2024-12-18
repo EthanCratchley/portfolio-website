@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complexity</title>
-    <link rel="stylesheet" href="../styles.css"> 
+    <title>Ethan Cratchley - Writing</title>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
@@ -30,16 +30,36 @@
                 <li><a href="../../resources.html">Resources</a></li>
             </ul>
         </nav>
-    </header>
-        
+    </header>    
+
     <!-- Main Content -->
     <main>
-        <section id="writing-post" class="fade-in">
+        <!-- Writing Section -->
+        <section id="writing" class="fade-in">
             <div class="bio-header">
-                <h1>Complexity</h1>
+                <h1>Ethan Cratchley - Writing</h1>
             </div>
-            <div class="content-container">
-                <div id="markdownContent"></div>
+            <div class="writing-list">
+                <div class="writing-item">
+                    <a href="microblogFiles/20.html" class="writing-title">20</a>
+                    <span class="writing-date">July 2024</span>
+                </div>
+                <div class="writing-item">
+                    <a href="microblogFiles/brandfirst.html" class="writing-title">Brand First</a>
+                    <span class="writing-date">June 2024</span>
+                </div>
+                <div class="writing-item">
+                    <a href="microblogFiles/whocares.html" class="writing-title">Date/Time? Who Cares</a>
+                    <span class="writing-date">April 2024</span>
+                </div>
+                <div class="writing-item">
+                    <a href="microblogFiles/value.html" class="writing-title">Value</a>
+                    <span class="writing-date">February 2024</span>
+                </div>
+                <div class="writing-item">
+                    <a href="microblogFiles/complexity.html" class="writing-title">Complexity</a>
+                    <span class="writing-date">December 2023</span>
+                </div>
             </div>
         </section>
     </main>
@@ -53,24 +73,7 @@
         </div>
     </footer>
 
-    <!-- Markdown Script -->
-    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
-    <script>
-        window.onload = function() {
-            var converter = new showdown.Converter();
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var htmlContent = converter.makeHtml(xhr.responseText);
-                    document.getElementById('markdownContent').innerHTML = htmlContent;
-                } else if (xhr.readyState === 4 && xhr.status !== 200) {
-                    document.getElementById('markdownContent').innerHTML = 'Error loading content...';
-                }
-            };
-            xhr.open('GET', 'complexity.md', true);
-            xhr.send();
-        };
-    </script>
+    <!-- Smooth Scrolling and Fade-In Animations -->
     <script src="../script.js"></script>
 </body>
 </html>

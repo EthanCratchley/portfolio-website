@@ -136,6 +136,93 @@ section {
     opacity: 0.6;
 }
 
+/* Writing List Styles */
+.writing-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.writing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.writing-title {
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.writing-title:hover {
+    color: #555;
+}
+
+.writing-date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Experience Section */
+#experience {
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.bio-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bio-header h1 {
+    font-size: 2.5em;
+}
+
+#experience h2 {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.experience-item {
+    margin-bottom: 30px; /* Spacing between experiences */
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.position {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.company {
+    font-size: 1em;
+    color: #555;
+    margin-left: 10px; /* Slight spacing between Position and Company */
+}
+
+.date {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.experience-item p {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+    text-align: left;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -155,21 +242,77 @@ footer {
     border-color: #333;
 }
 
+/* Markdown Content Styling */
+/* General Image Styling */
+#markdownContent img {
+    max-width: 100%; /* Ensures the image never overflows its container */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Ensures proper spacing and alignment */
+    margin: 20px auto; /* Centers the image and adds spacing */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for aesthetics */
+}
+
+/* For Markdown Content */
+#markdownContent figure {
+    margin: 0;
+    text-align: center; /* Center aligns the figure */
+}
+
+#markdownContent figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px; /* Spacing above the caption */
+    text-align: center; /* Centers the caption */
+}
+
+/* Writing Post Layout */
+#writing-post {
+    margin-top: 40px;
+}
+
+.bio-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bio-header h1 {
+    font-size: 2.5em;
+}
+
+.content-container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 700px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for Active Legend Item */
+.legend a.active {
+    font-weight: bold;
+    color: #000; /* Optionally, make it a slightly darker color to highlight */
+    border-left: 3px solid #000; /* Optionally, add a highlight or indicator */
+    padding-left: 10px; /* Adjust spacing due to the border */
+    transition: color 0.3s ease, border-left 0.3s ease;
+}
+
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Fade-in Animation */
+/* Fade-in animation */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
-.fade-in-visible {
-    opacity: 1;
-    transform: translateY(0);
+.fade-in.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* At its final position */
 }
 
 /* Mobile Responsive Styles */
