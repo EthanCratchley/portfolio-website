@@ -1,153 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <link rel="shortcut icon" type="x-icon" href="./assets/ec.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ethan Cratchley</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Q0VMMDZE5J');
-    </script>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="shortcut icon" type="x-icon" href="./assets/ec.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ethan Cratchley</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-Q0VMMDZE5J');
+        </script>
+    </head>
 <body>
+    <!-- Left-Side Navigation -->
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="notes.html">Notes</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="#" onclick="window.open('./assets/EthanKCratchleyResume.pdf')">Resume</a></li>
+            <ul class="legend">
+                <li><a href="#home">About</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#Resources">Resources</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- Main Content -->
     <main>
-        <section class="fade-in" id="home">
-            <h1 class="title">Ethan Cratchley</h1>
-            <h2 class="subtitle">Currently</h2>
-            <p class="content">
-                I'm currently studying Business Administration at the Beedie School of Business at Simon Fraser University. I plan to enroll in a Business Administration and Computer Science Joint Major program.
-                <br><br>
-                This fall, I will be taking Discrete Math, Managerial Economics, Financial Accounting, and Introduction to Computer Science.
-                <br><br>
-                This year, I will be conducting equity research on various financial instruments for the SFU Investing Club, where we will also compete in stock pitch competitions, investing challenges, and case studies.
-                <br><br>
-                I am a Project Lead at the SFU Open Source Development Club. I will be leading the team and continuing to develop and expand Financial Fast Feed which automatically displays and summarizes various financial news articles using GPT 3.5.
-                <br><br>
-                In my spare time I enjoy working on a variety of different types of projects, as well as doing sports such as Soccer, Golf, Tennis, Running, and more.
-                <br><br>
-                In the future I plan to build SaaS products for businesses and people.
+        <!-- About Section -->
+        <section id="home">
+            <div class="bio-header">
+                <h1>Ethan Cratchley</h1>
+                <div class="header-buttons">
+                    <a href="#contact" class="nav-button">Contact</a>
+                    <a href="assets/EthanCratchleyResume.pdf" class="nav-button" target="_blank">Resume</a>
+                </div>
+            </div>
+            <p>
+                I enjoy exploring the intersection of technology, finance, and society, building scalable solutions that empower people and businesses. 
+                I thrive on solving high stakes problems whether through code, business strategy, or uncovering inefficiencies in financial markets. 
+                When I’m not building, you’ll find me in the gym, on the tennis court, soccer field, or golf course, constantly learning, growing, and seeking out my next challenge.
             </p>
+            <img src="assets/alexandria.png" class="main-image">
         </section>
-        <section class="fade-in" id="projects">
-            <h2 class="subtitle">Experience</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <h3><a href="https://sfic.ca/">Senior Research Analyst</a></h3>
-                    <h4>Sept 2024-Present</h4>
-                    <p>Conducting equity research and competing in case competitions, stock pitches, and investment challenges</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/sfuosdev">Project Lead</a></h3>
-                    <h4>Oct 2024-Present</h4>
-                    <p>Managing a team and product development for an open source project</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://wmbeck.com/">Operations Intern</a></h3>
-                    <h4>Apr 2024-Aug 2024</h4>
-                    <p>Improved internal and external company operations</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://enactuscapilano.ca/">Project Representative</a></h3>
-                    <h4>Oct 2023-July 2024</h4>
-                    <p>Coordinated events with over 100 people, competed at Regional and National competitions</p>
-                </div>
-            </div>
-        </section>
-        <section class="fade-in" id="projects">
-            <h2 class="subtitle">Projects</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/finance-news">Financial Fast Feed</a></h3>
-                    <p>Summarize and display financial news from 17 RSS feeds with GPT API</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/winter-watch">Winter Watch</a></h3>
-                    <p>Ensure safety before going out in the winter</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/learn2launch">Learn2Launch</a></h3>
-                    <p>Study efficiently with AI</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/os-fund-site">Laurea Capital</a></h3>
-                    <p>OS Hedge Fund (under construction)</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley">Algo Trading</a></h3>
-                    <p>Testing and optimizing algo trading strategies (private currently)</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/qr-codes">QR Code Creator</a></h3>
-                    <p>Bulk generation of QR Codes (for free!)</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/">LLM Development and Fine Tuning</a></h3>
-                    <p>Private - Done for work</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley/finance_models">Financial Forecasting</a></h3>
-                    <p>Forecasting a variety of financial instruments</p>
-                </div>
-            </div>
-        </section>
-        <section class="fade-in" id="passions">
-            <h2 class="subtitle">Hobbies</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <h3><a href="https://github.com/EthanCratchley">Programming/Computer Science</a></h3>
-                    <p>Building SaaS for businesses and people, Working with AI, Applying technology to finance</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://ethancratchley.com/finance.html">Finance</a></h3>
-                    <p>Valuation, Economics, Company History, Crypto</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://www.strava.com/athletes/107275554">Fitness & Sports</a></h3>
-                    <p>Running, Biking, Hiking, Lifting</p>
-                </div>
-                <div class="project">
-                    <h3><a href="https://millarsleague.com/webapps/spappz_live/team_info?id=33">Soccer</a></h3>
-                    <p>Currently play in the millars leauge (Go Huevos)</p>
-                </div>
-                <div class="project">
-                    <h3><a href="#">Golf</a></h3>
-                </div>
-                <div class="project">
-                    <h3><a href="#">Tennis</a></h3>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="fade-in">
-        <div class="footer-left">
-            <a href="https://github.com/EthanCratchley"><img src="./assets/github.png" alt="My Github profile" class="icon" /></a>
-            <a href="mailto:ethankcratchley@gmail.com"><img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" /></a>
-            <a href="https://www.linkedin.com/in/ethan-cratchley/"><img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" /></a>
-        </div>
-        <div class="footer-right">
-            <p>© 2024</p>
+
+<!-- Currently Section -->
+<section id="currently">
+    <h2>Currently</h2>
+    <div class="currently-content">
+        <p>
+            Pursuing a Bachelor of Business Administration and Computer Science Joint Major at Simon Fraser University.
+        </p>
+        <p>
+            I am doing Product Development at Autonommi, where I will be building AI infrastructure, working with LLMs, conducting market research, and more.
+        </p>
+        <p>
+            This year, I will be conducting equity research on various financial instruments for the SFU Investing Club, 
+            where we will also compete in stock pitch competitions, investing challenges, and case studies.
+        </p>
+        <p>
+            I am a Project Lead at the SFU Open Source Development Club. I will be leading the team and continuing to develop and expand 
+            <a href="https://github.com/EthanCratchley/finance-news" target="_blank">Financial Fast Feed</a> 
+            which automatically displays and summarizes various financial news articles using GPT 4o.
+        </p>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-info">
+            <div>LinkedIn <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank">@Ethan Cratchley</a></div>
+            <div>GitHub <a href="https://github.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
+            <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
         </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
