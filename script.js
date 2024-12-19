@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const fadeInElements = document.querySelectorAll(".fade-in");
 
     const observer = new IntersectionObserver(
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         },
         {
-            threshold: 0.2, // Triggers when 20% of the element is visible
+            threshold: 0.1, // Triggers when 20% of the element is visible
         }
     );
 
