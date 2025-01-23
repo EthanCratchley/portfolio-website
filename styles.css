@@ -64,13 +64,17 @@ main {
     max-width: 700px; 
 }
 
+a {
+    text-decoration: none;
+}
+
 section {
     margin-bottom: 60px;
 }
 
 .main-image {
     width: 100%;
-    height: auto;
+    height: 450px;
     margin-top: 20px;
     display: block;
     padding-top: 30px;
@@ -368,7 +372,7 @@ html {
 .fade-in {
     opacity: 0; 
     transform: translateY(20px); 
-    transition: opacity 1s ease-out, transform 1s ease-out; 
+    transition: opacity 3s ease-out, transform 3s ease-out; 
 }
 
 .fade-in.visible {
