@@ -108,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     x: canvas.width / 2,  
     y: canvas.height / 3,
     angle: 0,               // Current rotation angle (radians)
-    wobbleAngle: 0          // For a subtle hover wobble
+    wobbleAngle: 0,         // For a subtle hover wobble
+    lasers: [] // New laser storage
   };
   
   canvas.addEventListener("mousemove", (e) => {
@@ -119,16 +120,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update rotation angle
     const dx = drone.x - canvas.width/2;
     const dy = drone.y - canvas.height/2;
-    drone.angle = Math.atan2(dy, dx);
+    const targetAngle = Math.atan2(dy, dx);
+    drone.angle += (targetAngle - drone.angle) * 0.08;   
   });
 
   // -----------------------------
   // 6. Drawing the Drone with tip at cursor position
   // -----------------------------
   function drawDrone() {
-    drone.wobbleAngle += 0.05;
-    const wobbleOffsetX = Math.sin(drone.wobbleAngle) * 0.5;
-    const wobbleOffsetY = Math.cos(drone.wobbleAngle) * 0.5;
+    drone.wobbleAngle += 0.075;
+    const wobbleOffsetX = Math.sin(drone.wobbleAngle) * 2.0; // Increased amplitude
+    const wobbleOffsetY = Math.cos(drone.wobbleAngle * 0.8) * 2.0; // Increased amplitude
 
     ctx.save();
     
@@ -162,6 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   // 7. Particles (Stars and Explosions)
   // -----------------------------
+
+
   let particles = [];
   const letters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
 
@@ -190,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function drawParticles() {
-    ctx.font = "6px monospace";
+    ctx.font = "5px monospace";
     ctx.fillStyle = "#555";
     particles.forEach((p) => {
       ctx.globalAlpha = p.alpha;
@@ -202,67 +206,82 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   // 8. ASCII Laser
   // -----------------------------
-  const asciiLaserPattern = ["-", "=", "-", "="];
-  let laserActive = false;
-  let laserTargetX = 0;
-  let laserTargetY = 0;
-  let laserTimer = 0;
-
-  function drawAsciiLaser(x1, y1, x2, y2) {
-    ctx.font = "3.5px monospace";
-    ctx.fillStyle = "#333";
-    const dx = x2 - x1;
-    const dy = y2 - y1;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const steps = Math.floor(distance / 3.5);
-    for (let i = 0; i < steps; i++) {
-      const t = i / steps;
-      const x = x1 + dx * t;
-      const y = y1 + dy * t;
-      const char = asciiLaserPattern[i % asciiLaserPattern.length];
-      ctx.fillText(char, x, y);
+  const laserChars = ["▓","▒","░","≡","≣","⫸","▷"];
+  class Laser {
+    constructor(x, y, angle) {
+      this.x = x;
+      this.y = y;
+      this.angle = angle*7;
+      this.speed = 5;
+      this.alpha = 1.0;
+      this.segments = [];
     }
-  }
 
-  function blowUpStarsAt(x, y) {
-    const radius = 40;
-    particles = particles.filter((p) => {
-      const dx = p.x - x;
-      const dy = p.y - y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < radius) {
-        // Increase explosion particles count.
-        for (let i = 0; i < 7; i++) {
-          createParticle(p.x, p.y, true);
-        }
-        return false;
-      }
-      return true;
-    });
+    update() {
+      // Move laser forward
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      
+      // Add new segment
+      this.segments.push({x: this.x, y: this.y});
+      
+      // Fade out
+      this.alpha -= 0.02;
+      return this.alpha > 0;
+    }
+
+    draw(ctx) {
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      ctx.font = "4px monospace";
+      ctx.fillStyle = "#000000";
+      
+      // Draw trailing segments
+      this.segments.forEach((seg, i) => {
+        const char = laserChars[i % laserChars.length];
+        ctx.fillText(char, seg.x, seg.y);
+      });
+      
+      ctx.restore();
+    }
   }
 
   // -----------------------------
   // 9. Event Listeners for Laser Firing
   // -----------------------------
   canvas.addEventListener("click", (e) => {
-    const rect = canvas.getBoundingClientRect();
-    laserTargetX = e.clientX - rect.left;
-    laserTargetY = e.clientY - rect.top;
-    laserActive = true;
-    laserTimer = 30; // Duration of laser effect (~0.5s at 60fps)
-    // Increase explosion particle count on click.
-    for (let i = 0; i < 25; i++) {
-      createParticle(laserTargetX, laserTargetY, true);
-    }
-    blowUpStarsAt(laserTargetX, laserTargetY);
+    // Calculate laser start position at drone tip
+    const laserX = drone.x;
+    const laserY = drone.y;
+    
+    // Create new laser facing drone's direction
+    drone.lasers.push(new Laser(laserX, laserY, drone.angle));
   });
+
+  function animate() {
+    ctx.fillStyle = "#00000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Update and draw lasers
+    drone.lasers = drone.lasers.filter(laser => {
+      laser.update();
+      laser.draw(ctx);
+      return laser.alpha > 0;
+    });
+
+    updateParticles();
+    drawParticles();
+    drawDrone();
+
+    requestAnimationFrame(animate);
+  }
 
   // -----------------------------
   // 10. Spawn Background Particles (Stars)
   // -----------------------------
   setInterval(() => {
     // Increase the spawn probability slightly.
-    if (Math.random() < 0.35) {
+    if (Math.random() < 0.40) {
       createParticle(Math.random() * canvas.width, Math.random() * canvas.height);
     }
   }, 100);
@@ -273,20 +292,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function animate() {
     ctx.fillStyle = "#f9f9f9";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+  
+    // Update and draw lasers
+    drone.lasers = drone.lasers.filter(laser => {
+      laser.update();
+      laser.draw(ctx);
+      return laser.alpha > 0;
+    });
+  
     updateParticles();
     drawParticles();
     drawDrone();
-
-    if (laserActive) {
-      // Draw laser from the drone's tip (cursor) to the target
-      drawAsciiLaser(drone.x, drone.y, laserTargetX, laserTargetY);
-      laserTimer--;
-      if (laserTimer <= 0) {
-        laserActive = false;
-      }
-    }
-
+  
     requestAnimationFrame(animate);
   }
   animate();
