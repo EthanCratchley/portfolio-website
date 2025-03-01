@@ -2,20 +2,20 @@ Complexity is a disease, it has infected the many minds and industries of our wo
 
 **People are always looking for what to add to their life**. Often what they should be looking for is the opposite. That being, **"What should I remove from my life?"**
 
-This is a result of the complexity that fills our mind in todays society. It is not always obvious when it is happening and I myself am a victim of this. So we need to ask ourselves, Why do we have complexity? How do we get rid of it?
+This is a result of the complexity that fills our mind in today's society. It is not always obvious when it is happening and I myself am a victim of this. So we need to ask ourselves, Why do we have complexity? How do we get rid of it?
 
 ---
 <br>
 
 ### Why do we have complexity?
 
-Complexity can be either broughout upon by ourselves or it can be forced upon us.
+Complexity can be either brought upon by ourselves or it can be forced upon us.
 
 #### Selfmade Complexity: You want to learn to code, You would think that the process looks something like:
 
 1. What do you want to code?
 2. What do you need to code it?
-3. How can you code it as efficently as possible?
+3. How can you code it as efficiently as possible?
 
 #### <br> Instead the process for many ends up looking something like:
 
@@ -30,13 +30,13 @@ Complexity can be either broughout upon by ourselves or it can be forced upon us
 
 This could go on quite literally forever, eventually you will have done nothing, learned nothing, and managed to waste your time while feeling productive. 
 
-You could argue this is an issue of procrastination but I would say that it is actually more of a byproduct of complexity. Often when people do these things it is not because they are to lazy to start but rather because they are confused and overwhelmed. They hear profesionals talk about so many different things and feel that they need to integrate them all to be most efficent.
+You could argue this is an issue of procrastination but I would say that it is actually more of a byproduct of complexity. Often when people do these things it is not because they are to lazy to start but rather because they are confused and overwhelmed. They hear professionals talk about so many different things and feel that they need to integrate them all to be most efficient.
 
 ### Societies Complexities:
 
-The latter can be seen in many places today. For example education, the process of signing up for classes and swicthing between faculty's has a lot of friction. 
+The latter can be seen in many places today. For example education, the process of signing up for classes and switching between faculties has a lot of friction. 
 
-You will find yourself in a situation where you want to sign up for a interesting class but it has very strange requirements that are almost completely unrelated from the class and don't really benefit you in anyway. We have to ask ourselves **"Would the world and education system be a better place with or without many of these requirements?"** often *less is more.*
+You will find yourself in a situation where you want to sign up for a interesting class but it has very strange requirements that are almost completely unrelated from the class and don't really benefit you in any way. We have to ask ourselves **"Would the world and education system be a better place with or without many of these requirements?"** often *less is more.*
 
 We want our children and the people of the future to move fast and learn fast to help our civilization continue to move forward, as well as begin to start building capital in the expensive world we live in today. But as a society we are doing nothing but slowing them down with the friction constantly forced upon their lives.
 
@@ -44,7 +44,7 @@ I don't believe that this is being bestowed upon our society with some evil inte
 
 ### How do we get rid of Complexity?
 
-Luckily getting rid of complexity is not as hard as it may seem. Elon Musk has been in a huge advocate for First Principles Thinking. This idea stems from physics where you go back to the first laws of physics and move up from there when you encounter an error, problem, idea, etc. If we could apply this way of thinking to our many complex environments in the world today, just think about how much better of a society we could be.
+Luckily getting rid of complexity is not as hard as it may seem. Elon Musk has been a huge advocate for First Principles Thinking. This idea stems from physics where you go back to the first laws of physics and move up from there when you encounter an error, problem, idea, etc. If we could apply this way of thinking to our many complex environments in the world today, just think about how much better off a society we could be.
 
 [Link]: https://www.youtube.com/watch?v=NV3sBlRgzTI&pp=ygUhZWxvbiB0YWxrcyBhYm91dCBmaXJzdCBwcmluY2lwbGVz
 
@@ -86,6 +86,6 @@ The bottom line is that if you don't cut out complexity from your life, business
 
 ##### Disclamer:
 
-I may come back to this post and make changes and add thoughts at anytime. All thoughts are my own and simply an expression of ideas/thoughts.
+I may come back to this post and make changes and add thoughts at any time. All thoughts are my own and simply an expression of ideas/thoughts.
 
 feel free to email me @ ethankcratchley@gmail.com for feedback on my writing etc. always looking to improve and learn
