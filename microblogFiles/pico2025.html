@@ -1,0 +1,121 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicoCTF 2025 Competition</title>
+    <link rel="stylesheet" href="../styles.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Highlight.js CSS (using a theme that matches your aesthetic) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q0VMMDZE5J');
+    </script>
+</head>
+<body>
+    <!-- Left-Side Navigation -->
+    <header>
+        <nav>
+            <ul class="legend">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../writing.html" class="active">Writing</a></li>
+                <li><a href="../../experience.html">Experience</a></li>
+                <li><a href="../../projects.html">Projects</a></li>
+                <li><a href="../../resources.html">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+    <!-- Main Content -->
+    <main>
+        <section id="writing-post" class="fade-in">
+            <div class="bio-header">
+                <h1>PicoCTF 2025 Competition</h1>
+            </div>
+            <div class="content-container">
+                <div id="markdownContent"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-info">
+            <div>LinkedIn <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank">@Ethan Cratchley</a></div>
+            <div>GitHub <a href="https://github.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
+            <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            var converter = new showdown.Converter();
+            var maxRetries = 3;
+            var retryCount = 0;
+            var retryDelay = 1000;
+            var section = document.querySelector('#writing-post');
+
+            function loadMarkdown() {
+                var xhr = new XMLHttpRequest();
+                xhr.timeout = 5000;
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            var htmlContent = converter.makeHtml(xhr.responseText);
+                            document.getElementById('markdownContent').innerHTML = htmlContent;
+                            // Initialize Highlight.js after rendering Markdown
+                            hljs.highlightAll();
+                            section.classList.add('visible');
+                        } else {
+                            console.error('Error loading Markdown file:', xhr.status, xhr.statusText);
+                            if (retryCount < maxRetries) {
+                                retryCount++;
+                                console.log('Retrying... Attempt', retryCount);
+                                setTimeout(loadMarkdown, retryDelay);
+                            } else {
+                                document.getElementById('markdownContent').innerHTML = 'Error loading content: ' + xhr.status + ' ' + xhr.statusText;
+                                section.classList.add('visible');
+                            }
+                        }
+                    }
+                };
+                xhr.onerror = function() {
+                    console.error('Network error while fetching Markdown file');
+                    if (retryCount < maxRetries) {
+                        retryCount++;
+                        console.log('Retrying... Attempt', retryCount);
+                        setTimeout(loadMarkdown, retryDelay);
+                    } else {
+                        document.getElementById('markdownContent').innerHTML = 'Network error while loading content...';
+                        section.classList.add('visible');
+                    }
+                };
+                xhr.ontimeout = function() {
+                    console.error('Request timed out while fetching Markdown file');
+                    if (retryCount < maxRetries) {
+                        retryCount++;
+                        console.log('Retrying... Attempt', retryCount);
+                        setTimeout(loadMarkdown, retryDelay);
+                    } else {
+                        document.getElementById('markdownContent').innerHTML = 'Request timed out while loading content...';
+                        section.classList.add('visible');
+                    }
+                };
+                xhr.open('GET', 'pico2025.md?t=' + new Date().getTime(), true);
+                xhr.send();
+            }
+
+            loadMarkdown();
+        };
+    </script>
+    <script src="../script.js"></script>
+</body>

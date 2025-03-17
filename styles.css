@@ -308,28 +308,17 @@ footer {
     border-color: #333;
 }
 
-/* Markdown Content Styling */
-#markdownContent img {
-    max-width: 100%; 
-    height: auto; 
-    display: block; 
-    margin: 20px auto; 
-    border-radius: 8px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+/* Base Markdown Content */
+#markdownContent code:not(pre code) {
+    background-color: #ededed; /* Slight grey backdrop */
+    color: #b62424; /* Custom color (dark green, adjustable) */
 }
 
-/* For Markdown Content */
-#markdownContent figure {
-    margin: 0;
-    text-align: center; 
+
+#markdownContent pre {
+    overflow-x: auto;
 }
 
-#markdownContent figcaption {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 5px; 
-    text-align: center; 
-}
 
 /* Writing Post Layout */
 #writing-post {
@@ -348,7 +337,7 @@ footer {
 .content-container {
     margin: 0 auto;
     padding: 20px;
-    max-width: 700px;
+    max-width: 800px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -373,6 +362,7 @@ html {
     opacity: 0; 
     transform: translateY(20px); 
     transition: opacity 3s ease-out, transform 3s ease-out; 
+    min-height: 100px; 
 }
 
 .fade-in.visible {
