@@ -16,6 +16,206 @@
         gtag('js', new Date());
         gtag('config', 'G-Q0VMMDZE5J');
     </script>
+    <style>
+        /* Project page specific styles */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            height: 220px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 10px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image-container {
+            position: relative;
+            width: 320px;
+            height: 100%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background-color: #f8f8f8; /* Fallback color for transparent images */
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 20px 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin: 0 0 8px 0;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .project-date {
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            margin-bottom: 15px;
+            flex-grow: 1;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .tag {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            background-color: #f5f5f5;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        /* Tag colors - applied on hover and when active */
+        .tag.ai:hover, .tag.ai.active { background-color: #e1f5fe; border-color: #b3e5fc; }
+        .tag.cybersecurity:hover, .tag.cybersecurity.active { background-color: #f3e5f5; border-color: #e1bee7; }
+        .tag.web:hover, .tag.web.active { background-color: #fff3e0; border-color: #ffe0b2; }
+        .tag.finance:hover, .tag.finance.active { background-color: #e8f5e9; border-color: #c8e6c9; }
+        .tag.ml:hover, .tag.ml.active { background-color: #ede7f6; border-color: #d1c4e9; }
+        .tag.hackathon:hover, .tag.hackathon.active { background-color: #ffebee; border-color: #ffcdd2; }
+
+        /* Slider-style filter */
+        .filter-container {
+            position: relative;
+            margin: 0 auto 30px;
+            width: fit-content;
+            display: flex;
+            background-color: #f5f5f5;
+            border-radius: 30px;
+            padding: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .filter-slider {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            border-radius: 25px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: width 0.3s ease, transform 0.3s ease;
+            z-index: -1;
+        }
+
+        .filter-btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            margin: 0 2px;
+        }
+
+        .filter-btn.active {
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .project-card {
+                flex-direction: column;
+                height: auto;
+                max-height: none;
+            }
+            
+            .project-image-container {
+                width: 100%;
+                height: 180px;
+            }
+            
+            .project-content {
+                padding: 15px;
+            }
+            
+            .filter-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 5px 10px;
+            }
+            
+            .filter-btn {
+                padding: 6px 12px;
+                margin: 2px;
+                font-size: 0.85rem;
+            }
+            
+            .filter-slider {
+                display: none;
+            }
+        }
+
+        /* Project link styling */
+        .project-title a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-title a:hover {
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <!-- Left-Side Legend -->
@@ -33,191 +233,207 @@
 
     <!-- Main Section -->
     <main>
-        <section id="experience" class="fade-in">
+        <section id="projects" class="fade-in">
             <div class="bio-header">
                 <h1>Ethan Cratchley - Projects</h1>
             </div>
 
-<!-- Project Items -->
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank" class="project-link">
-                PhishSleuth 
-            </a>
-        </div>
-        <div class="date">March 2025 - Present</div>
-    </div>
-    <p>Lightweight Static Analysis and AI for Phishing and Attachment Detection in Email</p>
-</div>
+            <div class="filter-container">
+                <div class="filter-slider"></div>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+                <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="finance">Finance</button>
+                <button class="filter-btn" data-filter="ml">ML</button>
+                <button class="filter-btn" data-filter="hackathon">Hackathon</button>
+            </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://www.kaggle.com/ethancratchley" target="_blank" class="project-link">
-                Kaggle and CTF Competitions 
-            </a>
-        </div>
-        <div class="date">Feburary 2025 - Present</div>
-    </div>
-    <p>Competing in Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques.</p>
-</div>
+            <div class="projects-container">
+                <!-- PhishSleuth -->
+                <div class="project-card" data-tags="ai cybersecurity">
+                    <div class="project-image-container">
+                        <img src="../assets/phish3.png" alt="PhishSleuth" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank">PhishSleuth</a>
+                        </h3>
+                        <div class="project-date">March 2025 - Present</div>
+                        <p class="project-description">Lightweight Static Analysis and AI for Phishing and Attachment Detection in Email</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag cybersecurity">Cybersecurity</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://autonommi.com/" target="_blank" class="project-link">
-                LLM Fine Tuning & RAG Development
-            </a>
-        </div>
-        <div class="date">April 2024 - Present</div>
-    </div>
-    <p>Developing Retrieval-Augmented Generation (RAG) models and fine-tuning large language models (NDA).</p>
-</div>
+                <!-- Kaggle and CTF Competitions -->
+                <div class="project-card" data-tags="ai ml cybersecurity">
+                    <div class="project-image-container">
+                        <img src="../assets/kaggle.png" alt="Kaggle and CTF Competitions" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://www.kaggle.com/ethancratchley" target="_blank">Kaggle and CTF Competitions</a>
+                        </h3>
+                        <div class="project-date">February 2025 - Present</div>
+                        <p class="project-description">Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques.</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag ml">ML</span>
+                            <span class="tag cybersecurity">Cybersecurity</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://www.financialfastfeed.com/" target="_blank" class="project-link">
-                Financial Fast Feed
-            </a>
-        </div>
-        <div class="date">December 2023 - Present</div>
-    </div>
-    <p>Summarizes and displays financial news from RSS feeds using OpenAI API.</p>
-</div>
+                <!-- LLM Fine Tuning & RAG Development -->
+                <div class="project-card" data-tags="ai ml">
+                    <div class="project-image-container">
+                        <img src="../assets/conf.png" alt="Fine Tuning & RAG Dev." class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://autonommi.com/" target="_blank">Fine Tuning & RAG Development</a>
+                        </h3>
+                        <div class="project-date">April 2024 - Present</div>
+                        <p class="project-description">Developing Retrieval-Augmented Generation (RAG) models and fine-tuning LLMs (NDA).</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag ml">ML</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://ethancratchley.com/index.html" target="_blank" class="project-link">
-                Portfolio Website
-            </a>
-        </div>
-        <div class="date">Aug 2023 - Present</div>
-    </div>
-    <p>Building and maintaining my own website.</p>
-</div>
+                <!-- Financial Fast Feed -->
+                <div class="project-card" data-tags="ai web finance">
+                    <div class="project-image-container">
+                        <img src="../assets/fast.png" alt="Financial Fast Feed" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://www.financialfastfeed.com/" target="_blank">Financial Fast Feed</a>
+                        </h3>
+                        <div class="project-date">December 2023 - Present</div>
+                        <p class="project-description">Summarizes and displays financial news from RSS feeds using OpenAI API.</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag web">Web</span>
+                            <span class="tag finance">Finance</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/finance_models" target="_blank" class="project-link">
-                Financial Modelling
-            </a>
-        </div>
-        <div class="date">July 2023 - Mar 2025</div>
-    </div>
-    <p>Forecasting and modelling a variety of financial instruments.</p>
-</div>
+                <!-- Financial Modelling -->
+                <div class="project-card" data-tags="finance">
+                    <div class="project-image-container">
+                        <img src="../assets/dcf1.png" alt="Financial Modelling" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/finance_models" target="_blank">Financial Modelling</a>
+                        </h3>
+                        <div class="project-date">July 2023 - Mar 2025</div>
+                        <p class="project-description">Forecasting and modelling a variety of financial instruments.</p>
+                        <div class="project-tags">
+                            <span class="tag finance">Finance</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/algosortViz" target="_blank" class="project-link">
-                Sorting Algorithm Visualizer 
-            </a>
-        </div>
-        <div class="date">Feburary 2025</div>
-    </div>
-    <p>Messed around with v0, Replit, and LLMs to see how far I cold get with AI code in a short period of time.</p>
-</div>
+                <!-- Embr Fires -->
+                <div class="project-card" data-tags="ai web hackathon">
+                    <div class="project-image-container">
+                        <img src="../assets/embr2.png" alt="Embr Fires" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/minhVu03/nwHacks2025" target="_blank">Embr Fires</a>
+                        </h3>
+                        <div class="project-date">January 2025</div>
+                        <p class="project-description">Fire news, map overlay, AI support, and more. (nwHacks 2025)</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag web">Web</span>
+                            <span class="tag hackathon">Hackathon</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/minhVu03/nwHacks2025" target="_blank" class="project-link">
-                Embr Fires
-            </a>
-        </div>
-        <div class="date">January 2025</div>
-    </div>
-    <p>Fire news, map overlay, AI support, and more. (nwHacks 2025)</p>
-</div>
+                <!-- Algo Trading -->
+                <div class="project-card" data-tags="finance ml">
+                    <div class="project-image-container">
+                        <img src="../assets/trade.png" alt="Algo Trading" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="#" target="_blank">Algo Trading</a>
+                        </h3>
+                        <div class="project-date">Nov 2023 - Dec 2024</div>
+                        <p class="project-description">Building/Optimizing algorithmic trading strategies using Google Cloud to run/test algos.</p>
+                        <div class="project-tags">
+                            <span class="tag finance">Finance</span>
+                            <span class="tag ml">ML</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/github-changelog" target="_blank" class="project-link">
-                GitHub Changelog
-            </a>
-        </div>
-        <div class="date">January 2025</div>
-    </div>
-    <p>Fetches commits from a GitHub repository and generates detailed, easy-to-understand summaries for them.</p>
-</div>
+                <!-- SFU Alumni Database -->
+                <div class="project-card" data-tags="finance">
+                    <div class="project-image-container">
+                        <img src="../assets/sfic.png" alt="SFU Alumni Database" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="" target="_blank">SFU Alumni Database</a>
+                        </h3>
+                        <div class="project-date">November 2024</div>
+                        <p class="project-description">Scraped >500 SFU Alumni profiles to assist in networking for SFIC.</p>
+                        <div class="project-tags">
+                            <span class="tag web">Finance</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="#" target="_blank" class="project-link">
-                Algo Trading
-            </a>
-        </div>
-        <div class="date">Nov 2023 - Dec 2024</div>
-    </div>
-    <p>Testing and optimizing algorithmic trading strategies using google cloud to run and test algorithms constantly (private currently).</p>
-</div>
+                <!-- Learn2Launch -->
+                <div class="project-card" data-tags="ai web hackathon">
+                    <div class="project-image-container">
+                        <img src="../assets/l2llogo.png" alt="Learn2Launch" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/learn2launch" target="_blank">Learn2Launch</a>
+                        </h3>
+                        <div class="project-date">Feb 2024</div>
+                        <p class="project-description">Study efficiently and land your dream job with AI. (CrackedDevs Hackathon Best Edu. Project)</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag web">Web</span>
+                            <span class="tag hackathon">Hackathon</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="" target="_blank" class="project-link">
-                SFU Alumni Databse
-            </a>
-        </div>
-        <div class="date">November 2024</div>
-    </div>
-    <p>Scraped >500 SFU Alumni profiles to assist in networking with business and finance graduates at SFIC.</p>
-</div>
-
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/qr-codes" target="_blank" class="project-link">
-                QR Code Creator
-            </a>
-        </div>
-        <div class="date">July 2024</div>
-    </div>
-    <p>Bulk generation of QR codes for free.</p>
-</div>
-
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/learn2launch" target="_blank" class="project-link">
-                Learn2Launch
-            </a>
-        </div>
-        <div class="date">Feb 2024</div>
-    </div>
-    <p>Study efficiently and land your dream job with AI. (CrackedDevs Hackathon Best Education Project)</p>
-</div>
-
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://github.com/EthanCratchley/winter-watch" target="_blank" class="project-link">
-                Winter Watch
-            </a>
-        </div>
-        <div class="date">Jan 2024</div>
-    </div>
-    <p>Ensures safety before going out in the winter. (Winter Hacks Hackathon Best Pitch)</p>
-</div>
-
-<div class="experience-item">
-    <div class="experience-header">
-        <div class="position">
-            <a href="https://laureacap.com/" target="_blank" class="project-link">
-                Laurea Capital
-            </a>
-        </div>
-        <div class="date">Under Construction</div>
-    </div>
-    <p>OS Hedge Fund (under construction, on pause).</p>
-</div>
+                <!-- Winter Watch -->
+                <div class="project-card" data-tags="web hackathon">
+                    <div class="project-image-container">
+                        <img src="../assets/wwlogo.png" alt="Winter Watch" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/winter-watch" target="_blank">Winter Watch</a>
+                        </h3>
+                        <div class="project-date">Jan 2024</div>
+                        <p class="project-description">Ensures safety before going out in the winter. (Winter Hacks Hackathon Best Pitch)</p>
+                        <div class="project-tags">
+                            <span class="tag web">Web</span>
+                            <span class="tag hackathon">Hackathon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -227,6 +443,173 @@
             <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        // Execute fade-in immediately when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade-in animation - run this first
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                element.classList.add('visible');
+            });
+            
+            // Rest of initialization
+            updateSlider(document.querySelector('.filter-btn.active'));
+        });
+        
+        // Mouse movement effect for project images
+        document.querySelectorAll('.project-image-container').forEach(container => {
+            const img = container.querySelector('.project-image');
+            
+            container.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = container.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                
+                // Calculate movement amount (limited to small movements)
+                const moveX = (x - 0.5) * 12; // Max 6px movement
+                const moveY = (y - 0.5) * 12;
+                
+                img.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                img.style.transform = 'translate(0, 0) scale(1)';
+            });
+        });
+    
+        // Filter functionality variables
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const filterSlider = document.querySelector('.filter-slider');
+        const tagElements = document.querySelectorAll('.tag');
+        
+        // Keep track of current filter state
+        let activeFilter = 'all';
+        
+        // Update slider position
+        function updateSlider(button) {
+            if (!button) return;
+            const buttonRect = button.getBoundingClientRect();
+            const containerRect = document.querySelector('.filter-container').getBoundingClientRect();
+            
+            filterSlider.style.width = `${buttonRect.width}px`;
+            filterSlider.style.transform = `translateX(${buttonRect.left - containerRect.left}px)`;
+        }
+        
+        // Apply filter to projects
+        function applyFilter(filter) {
+            // Update tag active states
+            tagElements.forEach(tag => {
+                tag.classList.remove('active');
+                if (filter !== 'all') {
+                    if (tag.classList.contains(filter)) {
+                        tag.classList.add('active');
+                    }
+                }
+            });
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                if (filter === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    const tags = card.getAttribute('data-tags');
+                    if (tags.includes(filter)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+        
+        // Set initial slider position
+        setTimeout(() => {
+            updateSlider(document.querySelector('.filter-btn.active'));
+        }, 100);
+        
+        // Filter button click
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Don't do anything if this filter is already active
+                if (filter === activeFilter) return;
+                
+                // Update active button state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update slider
+                updateSlider(this);
+                
+                // Apply filter
+                applyFilter(filter);
+                
+                // Update active filter
+                activeFilter = filter;
+            });
+        });
+        
+        // Tag click event
+        tagElements.forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                // Prevent bubbling
+                e.stopPropagation();
+                
+                const tagClasses = this.className.split(' ');
+                const categoryClasses = ['ai', 'cybersecurity', 'web', 'finance', 'ml', 'hackathon'];
+                
+                // Find which category this tag belongs to
+                const tagCategory = tagClasses.find(cls => categoryClasses.includes(cls));
+                
+                if (tagCategory) {
+                    // If clicking the same tag that's currently active, go back to "All"
+                    if (tagCategory === activeFilter) {
+                        // Find and click the "all" button
+                        const allButton = document.querySelector('.filter-btn[data-filter="all"]');
+                        if (allButton) {
+                            // Update active button state
+                            filterButtons.forEach(btn => btn.classList.remove('active'));
+                            allButton.classList.add('active');
+                            
+                            // Update slider
+                            updateSlider(allButton);
+                            
+                            // Apply "all" filter
+                            applyFilter('all');
+                            
+                            // Update active filter
+                            activeFilter = 'all';
+                        }
+                    } else {
+                        // Find corresponding filter button
+                        const filterButton = document.querySelector(`.filter-btn[data-filter="${tagCategory}"]`);
+                        
+                        if (filterButton) {
+                            // Update active button state
+                            filterButtons.forEach(btn => btn.classList.remove('active'));
+                            filterButton.classList.add('active');
+                            
+                            // Update slider
+                            updateSlider(filterButton);
+                            
+                            // Apply filter
+                            applyFilter(tagCategory);
+                            
+                            // Update active filter
+                            activeFilter = tagCategory;
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            updateSlider(document.querySelector('.filter-btn.active'));
+        });
+    </script>
 </body>
 </html>
