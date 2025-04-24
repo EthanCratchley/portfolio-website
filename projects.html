@@ -25,6 +25,19 @@
             margin-top: 30px;
         }
 
+        /* Projects page fade-in override - matching global style */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 3s ease-out, transform 3s ease-out;
+            min-height: 100px;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .project-card {
             position: relative;
             border-radius: 8px;
@@ -33,13 +46,12 @@
             display: flex;
             flex-direction: row;
             height: 220px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             margin-bottom: 10px;
+            cursor: pointer;
         }
 
         .project-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .project-image-container {
@@ -104,6 +116,8 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-top: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .tag {
@@ -215,6 +229,16 @@
         .project-title a:hover {
             color: #555;
         }
+
+        /* Overlay to make entire card clickable */
+        .project-card-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -252,6 +276,7 @@
             <div class="projects-container">
                 <!-- PhishSleuth -->
                 <div class="project-card" data-tags="ai cybersecurity">
+                    <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/phish3.png" alt="PhishSleuth" class="project-image">
                     </div>
@@ -270,6 +295,7 @@
 
                 <!-- Kaggle and CTF Competitions -->
                 <div class="project-card" data-tags="ai ml cybersecurity">
+                    <a href="https://www.kaggle.com/ethancratchley" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/kaggle.png" alt="Kaggle and CTF Competitions" class="project-image">
                     </div>
@@ -289,6 +315,7 @@
 
                 <!-- LLM Fine Tuning & RAG Development -->
                 <div class="project-card" data-tags="ai ml">
+                    <a href="https://autonommi.com/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/conf.png" alt="Fine Tuning & RAG Dev." class="project-image">
                     </div>
@@ -307,6 +334,7 @@
 
                 <!-- Financial Fast Feed -->
                 <div class="project-card" data-tags="ai web finance">
+                    <a href="https://www.financialfastfeed.com/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/fast.png" alt="Financial Fast Feed" class="project-image">
                     </div>
@@ -326,6 +354,7 @@
 
                 <!-- Financial Modelling -->
                 <div class="project-card" data-tags="finance">
+                    <a href="https://github.com/EthanCratchley/finance_models" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/dcf1.png" alt="Financial Modelling" class="project-image">
                     </div>
@@ -343,6 +372,7 @@
 
                 <!-- Embr Fires -->
                 <div class="project-card" data-tags="ai web hackathon">
+                    <a href="https://github.com/minhVu03/nwHacks2025" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/embr2.png" alt="Embr Fires" class="project-image">
                     </div>
@@ -362,6 +392,7 @@
 
                 <!-- Algo Trading -->
                 <div class="project-card" data-tags="finance ml">
+                    <a href="#" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/trade.png" alt="Algo Trading" class="project-image">
                     </div>
@@ -380,6 +411,7 @@
 
                 <!-- SFU Alumni Database -->
                 <div class="project-card" data-tags="finance">
+                    <a href="" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/sfic.png" alt="SFU Alumni Database" class="project-image">
                     </div>
@@ -397,6 +429,7 @@
 
                 <!-- Learn2Launch -->
                 <div class="project-card" data-tags="ai web hackathon">
+                    <a href="https://github.com/EthanCratchley/learn2launch" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/l2llogo.png" alt="Learn2Launch" class="project-image">
                     </div>
@@ -416,6 +449,7 @@
 
                 <!-- Winter Watch -->
                 <div class="project-card" data-tags="web hackathon">
+                    <a href="https://github.com/EthanCratchley/winter-watch" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/wwlogo.png" alt="Winter Watch" class="project-image">
                     </div>
@@ -445,16 +479,37 @@
     </footer>
 
     <script>
-        // Execute fade-in immediately when DOM is ready
+        // Execute fade-in when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Fade-in animation - run this first
+            // Fade-in animation with proper timing
             const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(element => {
-                element.classList.add('visible');
-            });
+            
+            // Create a simple observer to mimic the behavior in script.js
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+            
+            // Observe fade-in elements
+            fadeElements.forEach(element => observer.observe(element));
             
             // Rest of initialization
             updateSlider(document.querySelector('.filter-btn.active'));
+            
+            // Prevent tag clicks from triggering the project card link
+            document.querySelectorAll('.tag').forEach(tag => {
+                tag.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+            });
         });
         
         // Mouse movement effect for project images
@@ -555,8 +610,9 @@
         // Tag click event
         tagElements.forEach(tag => {
             tag.addEventListener('click', function(e) {
-                // Prevent bubbling
+                // Prevent bubbling and default link behavior
                 e.stopPropagation();
+                e.preventDefault();
                 
                 const tagClasses = this.className.split(' ');
                 const categoryClasses = ['ai', 'cybersecurity', 'web', 'finance', 'ml', 'hackathon'];

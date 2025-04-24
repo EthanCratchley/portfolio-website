@@ -17,6 +17,39 @@
         gtag('js', new Date());
         gtag('config', 'G-Q0VMMDZE5J');
     </script>
+    <style>
+        /* Make writing items clickable */
+        .writing-item {
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .writing-item:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .writing-item-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        /* Ensure date is still visible and clickable */
+        .writing-date {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Ensure title is still visible */
+        .writing-title {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
     <!-- Left-Side Navigation -->
@@ -43,42 +76,52 @@
             </div>
             <div class="writing-list">
                 <div class="writing-item">
+                    <a href="microblogFiles/llm.html" class="writing-item-link"></a>
                     <a href="microblogFiles/llm.html" class="writing-title">Language Model from Scratch</a>
                     <span class="writing-date">March 2025</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/nn.html" class="writing-item-link"></a>
                     <a href="microblogFiles/nn.html" class="writing-title">The Human Brain is a Neural Network</a>
                     <span class="writing-date">March 2025</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/pico2025.html" class="writing-item-link"></a>
                     <a href="microblogFiles/pico2025.html" class="writing-title">PicoCTF 2025 Competition</a>
                     <span class="writing-date">March 2025</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/bandit.html" class="writing-item-link"></a>
                     <a href="microblogFiles/bandit.html" class="writing-title">Bandit Wargames Walkthrough</a>
                     <span class="writing-date">Feburary 2025</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/cause.html" class="writing-item-link"></a>
                     <a href="microblogFiles/cause.html" class="writing-title">Cause and Effect</a>
                     <span class="writing-date">December 2024</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/20.html" class="writing-item-link"></a>
                     <a href="microblogFiles/20.html" class="writing-title">20</a>
                     <span class="writing-date">July 2024</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/brandfirst.html" class="writing-item-link"></a>
                     <a href="microblogFiles/brandfirst.html" class="writing-title">Brand First</a>
                     <span class="writing-date">June 2024</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/whocares.html" class="writing-item-link"></a>
                     <a href="microblogFiles/whocares.html" class="writing-title">Date/Time? Who Cares</a>
                     <span class="writing-date">April 2024</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/value.html" class="writing-item-link"></a>
                     <a href="microblogFiles/value.html" class="writing-title">Value</a>
                     <span class="writing-date">February 2024</span>
                 </div>
                 <div class="writing-item">
+                    <a href="microblogFiles/complexity.html" class="writing-item-link"></a>
                     <a href="microblogFiles/complexity.html" class="writing-title">Complexity</a>
                     <span class="writing-date">December 2023</span>
                 </div>
