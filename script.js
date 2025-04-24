@@ -14,7 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { threshold: 0.1 }
   );
-  fadeInElements.forEach((element) => observer.observe(element));
+  
+  // Immediately check if elements are already visible in the viewport on page load
+  fadeInElements.forEach((element) => {
+    const rect = element.getBoundingClientRect();
+    const isVisible = 
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0;
+    
+    if (isVisible) {
+      // Element is already in viewport, add visible class immediately
+      element.classList.add("visible");
+    } else {
+      // Element not yet visible, observe it
+      observer.observe(element);
+    }
+  });
 
   // -----------------------------
   // 2. Canvas Setup
