@@ -32,6 +32,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
+  // Book Filtering System
+  // -----------------------------
+  const filterBtn = document.getElementById('book-filter-btn');
+  const filterDropdown = document.getElementById('filter-dropdown');
+  const filterOptions = document.querySelectorAll('.filter-option');
+  const bookCards = document.querySelectorAll('.book-card');
+  
+  // Toggle filter dropdown
+  if (filterBtn) {
+    filterBtn.addEventListener('click', () => {
+      filterDropdown.classList.toggle('active');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!filterBtn.contains(e.target) && !filterDropdown.contains(e.target)) {
+        filterDropdown.classList.remove('active');
+      }
+    });
+    
+    // Handle filter options
+    filterOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const category = option.getAttribute('data-category');
+        
+        // Update active state
+        filterOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        
+        // Update button text
+        filterBtn.textContent = category === 'all' ? 'Filter by Category' : `Category: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+        
+        // Filter books
+        bookCards.forEach(card => {
+          const cardCategories = card.getAttribute('data-category').split(' ');
+          if (category === 'all' || cardCategories.includes(category)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Close dropdown
+        filterDropdown.classList.remove('active');
+      });
+    });
+  }
+
+  // -----------------------------
   // 2. Canvas Setup
   // -----------------------------
   const canvas = document.getElementById("artCanvas");
