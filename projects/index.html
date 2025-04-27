@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Cratchley - Projects</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
@@ -242,15 +242,15 @@
     </style>
 </head>
 <body>
-    <!-- Left-Side Legend -->
+    <!-- Left-Side Navigation -->
     <header>
         <nav>
             <ul class="legend">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../writing.html">Writing</a></li>
-                <li><a href="../experience.html">Experience</a></li>
-                <li><a href="../projects.html" class="active">Projects</a></li>
-                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="../writing/">Writing</a></li>
+                <li><a href="../experience/">Experience</a></li>
+                <li><a href="../projects/" class="active">Projects</a></li>
+                <li><a href="../resources/">Resources</a></li>
             </ul>
         </nav>
     </header>
@@ -478,194 +478,6 @@
         </div>
     </footer>
 
-    <script>
-        // Execute fade-in when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fade-in animation with proper timing
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            // Create a simple observer to mimic the behavior in script.js
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.1 }
-            );
-            
-            // Observe fade-in elements
-            fadeElements.forEach(element => observer.observe(element));
-            
-            // Rest of initialization
-            updateSlider(document.querySelector('.filter-btn.active'));
-            
-            // Prevent tag clicks from triggering the project card link
-            document.querySelectorAll('.tag').forEach(tag => {
-                tag.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                });
-            });
-        });
-        
-        // Mouse movement effect for project images
-        document.querySelectorAll('.project-image-container').forEach(container => {
-            const img = container.querySelector('.project-image');
-            
-            container.addEventListener('mousemove', (e) => {
-                const { left, top, width, height } = container.getBoundingClientRect();
-                const x = (e.clientX - left) / width;
-                const y = (e.clientY - top) / height;
-                
-                // Calculate movement amount (limited to small movements)
-                const moveX = (x - 0.5) * 12; // Max 6px movement
-                const moveY = (y - 0.5) * 12;
-                
-                img.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
-            });
-            
-            container.addEventListener('mouseleave', () => {
-                img.style.transform = 'translate(0, 0) scale(1)';
-            });
-        });
-    
-        // Filter functionality variables
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        const filterSlider = document.querySelector('.filter-slider');
-        const tagElements = document.querySelectorAll('.tag');
-        
-        // Keep track of current filter state
-        let activeFilter = 'all';
-        
-        // Update slider position
-        function updateSlider(button) {
-            if (!button) return;
-            const buttonRect = button.getBoundingClientRect();
-            const containerRect = document.querySelector('.filter-container').getBoundingClientRect();
-            
-            filterSlider.style.width = `${buttonRect.width}px`;
-            filterSlider.style.transform = `translateX(${buttonRect.left - containerRect.left}px)`;
-        }
-        
-        // Apply filter to projects
-        function applyFilter(filter) {
-            // Update tag active states
-            tagElements.forEach(tag => {
-                tag.classList.remove('active');
-                if (filter !== 'all') {
-                    if (tag.classList.contains(filter)) {
-                        tag.classList.add('active');
-                    }
-                }
-            });
-            
-            // Filter projects
-            projectCards.forEach(card => {
-                if (filter === 'all') {
-                    card.classList.remove('hidden');
-                } else {
-                    const tags = card.getAttribute('data-tags');
-                    if (tags.includes(filter)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }
-            });
-        }
-        
-        // Set initial slider position
-        setTimeout(() => {
-            updateSlider(document.querySelector('.filter-btn.active'));
-        }, 100);
-        
-        // Filter button click
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Don't do anything if this filter is already active
-                if (filter === activeFilter) return;
-                
-                // Update active button state
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Update slider
-                updateSlider(this);
-                
-                // Apply filter
-                applyFilter(filter);
-                
-                // Update active filter
-                activeFilter = filter;
-            });
-        });
-        
-        // Tag click event
-        tagElements.forEach(tag => {
-            tag.addEventListener('click', function(e) {
-                // Prevent bubbling and default link behavior
-                e.stopPropagation();
-                e.preventDefault();
-                
-                const tagClasses = this.className.split(' ');
-                const categoryClasses = ['ai', 'cybersecurity', 'web', 'finance', 'ml', 'hackathon'];
-                
-                // Find which category this tag belongs to
-                const tagCategory = tagClasses.find(cls => categoryClasses.includes(cls));
-                
-                if (tagCategory) {
-                    // If clicking the same tag that's currently active, go back to "All"
-                    if (tagCategory === activeFilter) {
-                        // Find and click the "all" button
-                        const allButton = document.querySelector('.filter-btn[data-filter="all"]');
-                        if (allButton) {
-                            // Update active button state
-                            filterButtons.forEach(btn => btn.classList.remove('active'));
-                            allButton.classList.add('active');
-                            
-                            // Update slider
-                            updateSlider(allButton);
-                            
-                            // Apply "all" filter
-                            applyFilter('all');
-                            
-                            // Update active filter
-                            activeFilter = 'all';
-                        }
-                    } else {
-                        // Find corresponding filter button
-                        const filterButton = document.querySelector(`.filter-btn[data-filter="${tagCategory}"]`);
-                        
-                        if (filterButton) {
-                            // Update active button state
-                            filterButtons.forEach(btn => btn.classList.remove('active'));
-                            filterButton.classList.add('active');
-                            
-                            // Update slider
-                            updateSlider(filterButton);
-                            
-                            // Apply filter
-                            applyFilter(tagCategory);
-                            
-                            // Update active filter
-                            activeFilter = tagCategory;
-                        }
-                    }
-                }
-            });
-        });
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            updateSlider(document.querySelector('.filter-btn.active'));
-        });
-    </script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>

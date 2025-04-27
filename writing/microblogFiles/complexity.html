@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+    <link rel="shortcut icon" type="x-icon" href="../../assets/ec.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Value</title>
-    <link rel="stylesheet" href="../styles.css"> 
+    <title>Complexity</title>
+    <link rel="stylesheet" href="../../styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
@@ -23,20 +23,20 @@
     <header>
         <nav>
             <ul class="legend">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../../writing.html" class="active">Writing</a></li>
-                <li><a href="../../experience.html">Experience</a></li>
-                <li><a href="../../projects.html">Projects</a></li>
-                <li><a href="../../resources.html">Resources</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/writing/" class="active">Writing</a></li>
+                <li><a href="/experience/">Experience</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/resources/">Resources</a></li>
             </ul>
         </nav>
-    </header>    
-
+    </header>
+        
     <!-- Main Content -->
     <main>
         <section id="writing-post" class="fade-in">
             <div class="bio-header">
-                <h1>Value</h1>
+                <h1>Complexity</h1>
             </div>
             <div class="content-container">
                 <div id="markdownContent"></div>
@@ -67,10 +67,10 @@
                     document.getElementById('markdownContent').innerHTML = 'Error loading content...';
                 }
             };
-            xhr.open('GET', 'value.md', true);
+            xhr.open('GET', 'complexity.md', true);
             xhr.send();
         };
     </script>
-    <script src="../script.js"></script>
+    <script src="../../scripts/script.js"></script>
 </body>
 </html>
