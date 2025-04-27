@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="/assets/ec.png">
+    <link rel="shortcut icon" type="x-icon" href="../../assets/ec.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date/Time - Who Cares</title>
-    <link rel="stylesheet" href="../styles.css"> 
+    <title>The Human Brain is a Neural Network</title>
+    <link rel="stylesheet" href="../../styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Highlight.js CSS (using a theme that matches your aesthetic) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
     <script>
@@ -23,20 +25,20 @@
     <header>
         <nav>
             <ul class="legend">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../../writing.html" class="active">Writing</a></li>
-                <li><a href="../../experience.html">Experience</a></li>
-                <li><a href="../../projects.html">Projects</a></li>
-                <li><a href="../../resources.html">Resources</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/writing/" class="active">Writing</a></li>
+                <li><a href="/experience/">Experience</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/resources/">Resources</a></li>
             </ul>
         </nav>
-    </header>    
-
+    </header>
+        
     <!-- Main Content -->
     <main>
         <section id="writing-post" class="fade-in">
             <div class="bio-header">
-                <h1>Date/Time? - Who Cares</h1>
+                <h1>The Human Brain is a Neural Network</h1>
             </div>
             <div class="content-container">
                 <div id="markdownContent"></div>
@@ -53,8 +55,9 @@
         </div>
     </footer>
 
-    <!-- Markdown Script -->
     <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
         window.onload = function() {
             var converter = new showdown.Converter();
@@ -67,10 +70,10 @@
                     document.getElementById('markdownContent').innerHTML = 'Error loading content...';
                 }
             };
-            xhr.open('GET', 'whocares.md', true);
+            xhr.open('GET', 'nn.md', true);
             xhr.send();
         };
     </script>
-    <script src="../script.js"></script>
+    <script src="../../scripts/script.js"></script>
 </body>
 </html>
