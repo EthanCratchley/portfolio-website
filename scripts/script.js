@@ -32,6 +32,144 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
+  // Project Filtering System
+  // -----------------------------
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterSlider = document.querySelector('.filter-slider');
+  const projectCards = document.querySelectorAll('.project-card');
+  const tagElements = document.querySelectorAll('.tag');
+  const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
+  
+  // Initialize the slider
+  if (filterSlider && filterBtns.length > 0) {
+    // Set initial position of slider to match "All" button
+    const activeBtn = document.querySelector('.filter-btn.active');
+    if (activeBtn) {
+      setTimeout(() => {
+        // Delay to ensure elements are properly sized
+        filterSlider.style.width = `${activeBtn.offsetWidth}px`;
+        filterSlider.style.transform = `translateX(0)`;
+      }, 100);
+    }
+    
+    // Handle filter button clicks
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        // If clicking on the already active filter (except "All"), toggle it off
+        if (btn.classList.contains('active') && filter !== 'all') {
+          // Reset to "All" filter
+          filterBtns.forEach(b => b.classList.remove('active'));
+          allFilterBtn.classList.add('active');
+          
+          // Move slider to "All" button
+          const allOffsetLeft = allFilterBtn.offsetLeft;
+          filterSlider.style.width = `${allFilterBtn.offsetWidth}px`;
+          filterSlider.style.transform = `translateX(${allOffsetLeft}px)`;
+          
+          // Apply "All" filter
+          filterProjects('all');
+          updateTagHighlighting('all');
+        } else {
+          // Update active state
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Move slider to active button
+          const offsetLeft = btn.offsetLeft;
+          filterSlider.style.width = `${btn.offsetWidth}px`;
+          filterSlider.style.transform = `translateX(${offsetLeft}px)`;
+          
+          // Filter projects by selected category
+          filterProjects(filter);
+          updateTagHighlighting(filter);
+        }
+      });
+    });
+  }
+  
+  // Handle tag clicks
+  tagElements.forEach((tag) => {
+    tag.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent triggering the project card link
+      
+      // Get the filter category from the tag's class
+      const tagClasses = tag.classList;
+      let tagFilter = '';
+      
+      // Find the class that matches a filter category
+      for (const className of tagClasses) {
+        if (className !== 'tag' && className !== 'active') {
+          tagFilter = className;
+          break;
+        }
+      }
+      
+      if (tagFilter) {
+        // Check if tag is already active (filter is already applied)
+        const isCurrentlyActive = document.querySelector(`.filter-btn[data-filter="${tagFilter}"]`).classList.contains('active');
+        
+        if (isCurrentlyActive) {
+          // If this filter is already active, toggle it off by clicking the "All" button
+          allFilterBtn.click();
+        } else {
+          // Otherwise apply this filter
+          filterBtns.forEach(btn => {
+            if (btn.getAttribute('data-filter') === tagFilter) {
+              btn.click(); // Simulate click on the corresponding filter button
+            }
+          });
+        }
+      }
+    });
+  });
+  
+  // Function to update tag highlighting based on active filter
+  function updateTagHighlighting(activeFilter) {
+    tagElements.forEach(tag => {
+      // Remove active class from all tags first
+      tag.classList.remove('active');
+      
+      // Add active class to tags matching the current filter
+      if (activeFilter !== 'all') {
+        const tagClasses = tag.classList;
+        for (const className of tagClasses) {
+          if (className === activeFilter) {
+            tag.classList.add('active');
+          }
+        }
+      }
+    });
+  }
+  
+  // Filter projects function
+  function filterProjects(filter) {
+    projectCards.forEach(card => {
+      const tags = card.getAttribute('data-tags').split(' ');
+      
+      if (filter === 'all' || tags.includes(filter)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  // Call on page load to set initial state
+  if (filterBtns.length > 0) {
+    const initialActiveBtn = document.querySelector('.filter-btn.active');
+    if (initialActiveBtn) {
+      const initialFilter = initialActiveBtn.getAttribute('data-filter');
+      // Run initial filter after slight delay to ensure DOM is ready
+      setTimeout(() => {
+        filterProjects(initialFilter);
+        updateTagHighlighting(initialFilter);
+      }, 200);
+    }
+  }
+
+  // -----------------------------
   // Book Filtering System
   // -----------------------------
   const filterBtn = document.getElementById('book-filter-btn');
