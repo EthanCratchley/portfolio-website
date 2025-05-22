@@ -1,16 +1,16 @@
 # Introduction
 
-When exploring the conversation of inequality in regards to income and wealth I found myself asking questions like "Is it really a problem?", "Hasn’t there always been inequality?", "Is this just how it works?". As I dug deeper, it I came to see the importance of not just whether the pie is growing, but who is getting slices. Today the richest 10% of people capture over half of all global income, while the bottom 50% share less than 10% of it.
+When exploring the conversation of inequality in regards to income and wealth I found myself asking questions like "Is it really a problem?", "Hasn’t there always been inequality?", "Is this just how it works?". As I dug deeper, I came to see the importance of not just whether the pie is growing, but who is getting slices. Today the richest 10% of people capture over half of all global income, while the bottom 50% share less than 10% of it.
 
 Throughout this post we'll explore:
 1. The history of inequality
 2. Why it matters
 3. What drives it
 4. An excerpt on trickle down economics
-5. Pratical solutions
+5. Potential solutions
 
 # History and Statistics of Inequality
-In general throughout economic history inequality has been the norm besides a few periods and exceptions. A study from *wid.world* finds that over the last 7 centuries inequality in both wealth and income have increased with 2 major exceptions:
+In general throughout history inequality has been the norm besides a few periods and exceptions. A study from *wid.world* finds that over the last 7 centuries inequality in both wealth and income have increased with 2 major exceptions:
 1. Century following The Black Plague (1400s)
 2. WW1 - Mid 1970s
 
