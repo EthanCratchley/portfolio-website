@@ -438,7 +438,7 @@ Prevent acess to private IP ranges like 127.0.0.1, localhost, 169.254.169.254 (A
 
 Ensure that the input isn't just any URL but that it follows strict validation requurements and screening completion.
 
-# Conclusion and Reflection
+# Reflection and Conclusion
 
 After breaking down each vulnerability from the **OWASP Top 10**, one thing becomes clear. Many of these risks stem from similar underlying issues. Patterns emerge, and with those patterns there are actionable things you can do. 
 
