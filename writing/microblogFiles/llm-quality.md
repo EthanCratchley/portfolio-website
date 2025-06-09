@@ -38,7 +38,7 @@ Despite being well within the model's context window, performance dropped drasti
 
 **1. Attention Spread Thin:**
 
-LLMs use the Transformer architecture, which means every token can attend to every other token. This self-attention mechanism has **O($n^2$)** complexity, so if you double the prompt length, the work (and memory) required quadruples. In very long inputs, the model’s “attention” is spread across so many tokens that it has trouble focusing on the right parts. **Essentially, the signal-to-noise ratio worsens *n* grows.** Additionally, because of computation limits, models are typically trained on somewhat short sequences (~2k or 4k tokens). They aren’t well practiced at truly handling, say, 100K tokens of text in one go. The Transformer’s quadratic scaling makes long sequences hard to train on, even at inference time  running 100k+ token prompt is slow and costly.
+LLMs use the Transformer architecture, which means every token can attend to every other token. This self-attention mechanism has **O(n^2)** complexity, so if you double the prompt length, the work (and memory) required quadruples. In very long inputs, the model’s “attention” is spread across so many tokens that it has trouble focusing on the right parts. **Essentially, the signal-to-noise ratio worsens *n* grows.** Additionally, because of computation limits, models are typically trained on somewhat short sequences (~2k or 4k tokens). They aren’t well practiced at truly handling, say, 100K tokens of text in one go. The Transformer’s quadratic scaling makes long sequences hard to train on, even at inference time  running 100k+ token prompt is slow and costly.
 
 **2. Positional Encoding Quirks (Bias to Recent Tokens):**
 
@@ -56,7 +56,7 @@ Essentially, transformer LLMs weren’t inherently designed to handle extremely 
 
 # Research & Recent Findings
 
-**"Lost in the Middle" (2023):**
+**Lost in the Middle (2023):**
 
 This Stanford study is the one that coined the *lost in the middle* effect. The authors tested LLMs on tasks like question answering across multiple documents and key-value retrieval where the relevant info could appear at different positions in a long input. They found that if the answer was in the middle of the context, performance plummeted compared to when the answer was at the start or end. Even models explicitly built for long inputs struggled with middle content. This paper essentially proved that having a large context window doesn’t guarantee the model uses it effectively, and it provided new evaluation protocols to measure this phenomenon.
 
@@ -117,7 +117,7 @@ Various frontier labs are now explicitly training models on synthetic *needle in
 In taking on this question I assumed this phenomenon was just user error or a one off here and there, but that was far from the case. The "lost in the middle" effect is a direct result of how today's LLMs distribute attention, encode position, and learn from mostly short sequences. Even as context windows grow into the millions, models still tend to overweight the start and end of their inputs, and can lose focus in the middle. With the multitude of techniques discussed and the variety of smart people working on this issue, there is no doubt in my mind that we will continue to make consistent progress on it.
 
 While these improvements roll out, there are strategies you can implement to improve your experience and model quality.
-- Anchor Key Facts Early & Often: If you introduce an important detail repeat or summarize it every so many turns to keep it “fresh” in the model’s effective memory.
+- State Key Facts Early & Often: If you introduce an important detail repeat or summarize it every so many turns to keep it “fresh” in the model’s effective memory.
 - Chunk Your Requests: Break long tasks into smaller sub-prompts. Ask the model to handle one section at a time.
 - Use Summaries: If a conversation grows unwieldy, ask the model to summarize the key points so far, then proceed using that summary as context.
 
