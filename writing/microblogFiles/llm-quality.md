@@ -1,5 +1,3 @@
-# Introduction
-
 Have you ever been deep into a conversation with an LLM when suddenly it starts forgetting things you said earlier? Maybe it ignores your instructions, repeats itself, or focuses too heavily on the most recent parts of the conversation. Or perhaps when you ask it to complete a longer, multi-part task, the quality starts strong but steadily declines.
 
 It's not just you, and it's known as the *“lost in the middle”* effect.

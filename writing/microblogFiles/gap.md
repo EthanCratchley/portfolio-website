@@ -1,5 +1,3 @@
-# Introduction
-
 When exploring the conversation of inequality in regards to income and wealth I found myself asking questions like "Is it really a problem?", "Hasn’t there always been inequality?", "Is this just how it works?". As I dug deeper, I came to see the importance of not just whether the pie is growing, but who is getting slices. Today the richest 10% of people capture over half of all global income, while the bottom 50% share less than 10% of it.
 
 Throughout this post we'll explore:

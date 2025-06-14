@@ -1,12 +1,4 @@
-# OverTheWire - Bandit Solutions & Notes
-
-## **Table of Contents**
-1. [Introduction](#introduction)
-2. [Bandit Walkthrough](#bandit-walkthrough)
-3. [Review](#review)
-
----
-## **Introduction**
+# Overview
 The Bandit wargame, hosted by OverTheWire, is an excellent introductory challenge for learning fundamental Linux command-line skills and basic security concepts. It presents a series of levels, each requiring you to exploit a specific vulnerability or use a particular command to retrieve a password for the next level. By navigating through the Bandit levels, you'll gain practical experience with file manipulation, SSH, permissions, and other aspects of the Linux environment, scripting, and cybersecurity.
 
 ***NOTE: if you have not completed or attempted bandit already the following below are spoilers. I highly reccomend trying to complete the challenge on your own first, the notes below are simply a place to refer to after having completed and helped me in explaining the process as I moved through levels.***
