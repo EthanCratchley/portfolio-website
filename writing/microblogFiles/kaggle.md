@@ -898,6 +898,8 @@ plt.show()
 
 ![plot 2](../../assets/3.png)
 
+![plot 3](../../assets/4.png)
+
 # 🗃️ Domain Leaders	
 
 Which types of libraries dominate Kaggle competitions and where do they shine most? To answer this, we zoom in on categorical level performance across two perspectives:
@@ -936,8 +938,6 @@ Notable insights include:
 This heatmap showcases that library effectiveness is domain specific. Very few libraries perform uniformly across all competition types (mostly EDA). Instead, top Kaggle competitors seem to adapt their stack to the problem space, selecting specialized tools for maximum efficiency.
 
 In short: *it's not about using more libraries, it's about using the right ones for the job.*
-
-![plot 3](../../assets/4.png)
 
 <details>
 <summary>Cell 16: Top impact library in each of the last 10 years</summary>
