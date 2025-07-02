@@ -174,11 +174,7 @@ In my opinion perhaps the most important point is ensuring access to high qualit
 
 A more progressive tax system ensures that those with the greatest ability to contribute do so. This doesn’t mean punishing success, but rather recognizing diminishing marginal utility an extra dollar means less to someone making $10 million than to someone making $30,000.
 
-3. Labour Rights
-
-Stronger labor protections like the right to unionize, fair minimum wages, and protections against wage theft can help shift bargaining power toward a more even playing field.
-
-4. Social Spending
+3. Social Spending
 
 Targeted social programs (e.g. healthcare, childcare, housing, income supports) can cushion life’s shocks and create a stronger baseline for all citizens. *Crucially, these aren’t just “handouts”, they're public investments in human potential.*
 
