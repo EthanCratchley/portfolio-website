@@ -9,11 +9,11 @@ A neural network, in the context of AI, is a type of deep learning model made up
 
 This process is known as **backpropagation**, and it’s basically the machine’s version of learning from its mistakes.
 
-But the origin of ANNs isn't random, it's based on how our biological brains work. Your brain is made up of around **86 billion neurons**, which send electrical signals to each other through connections called **synapses**. Every time you learn something, experience something, etc. these connections either strengthen or weaken. This process is called **neuroplasticity**.
+Your brain is made up of around **86 billion neurons**, which send electrical signals to each other through connections called **synapses**. Every time you learn something, experience something, etc. these connections either strengthen or weaken. This process is called **neuroplasticity**.
 
 **The main takeaway:**
 ```go
-Both systems (artificial and biological) learn by adjusting internal connections in response to data.
+Both systems (artificial and biological) learn by adjusting internal connections in response to data
 ```
 
 ## Hallucinations: The Brain and the Model
@@ -37,7 +37,7 @@ In a way, it’s like training a fresh LLM from scratch:
 
 As adults, we already have a pre-trained model which means new information tends to be interpreted through existing weights. Learning still happens, but often slower, and it may take deliberate effort to override previous patterns.
 ```go
-Which is why "fixing your inputs" is even more important as you get older — you’re not training from scratch anymore, you’re fine-tuning.
+Which is why "fixing your inputs" is even more important as you get older, you’re not buiilding your foundational model anymore but instead fine-tuning
 ```
 
 # What are the Inputs?
@@ -56,9 +56,9 @@ So while ANNs are a simplified abstraction of the brain, the core idea is the sa
 ## What can you do about your Inputs?
 - Clean up your inputs:
   - Be intentional with the media you consume — your brain is watching even when you’re not paying attention.
-  - Prioritize signal over noise: high-quality, educational, or thought-provoking content > endless scrolling.
+  - Prioritize signal over noise: high-quality, educational, or thought-provoking content as opposed to mind numbing scrolling and void posting
 
-It’s not about cutting out fun or only reading dense textbooks. It’s about being intentional with what you consume and how you consume it. Some people say watching movies is a waste of time, some are but many aren’t. You can learn a lot from film, music, games, or even casual conversation if you’re paying attention.
+It’s not about cutting out fun or only reading dense textbooks. But you need to be intentional with what you consume and how you consume it. Some people say watching movies is a waste of time, some are but I don't think so. Some of the greatest ideas were inspired by the entertainment industry. You can learn a lot from film, music, games, or even casual conversation if you’re paying attention.
 
 Original ideas don’t just appear out of nowhere (they hardly exist at all), they’re often combinations of past influences. And because that's the case you might as well make sure your media is of high quality!
 
