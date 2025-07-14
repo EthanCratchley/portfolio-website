@@ -5,7 +5,6 @@ Complexity is a disease, it has infected the many minds and industries of our wo
 This is a result of the complexity that fills our mind in today's society. It is not always obvious when it is happening and I myself am a victim of this. So we need to ask ourselves, Why do we have complexity? How do we get rid of it?
 
 ---
-<br>
 
 ### Why do we have complexity?
 
@@ -17,7 +16,7 @@ Complexity can be either brought upon by ourselves or it can be forced upon us.
 2. What do you need to code it?
 3. How can you code it as efficiently as possible?
 
-#### <br> Instead the process for many ends up looking something like:
+#### Instead the process for many ends up looking something like:
 
 1. How can I be most productive in learning programming?
 2. What are the best tools for productivity?
@@ -57,8 +56,7 @@ Elon First Principles Talk: [Link]
 4. Reduce Components 
 5. Apply Principles 
 
-<br>
- ---
+---
 
 ## Excess notes and examples on Complexity 
 
@@ -66,17 +64,16 @@ When you want to be **productive** don't watch a video on how to do so, or downl
 
 All these things are complexities and clutter. They are exactly what is going to keep you from doing the exact thing you set out to do.  
 
-<br>
+---
+
 During a startup you are constantly on the brink of failure. Your goal is two things:
 
 1. Cashflow
 2. Product Development   
 
-<br>
-
 Not the other endless fun things you can look to spend money on with your new found company.
    
-<br>
+---
 
 The bottom line is that if you don't cut out complexity from your life, business, programming, etc. you are going to get burnt and left behind by competitors. Because while your energy/capital is being deployed all over the place, others will be going all in on one thing and blow right past you.
 
