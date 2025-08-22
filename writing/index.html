@@ -49,6 +49,25 @@
             position: relative;
             z-index: 2;
         }
+        
+        /* Category styling */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            color: #333;
+        }
+        
+        .category-section .writing-item {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -75,75 +94,74 @@
                 <canvas id="artCanvas"></canvas>
             </div>
             <div class="writing-list">
-                <div class="writing-item">
-                    <a href="microblogFiles/kaggle.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/kaggle.html" class="writing-title">Meta Kaggle Hackathon</a>
-                    <span class="writing-date">June 2025</span>
+                <!-- AI & Technology -->
+                <div class="category-section">
+                    <h2 class="category-title">Technical</h2>
+                    <div class="writing-item">
+                        <a href="microblogFiles/kaggle.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/kaggle.html" class="writing-title">Meta Kaggle Hackathon</a>
+                        <span class="writing-date">June 2025</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/llm-quality.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/llm-quality.html" class="writing-title">Forgetful Middles in LLMs</a>
+                        <span class="writing-date">June 2025</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/llm.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/llm.html" class="writing-title">Language Model from Scratch</a>
+                        <span class="writing-date">March 2025</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/nn.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/nn.html" class="writing-title">The Human Brain as a Neural Network</a>
+                        <span class="writing-date">March 2025</span>
+                    </div>
                 </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/llm-quality.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/llm-quality.html" class="writing-title">Forgetful Middles in LLMs</a>
-                    <span class="writing-date">June 2025</span>
+
+                <!-- Business & Society -->
+                <div class="category-section">
+                    <h2 class="category-title">Business and Economics</h2>
+                    <div class="writing-item">
+                        <a href="microblogFiles/gap.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/gap.html" class="writing-title">Is This Just How It Works?</a>
+                        <span class="writing-date">May 2025</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/brandfirst.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/brandfirst.html" class="writing-title">Brand First</a>
+                        <span class="writing-date">June 2024</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/value.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/value.html" class="writing-title">Value</a>
+                        <span class="writing-date">February 2024</span>
+                    </div>
                 </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/owasp.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/owasp.html" class="writing-title">OWASP Top 10</a>
-                    <span class="writing-date">May 2025</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/gap.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/gap.html" class="writing-title">Is This Just How It Works?</a>
-                    <span class="writing-date">May 2025</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/llm.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/llm.html" class="writing-title">Language Model from Scratch</a>
-                    <span class="writing-date">March 2025</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/nn.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/nn.html" class="writing-title">The Human Brain as a Neural Network</a>
-                    <span class="writing-date">March 2025</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/pico2025.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/pico2025.html" class="writing-title">PicoCTF 2025 Competition</a>
-                    <span class="writing-date">March 2025</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/bandit.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/bandit.html" class="writing-title">Bandit Wargames Walkthrough</a>
-                    <span class="writing-date">Feburary 2025</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/cause.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/cause.html" class="writing-title">Cause and Effect</a>
-                    <span class="writing-date">December 2024</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/20.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/20.html" class="writing-title">20</a>
-                    <span class="writing-date">July 2024</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/brandfirst.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/brandfirst.html" class="writing-title">Brand First</a>
-                    <span class="writing-date">June 2024</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/whocares.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/whocares.html" class="writing-title">Date/Time? Who Cares</a>
-                    <span class="writing-date">April 2024</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/value.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/value.html" class="writing-title">Value</a>
-                    <span class="writing-date">February 2024</span>
-                </div>
-                <div class="writing-item">
-                    <a href="microblogFiles/complexity.html" class="writing-item-link"></a>
-                    <a href="microblogFiles/complexity.html" class="writing-title">Complexity</a>
-                    <span class="writing-date">December 2023</span>
+
+                <!-- Philosophy & Psychology -->
+                <div class="category-section">
+                    <h2 class="category-title">Reflections/Abstract</h2>
+                    <div class="writing-item">
+                        <a href="microblogFiles/whocares.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/whocares.html" class="writing-title">Date/Time? Who Cares</a>
+                        <span class="writing-date">April 2024</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/cause.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/cause.html" class="writing-title">Cause and Effect</a>
+                        <span class="writing-date">December 2024</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/20.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/20.html" class="writing-title">20</a>
+                        <span class="writing-date">July 2024</span>
+                    </div>
+                    <div class="writing-item">
+                        <a href="microblogFiles/complexity.html" class="writing-item-link"></a>
+                        <a href="microblogFiles/complexity.html" class="writing-title">Complexity</a>
+                        <span class="writing-date">December 2023</span>
+                    </div>
                 </div>
             </div>
         </section>
