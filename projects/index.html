@@ -157,16 +157,18 @@
         .tag.cybersecurity.active { background-color: #f3e5f5; border-color: #e1bee7; }
         .tag.web.active { background-color: #fff3e0; border-color: #ffe0b2; }
         .tag.finance.active { background-color: #e8f5e9; border-color: #c8e6c9; }
-        .tag.ml.active { background-color: #ede7f6; border-color: #d1c4e9; }
+
         .tag.hackathon.active { background-color: #ffebee; border-color: #ffcdd2; }
+        .tag.electronics.active { background-color: #e8eaf6; border-color: #9575cd; }
 
         /* Tag hover effects */
         .tag.ai:hover { background-color: #e1f5fe; border-color: #b3e5fc; }
         .tag.cybersecurity:hover { background-color: #f3e5f5; border-color: #e1bee7; }
         .tag.web:hover { background-color: #fff3e0; border-color: #ffe0b2; }
         .tag.finance:hover { background-color: #e8f5e9; border-color: #c8e6c9; }
-        .tag.ml:hover { background-color: #ede7f6; border-color: #d1c4e9; }
+
         .tag.hackathon:hover { background-color: #ffebee; border-color: #ffcdd2; }
+        .tag.electronics:hover { background-color: #e8eaf6; border-color: #9575cd; }
 
         /* Slider-style filter */
         .filter-container {
@@ -299,13 +301,51 @@
                 <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
                 <button class="filter-btn" data-filter="web">Web</button>
                 <button class="filter-btn" data-filter="finance">Finance</button>
-                <button class="filter-btn" data-filter="ml">ML</button>
+
                 <button class="filter-btn" data-filter="hackathon">Hackathon</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
             </div>
 
-            <div class="projects-container">
+                <!-- Solaris - Smart Renewable Energy Optimizer -->
+                <div class="project-card" data-tags="web electronics">
+                    <a href="https://github.com/EthanCratchley/solaris" target="_blank" class="project-card-link"></a>
+                    <div class="project-image-container">
+                        <img src="../assets/solaris.png" alt="Solaris - Smart Renewable Energy Optimizer" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/solaris" target="_blank">Solar Energy Optimizer</a>
+                        </h3>
+                        <div class="project-date">July 2025</div>
+                        <p class="project-description">Arduino based system that orients solar panels with servos and sensors for optimal energy.</p>
+                        <div class="project-tags">
+                            <span class="tag electronics">Electronics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custorix - AI-Powered Security System -->
+                <div class="project-card" data-tags="ai cybersecurity electronics">
+                    <a href="https://github.com/EthanCratchley" target="_blank" class="project-card-link"></a>
+                    <div class="project-image-container">
+                        <img src="../assets/custorix.png" alt="Custorix - AI-Powered Security System" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/custorix" target="_blank">Custorix</a>
+                        </h3>
+                        <div class="project-date">June 2025</div>
+                        <p class="project-description">Private, offline first, multimodal AI security system using Gemma 3n</p>
+                        <div class="project-tags">
+                            <span class="tag ai">AI</span>
+                            <span class="tag cybersecurity">Cybersecurity</span>
+                            <span class="tag electronics">Electronics</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- LLM Fine Tuning & RAG Development -->
-                <div class="project-card" data-tags="ai ml web">
+                <div class="project-card" data-tags="ai web">
                     <a href="https://autonommi.com/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/conf.png" alt="Fine Tuning & RAG Dev." class="project-image">
@@ -318,14 +358,13 @@
                         <p class="project-description">Developing Retrieval-Augmented Generation (RAG) models and fine-tuning LLMs (NDA).</p>
                         <div class="project-tags">
                             <span class="tag ai">AI</span>
-                            <span class="tag ml">ML</span>
                             <span class="tag web">Web</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Kaggle and CTF Competitions -->
-                <div class="project-card" data-tags="ai ml cybersecurity">
+                <div class="project-card" data-tags="ai cybersecurity">
                     <a href="https://www.kaggle.com/ethancratchley" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/kaggle.png" alt="Kaggle and CTF Competitions" class="project-image">
@@ -338,7 +377,6 @@
                         <p class="project-description">Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques.</p>
                         <div class="project-tags">
                             <span class="tag ai">AI</span>
-                            <span class="tag ml">ML</span>
                             <span class="tag cybersecurity">Cybersecurity</span>
                         </div>
                     </div>
@@ -422,7 +460,7 @@
                 </div>
 
                 <!-- Algo Trading -->
-                <div class="project-card" data-tags="finance ml">
+                <div class="project-card" data-tags="finance">
                     <a href="#" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/trade.png" alt="Algo Trading" class="project-image">
@@ -435,7 +473,6 @@
                         <p class="project-description">Building/Optimizing algorithmic trading strategies using Google Cloud to run/test algos.</p>
                         <div class="project-tags">
                             <span class="tag finance">Finance</span>
-                            <span class="tag ml">ML</span>
                         </div>
                     </div>
                 </div>
