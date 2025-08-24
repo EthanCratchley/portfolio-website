@@ -80,9 +80,3 @@ The bottom line is that if you don't cut out complexity from your life, business
 ### Here is an image I drew (inspired by Sam Ovens) that showcases the idea and power behind focus and removing complexity from your life:
 #### *wouldn't be a bad idea to print this out and put it on your fridge
 ![My Image] (energy.png)
-
-##### Disclamer:
-
-I may come back to this post and make changes and add thoughts at any time. All thoughts are my own and simply an expression of ideas/thoughts.
-
-feel free to email me @ ethankcratchley@gmail.com for feedback on my writing etc. always looking to improve and learn

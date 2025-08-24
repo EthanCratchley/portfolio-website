@@ -25,9 +25,3 @@ If there is anything I would take away from this it is that your opinion on the 
 Knowing this it doesn't mean we should go around shilling stocks or beliefs to people. But it also does not mean that you should give up on your opinion and beliefs. Instead it means that before making a decision or investment we need to take into account the market sentiment as a qualitative piece of data to consider.
 
 I'll leave you with a quote from Winston Churchill, *"History is written by the victors."*
-
-##### Disclamer:
-
-I may come back to this post and make changes and add thoughts at any time. All thoughts are my own and simply an expression of ideas/thoughts.
-
-feel free to email me @ ethankcratchley@gmail.com for feedback on my writing etc. always looking to improve and learn.

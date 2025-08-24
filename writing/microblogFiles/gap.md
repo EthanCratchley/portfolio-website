@@ -195,9 +195,3 @@ Over taxing the rich won’t work if it causes capital flight or discourages inn
 Maybe the uncomfortable truth is that inequality is a feature, not a bug. This is just how it works and we aren't able to find this perfect balance we strive for. But giving in to that cynicism doesn’t help anyone. We’re better off striving for systems that reward effort without trapping people at the bottom, even if it may seem impossible.
 
 *This post is by no means meant to be political or the endorsing of any ideaology, party, etc. Rather the goal of writing this was selfish in my hopes to understand and learn about the impacts of inequality and to share my findings whatever they may be.*
-### Sources
-
-- World Inequality Report 2022 
-- https://wid.world/
-- https://wtfhappenedin1971.com/
-- https://wir2022.wid.world/
