@@ -17,8 +17,3 @@ The bottom line is if you want to make the 'right' decisions in life, you need t
 *Side Note: people love to talk about discipline, hard work, etc. but it simply doesn't work for almost anyone and will lead to less consistent results. Even people like David Goggins, who seemingly can do anything with just some good discipline in reality have just built a strong web to make it easy to make the right decision.*
 
 Remember, **when one card falls, the entire house of cards collapses.**
-
-#### Disclamer:
-I may come back to this post and make changes and add thoughts at any time. All thoughts are my own and simply an expression of ideas/thoughts.
-
-feel free to email me @ ethankcratchley@gmail.com for feedback on my writing etc. always looking to improve and learn.

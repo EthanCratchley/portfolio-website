@@ -9,9 +9,3 @@ Although many species follow patterns, circadian rhythm, and seasonal behaviors.
 I am not arguing that we should get rid of date and time as that would cause more problems than it would solve, but that we value each minute extremely carefully and spend less time looking at the clock and more time doing.
 
 ![My Image] (time.png)
-
-##### Disclamer:
-
-I may come back to this post and make changes and add thoughts at any time. All thoughts are my own and simply an expression of ideas/thoughts.
-
-feel free to email me @ ethankcratchley@gmail.com for feedback on my writing etc. always looking to improve and learn.
