@@ -1,4 +1,3 @@
-# LLM from Scratch 
 **Objective:** Build a simple transformer-based language model that can generate text or predict the next word in a sequence.
 
 **Scale:** 2-3M Parameters
