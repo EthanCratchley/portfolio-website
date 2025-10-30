@@ -161,7 +161,7 @@ That said, some argue trickle down policies may produce qualitative or longer te
 
 # Potential Solutions to Inequality 
 
-Before we talk about potential solutions for inequality, it's important to note that **not all inequality is inherently bad.** Some level of income and wealth differentiation is essetnial in any healthy economy to reward innovation, risk taking, hard work, and skill. A perfectly equal society where outcomes are identical regardless of contribution wouldn’t be functional or fair either (*cough cough socialism*). 
+Before we talk about potential solutions for inequality, it's important to note that **not all inequality is inherently bad.** Some level of income and wealth differentiation is essetnial in any healthy economy to reward innovation, risk taking, hard work, and skill. A perfectly equal society where outcomes are identical regardless of contribution wouldn’t be functional or fair either.
 
 From what I can tell the goal isn’t to eliminate inequality completely, but to ensure that everyone has a fair shot. The most important thing we can do is aim for equality of opportunity, so that anyone regardless of their starting point, has the chance to grow with the economy.
 
