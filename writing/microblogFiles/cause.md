@@ -13,7 +13,3 @@ As you get older, this web gets stronger and stronger. Consequently, your decisi
 In the simplest terms, think of it like a math equation: when x+y=z, the outcome (𝑧) will always depend on the inputs (𝑥 and y). Similarly, as the web of your experiences and influences evolves, the decisions you make will shift accordingly. This brings us back to the idea that your decisions are ultimately dictated by your inputs. 
 
 The bottom line is if you want to make the 'right' decisions in life, you need to focus on reshaping the inputs that form your web and not leaving it up to your willpower and discipline to make the right decision, because you will almost always let yourself down due to your poorly made web!
-
-*Side Note: people love to talk about discipline, hard work, etc. but it simply doesn't work for almost anyone and will lead to less consistent results. Even people like David Goggins, who seemingly can do anything with just some good discipline in reality have just built a strong web to make it easy to make the right decision.*
-
-Remember, **when one card falls, the entire house of cards collapses.**

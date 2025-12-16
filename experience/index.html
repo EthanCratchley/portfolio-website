@@ -1,149 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ethan Cratchley - Experience</title>
-    <link rel="stylesheet" href="../styles/styles.css"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Q0VMMDZE5J');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q0VMMDZE5J");
     </script>
-</head>
-<body>
+    <script src="../scripts/searchIndex.js"></script>
+  </head>
+  <body>
     <!-- Left-Side Navigation -->
     <header>
-        <nav>
-            <ul class="legend">
-                <li><a href="/">Home</a></li>
-                <li><a href="../writing/">Writing</a></li>
-                <li><a href="../experience/" class="active">Experience</a></li>
-                <li><a href="../projects/">Projects</a></li>
-                <li><a href="../resources/">Contact</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul class="legend">
+          <li><a href="/">Home</a></li>
+          <li><a href="../writing/">Writing</a></li>
+          <li><a href="../experience/" class="active">Experience</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="../contact/">Contact</a></li>
+          <li><a href="../garden/" style="font-style: italic">Garden</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Main Content -->
     <main>
-        <!-- Title Section -->
-        <section id="experience" class="fade-in">
-            <div class="bio-header">
-                <h1>Ethan Cratchley - Experience</h1>
+      <!-- Title Section -->
+      <section id="experience" class="fade-in">
+        <div class="bio-header">
+          <h1>Ethan Cratchley - Experience</h1>
+        </div>
+        <!-- Work Experience -->
+        <h2>Work</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Software Engineer</span>
+              <span class="company">Autonommi</span>
             </div>
-            <!-- Work Experience -->
-            <h2>Work</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Software Engineer</span>
-                        <span class="company">Autonommi</span>
-                    </div>
-                    <span class="date">Dec 2024 - Present</span>
-                </div>
-                <p>Working with a team on LLMs and RAG systems, while contributing across backend development, CI/CD workflows, security, and deployment.</p>
-            </div>
+            <span class="date">Dec 2024 - Present</span>
+          </div>
+          <p>
+            Working with a team on LLMs and RAG systems, while contributing
+            across applied AI, full-stack development, CI/CD workflows,
+            security, and deployment.
+          </p>
+        </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Member of Technial Staff Intern</span>
-                        <span class="company">WMB</span>
-                    </div>
-                    <span class="date">Apr 2024 - Aug 2024</span>
-                </div>
-                <p>Researched, developed, and deployed internal procedures and AI workflows (fine-tuning LLMs and building Python projects), contributed in team meetings, and took client calls.</p>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Member of Technial Staff Intern</span>
+              <span class="company">WMB</span>
             </div>
+            <span class="date">Apr 2024 - Aug 2024</span>
+          </div>
+          <p>
+            Researched, developed, and deployed internal procedures and AI
+            workflows.
+          </p>
+        </div>
 
-            <!-- Education -->
-            <h2>Education</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">BASc/BBA Joint Major</span>
-                        <span class="company">Simon Fraser University (SFU)</span>
-                    </div>
-                    <span class="date">Sept 2022 - Present</span>
-                </div>
-                <p>Computer Science and Business Joint Major program with a concentration in Artificial Intelligence.</p>
+        <!-- Education -->
+        <h2>Education</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">BASc/BBA Joint Major</span>
+              <span class="company">Simon Fraser University (SFU)</span>
             </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Study Abroad</span>
-                        <span class="company">National University of Singapore (NUS)</span>
-                    </div>
-                    <span class="date">Aug 2025 - Dec 2025</span>
-                </div>
-                <p>Studying technology, history, and philosophy in Singapore.</p>
-            </div>
+            <span class="date">Sept 2022 - Present</span>
+          </div>
+          <p>
+            Computer Science and Business Joint Major program with a
+            concentration in Artificial Intelligence.
+          </p>
+        </div>
 
-            <!-- Volunteer Experience -->
-            <h2>Volunteer</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Lead Software Engineer</span>
-                        <span class="company">SFU Open Source Development Club</span>
-                    </div>
-                    <span class="date">Oct 2024 - May 2025</span>
-                </div>
-                <p>Leading a team of developers and designers in building Financial Fast Feed.</p>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Study Abroad</span>
+              <span class="company"
+                >National University of Singapore (NUS)</span
+              >
             </div>
+            <span class="date">Aug 2025 - Dec 2025</span>
+          </div>
+          <p>Studying technology, history, and philosophy in Singapore.</p>
+        </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Senior Equity Research Analyst</span>
-                        <span class="company">SFU Investment Club</span>
-                    </div>
-                    <span class="date">Sep 2024 - May 2025</span>
-                </div>
-                <p>Conducting equity research, competing in case competitions, stock pitches, and investment challenges.</p>
+        <!-- Volunteer Experience -->
+        <h2>Volunteer</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Lead Software Engineer</span>
+              <span class="company">SFU Open Source Development Club</span>
             </div>
+            <span class="date">Oct 2024 - May 2025</span>
+          </div>
+          <p>
+            Leading a team of developers and designers in building Financial
+            Fast Feed.
+          </p>
+        </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Project Representative</span>
-                        <span class="company">Enactus Capilano</span>
-                    </div>
-                    <span class="date">Oct 2023 - Jul 2024</span>
-                </div>
-                <p>Coordinated events with over 100 participants, competed at Regional and National competitions.</p>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Senior Equity Research Analyst</span>
+              <span class="company">SFU Investment Club</span>
             </div>
+            <span class="date">Sep 2024 - May 2025</span>
+          </div>
+          <p>
+            Conducting equity research, competing in case competitions, stock
+            pitches, and investment challenges.
+          </p>
+        </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <span class="position">Soccer Referee</span>
-                        <span class="company">St. Pius X School</span>
-                    </div>
-                    <span class="date">Sep 2022 - Present</span>
-                </div>
-                <p>Refereeing soccer games and giving back to my elementary school's community.</p>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Project Representative</span>
+              <span class="company">Enactus Capilano</span>
             </div>
-        </section>
+            <span class="date">Oct 2023 - Jul 2024</span>
+          </div>
+          <p>
+            Coordinated events with over 100 participants, competed at Regional
+            and National competitions.
+          </p>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <span class="position">Soccer Referee</span>
+              <span class="company">St. Pius X School</span>
+            </div>
+            <span class="date">Sep 2022 - Sept 2025</span>
+          </div>
+          <p>
+            Refereeing soccer games and giving back to my elementary school's
+            community.
+          </p>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-info">
-            <div>LinkedIn <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank">@Ethan Cratchley</a></div>
-            <div>GitHub <a href="https://github.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
-            <div>X <a href="https://x.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
-            <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
+      <div class="footer-info">
+        <div>
+          LinkedIn
+          <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank"
+            >@Ethan Cratchley</a
+          >
         </div>
+        <div>
+          GitHub
+          <a href="https://github.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          X
+          <a href="https://x.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          Email
+          <a href="mailto:ethankcratchley@gmail.com"
+            >ethankcratchley@gmail.com</a
+          >
+        </div>
+      </div>
     </footer>
+
+    <!-- Search Toggle Button -->
+    <button
+      id="search-toggle"
+      class="search-toggle-btn"
+      aria-label="Search"
+      title="Search (⌘K)"
+    >
+      <span class="search-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      class="theme-toggle-btn"
+      aria-label="Toggle dark mode"
+      title="Toggle theme"
+    >
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Search Modal -->
+    <div
+      id="search-modal"
+      class="search-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="search-input"
+      hidden
+    >
+      <div class="search-backdrop"></div>
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-input-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search for projects, writing..."
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Search"
+          />
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div class="search-footer">
+          <span>↑↓ Navigate</span>
+          <span>↵ Select</span>
+          <span>ESC Close</span>
+        </div>
+      </div>
+    </div>
+
     <script src="../scripts/script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,77 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="../../assets/ec.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="../../assets/ec.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>20</title>
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"
+    ></script>
+    <script src="../../scripts/searchIndex.js"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-Q0VMMDZE5J');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q0VMMDZE5J");
     </script>
-</head>
-<body>
+    <script src="../../scripts/searchIndex.js"></script>
+  </head>
+  <body>
     <!-- Left-Side Navigation -->
     <header>
-        <nav>
-            <ul class="legend">
-                <li><a href="/">Home</a></li>
-                <li><a href="/writing/" class="active">Writing</a></li>
-                <li><a href="/experience/">Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
-                <li><a href="/resources/">Contact</a></li>
-            </ul>
-        </nav>
-    </header>    
+      <nav>
+        <ul class="legend">
+          <li><a href="/">Home</a></li>
+          <li><a href="/writing/" class="active">Writing</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <!-- Main Content -->
     <main>
-        <section id="writing-post" class="fade-in">
-            <div class="bio-header">
-                <h1>20</h1>
-            </div>
-            <div class="content-container">
-                <div id="markdownContent"></div>
-            </div>
-        </section>
+      <section id="writing-post" class="fade-in">
+        <div class="bio-header">
+          <h1>20</h1>
+        </div>
+        <div class="content-container">
+          <div id="markdownContent"></div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-info">
-            <div>LinkedIn <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank">@Ethan Cratchley</a></div>
-            <div>GitHub <a href="https://github.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
-            <div>X <a href="https://x.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
-            <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
+      <div class="footer-info">
+        <div>
+          LinkedIn
+          <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank"
+            >@Ethan Cratchley</a
+          >
         </div>
+        <div>
+          GitHub
+          <a href="https://github.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          X
+          <a href="https://x.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          Email
+          <a href="mailto:ethankcratchley@gmail.com"
+            >ethankcratchley@gmail.com</a
+          >
+        </div>
+      </div>
     </footer>
 
     <!-- Markdown Script -->
     <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script src="../../scripts/searchIndex.js"></script>
     <script>
-        window.onload = function() {
-            var converter = new showdown.Converter();
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var htmlContent = converter.makeHtml(xhr.responseText);
-                    document.getElementById('markdownContent').innerHTML = htmlContent;
-                } else if (xhr.readyState === 4 && xhr.status !== 200) {
-                    document.getElementById('markdownContent').innerHTML = 'Error loading content...';
-                }
-            };
-            xhr.open('GET', '20.md', true);
-            xhr.send();
+      window.onload = function () {
+        var converter = new showdown.Converter();
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var htmlContent = converter.makeHtml(xhr.responseText);
+            document.getElementById("markdownContent").innerHTML = htmlContent;
+          } else if (xhr.readyState === 4 && xhr.status !== 200) {
+            document.getElementById("markdownContent").innerHTML =
+              "Error loading content...";
+          }
         };
+        xhr.open("GET", "20.md", true);
+        xhr.send();
+      };
     </script>
+    <script src="../../scripts/searchIndex.js"></script>
     <script src="../../scripts/script.js"></script>
-</body>
+    <script src="../../scripts/searchIndex.js"></script>
+
+    <!-- Search Toggle Button -->
+    <button
+      id="search-toggle"
+      class="search-toggle-btn"
+      aria-label="Search"
+      title="Search (⌘K)"
+    >
+      <span class="search-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      class="theme-toggle-btn"
+      aria-label="Toggle dark mode"
+      title="Toggle theme"
+    >
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Search Modal -->
+    <div
+      id="search-modal"
+      class="search-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="search-input"
+      hidden
+    >
+      <div class="search-backdrop"></div>
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-input-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search for projects, writing..."
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Search"
+          />
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div class="search-footer">
+          <span>↑↓ Navigate</span>
+          <span>↵ Select</span>
+          <span>ESC Close</span>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

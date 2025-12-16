@@ -16,6 +16,7 @@
         gtag('js', new Date());
         gtag('config', 'G-Q0VMMDZE5J');
     </script>
+    <script src="../scripts/searchIndex.js"></script>
     <style>
         /* Project page specific styles */
         .projects-container {
@@ -40,21 +41,17 @@
 
         .project-card {
             position: relative;
-            border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: row;
             height: 220px;
             margin-bottom: 10px;
             cursor: pointer;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .project-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .project-image-container {
@@ -63,7 +60,6 @@
             height: 100%;
             overflow: hidden;
             flex-shrink: 0;
-            background-color: #f8f8f8; /* Fallback color for transparent images */
         }
 
         .project-image {
@@ -98,7 +94,7 @@
         }
 
         .project-date {
-            color: #777;
+            color: var(--text-quaternary);
             font-size: 0.85rem;
             margin-bottom: 12px;
         }
@@ -115,20 +111,15 @@
         }
 
         .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: auto;
-            position: relative;
-            z-index: 2;
+            display: none; /* Hidden but still in code for filtering */
         }
 
         .tag {
             padding: 5px 10px;
             border-radius: 4px;
             font-size: 0.8rem;
-            background-color: #f5f5f5;
-            border: 1px solid #eaeaea;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
@@ -155,62 +146,41 @@
         /* Tag colors - apply immediately when active */
         .tag.ai.active { background-color: #e1f5fe; border-color: #b3e5fc; }
         .tag.cybersecurity.active { background-color: #f3e5f5; border-color: #e1bee7; }
-        .tag.web.active { background-color: #fff3e0; border-color: #ffe0b2; }
-        .tag.finance.active { background-color: #e8f5e9; border-color: #c8e6c9; }
-
-        .tag.hackathon.active { background-color: #ffebee; border-color: #ffcdd2; }
         .tag.electronics.active { background-color: #e8eaf6; border-color: #9575cd; }
 
         /* Tag hover effects */
         .tag.ai:hover { background-color: #e1f5fe; border-color: #b3e5fc; }
         .tag.cybersecurity:hover { background-color: #f3e5f5; border-color: #e1bee7; }
-        .tag.web:hover { background-color: #fff3e0; border-color: #ffe0b2; }
-        .tag.finance:hover { background-color: #e8f5e9; border-color: #c8e6c9; }
-
-        .tag.hackathon:hover { background-color: #ffebee; border-color: #ffcdd2; }
         .tag.electronics:hover { background-color: #e8eaf6; border-color: #9575cd; }
 
-        /* Slider-style filter */
+        /* Simple toggle filter */
         .filter-container {
-            position: relative;
             margin: 0 auto 30px;
             width: fit-content;
             display: flex;
-            background-color: #f5f5f5;
-            border-radius: 30px;
-            padding: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            z-index: 1;
-        }
-
-        .filter-slider {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            height: calc(100% - 10px);
-            border-radius: 25px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: width 0.3s ease, transform 0.3s ease;
-            z-index: 0;
+            gap: 12px;
         }
 
         .filter-btn {
-            padding: 8px 14px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 25px;
+            border-radius: 6px;
             background-color: transparent;
-            color: #666;
+            color: var(--text-quaternary);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease, background-color 0.3s ease;
             font-weight: 500;
-            position: relative;
-            z-index: 2;
-            margin: 0 2px;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+            background-color: rgba(0, 0, 0, 0.08);
         }
 
         .filter-btn.active {
-            color: #333;
+            background-color: rgba(0, 0, 0, 0.15);
+            color: var(--text-primary);
         }
 
         .hidden {
@@ -237,29 +207,24 @@
             .filter-container {
                 flex-wrap: wrap;
                 justify-content: center;
-                padding: 5px 10px;
+                gap: 8px;
             }
             
             .filter-btn {
-                padding: 6px 12px;
-                margin: 2px;
-                font-size: 0.85rem;
-            }
-            
-            .filter-slider {
-                display: none;
+                padding: 5px 10px;
+                font-size: 0.8rem;
             }
         }
 
         /* Project link styling */
         .project-title a {
-            color: #333;
+            color: var(--text-primary);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .project-title a:hover {
-            color: #555;
+            color: var(--text-secondary);
         }
 
         /* Overlay to make entire card clickable */
@@ -270,6 +235,63 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+        }
+
+        /* Archive Section Styling */
+        .archive-section {
+            margin-top: 4rem;
+            margin-bottom: 3rem;
+            opacity: 0.7;
+        }
+
+        .archive-section .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-secondary);
+            color: var(--text-tertiary);
+        }
+
+        .archive-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-primary);
+            padding: 10px 0;
+            margin-left: 1rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .archive-item:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .archive-item-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .archive-title {
+            font-size: 0.95em;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .archive-date {
+            font-size: 0.85em;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -282,7 +304,8 @@
                 <li><a href="../writing/">Writing</a></li>
                 <li><a href="../experience/">Experience</a></li>
                 <li><a href="../projects/" class="active">Projects</a></li>
-                <li><a href="../resources/">Contact</a></li>
+                <li><a href="../contact/">Contact</a></li>
+                <li><a href="../garden/" style="font-style: italic;">Garden</a></li>
             </ul>
         </nav>
     </header>
@@ -295,14 +318,8 @@
             </div>
 
             <div class="filter-container">
-                <div class="filter-slider"></div>
-                <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="ai">AI</button>
                 <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="finance">Finance</button>
-
-                <button class="filter-btn" data-filter="hackathon">Hackathon</button>
                 <button class="filter-btn" data-filter="electronics">Electronics</button>
             </div>
 
@@ -317,7 +334,7 @@
                             <a href="https://github.com/EthanCratchley/solaris" target="_blank">Solar Energy Optimizer</a>
                         </h3>
                         <div class="project-date">July 2025</div>
-                        <p class="project-description">Arduino based system that orients solar panels with servos and sensors for optimal energy.</p>
+                        <p class="project-description">Arduino based system that orients solar panels with servos and sensors for optimal energy</p>
                         <div class="project-tags">
                             <span class="tag electronics">Electronics</span>
                         </div>
@@ -345,7 +362,7 @@
                 </div>
 
                 <!-- LLM Fine Tuning & RAG Development -->
-                <div class="project-card" data-tags="ai web">
+                <div class="project-card" data-tags="ai">
                     <a href="https://autonommi.com/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/conf.png" alt="Fine Tuning & RAG Dev." class="project-image">
@@ -355,10 +372,9 @@
                             <a href="https://autonommi.com/" target="_blank">Fine Tuning & RAG Development</a>
                         </h3>
                         <div class="project-date">April 2024 - Present</div>
-                        <p class="project-description">Developing Retrieval-Augmented Generation (RAG) models and fine-tuning LLMs (NDA).</p>
+                        <p class="project-description">Developing Retrieval-Augmented Generation (RAG) models and fine-tuning LLMs (NDA)</p>
                         <div class="project-tags">
                             <span class="tag ai">AI</span>
-                            <span class="tag web">Web</span>
                         </div>
                     </div>
                 </div>
@@ -374,7 +390,7 @@
                             <a href="https://www.kaggle.com/ethancratchley" target="_blank">Kaggle and CTF Competitions</a>
                         </h3>
                         <div class="project-date">February 2025 - Present</div>
-                        <p class="project-description">Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques.</p>
+                        <p class="project-description">Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques</p>
                         <div class="project-tags">
                             <span class="tag ai">AI</span>
                             <span class="tag cybersecurity">Cybersecurity</span>
@@ -383,7 +399,7 @@
                 </div>
 
                 <!-- Financial Fast Feed -->
-                <div class="project-card" data-tags="ai web finance">
+                <div class="project-card" data-tags="ai">
                     <a href="https://www.financialfastfeed.com/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/fast.png" alt="Financial Fast Feed" class="project-image">
@@ -393,11 +409,9 @@
                             <a href="https://www.financialfastfeed.com/" target="_blank">Financial Fast Feed</a>
                         </h3>
                         <div class="project-date">December 2023 - May 2025</div>
-                        <p class="project-description">Summarizes and displays financial news from RSS feeds using OpenAI API.</p>
+                        <p class="project-description">Summarizes and displays financial news from RSS feeds using OpenAI API</p>
                         <div class="project-tags">
                             <span class="tag ai">AI</span>
-                            <span class="tag web">Web</span>
-                            <span class="tag finance">Finance</span>
                         </div>
                     </div>
                 </div>
@@ -421,117 +435,44 @@
                     </div>
                 </div>
 
-                <!-- Financial Modelling -->
-                <div class="project-card" data-tags="finance">
-                    <a href="https://github.com/EthanCratchley/finance_models" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/dcf1.png" alt="Financial Modelling" class="project-image">
+                <!-- Archive Section -->
+                <div class="archive-section">
+                    <h2 class="section-title">Archive</h2>
+                    
+                    <div class="archive-item">
+                        <a href="https://github.com/EthanCratchley/finance_models" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/EthanCratchley/finance_models" target="_blank" class="archive-title">Financial Modelling</a>
+                        <span class="archive-date">July 2023 - Mar 2025</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://github.com/EthanCratchley/finance_models" target="_blank">Financial Modelling</a>
-                        </h3>
-                        <div class="project-date">July 2023 - Mar 2025</div>
-                        <p class="project-description">Forecasting and modelling a variety of financial instruments.</p>
-                        <div class="project-tags">
-                            <span class="tag finance">Finance</span>
-                        </div>
+                    
+                    <div class="archive-item">
+                        <a href="https://github.com/minhVu03/nwHacks2025" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/minhVu03/nwHacks2025" target="_blank" class="archive-title">Embr Fires</a>
+                        <span class="archive-date">January 2025</span>
                     </div>
-                </div>
-
-                <!-- Embr Fires -->
-                <div class="project-card" data-tags="ai web hackathon">
-                    <a href="https://github.com/minhVu03/nwHacks2025" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/embr2.png" alt="Embr Fires" class="project-image">
+                    
+                    <div class="archive-item">
+                        <a href="https://sfic.ca/" target="_blank" class="archive-item-link"></a>
+                        <a href="https://sfic.ca/" target="_blank" class="archive-title">SFIC Database</a>
+                        <span class="archive-date">November 2024</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://github.com/minhVu03/nwHacks2025" target="_blank">Embr Fires</a>
-                        </h3>
-                        <div class="project-date">January 2025</div>
-                        <p class="project-description">Fire news, map overlay, AI support, and more. (nwHacks 2025)</p>
-                        <div class="project-tags">
-                            <span class="tag ai">AI</span>
-                            <span class="tag web">Web</span>
-                            <span class="tag hackathon">Hackathon</span>
-                        </div>
+                    
+                    <div class="archive-item">
+                        <a href="https://github.com/EthanCratchley/algo-trading" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/EthanCratchley/algo-trading" target="_blank" class="archive-title">Algo Trading</a>
+                        <span class="archive-date">Nov 2023 - Dec 2024</span>
                     </div>
-                </div>
-
-                <!-- Algo Trading -->
-                <div class="project-card" data-tags="finance">
-                    <a href="#" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/trade.png" alt="Algo Trading" class="project-image">
+                    
+                    <div class="archive-item">
+                        <a href="https://github.com/EthanCratchley/learn2launch" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/EthanCratchley/learn2launch" target="_blank" class="archive-title">Launch to Learn</a>
+                        <span class="archive-date">Feb 2024</span>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://github.com/EthanCratchley/algo-trading" target="_blank">Algo Trading</a>
-                        </h3>
-                        <div class="project-date">Nov 2023 - Dec 2024</div>
-                        <p class="project-description">Building/Optimizing algorithmic trading strategies using Google Cloud to run/test algos.</p>
-                        <div class="project-tags">
-                            <span class="tag finance">Finance</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SFU Alumni Database -->
-                <div class="project-card" data-tags="finance web">
-                    <a href="" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/sfic.png" alt="SFU Alumni Database" class="project-image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://sfic.ca/" target="_blank">SFU Alumni Database</a>
-                        </h3>
-                        <div class="project-date">November 2024</div>
-                        <p class="project-description">Scraped >1000 SFU Alumni profiles to assist in networking for SFIC.</p>
-                        <div class="project-tags">
-                            <span class="tag finance">Finance</span>
-                            <span class="tag web">Web</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Learn2Launch -->
-                <div class="project-card" data-tags="ai web hackathon">
-                    <a href="https://github.com/EthanCratchley/learn2launch" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/l2llogo.png" alt="Learn2Launch" class="project-image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://github.com/EthanCratchley/learn2launch" target="_blank">Learn2Launch</a>
-                        </h3>
-                        <div class="project-date">Feb 2024</div>
-                        <p class="project-description">Study efficiently and land your dream job with AI. (CrackedDevs Hackathon Best Edu. Project)</p>
-                        <div class="project-tags">
-                            <span class="tag ai">AI</span>
-                            <span class="tag web">Web</span>
-                            <span class="tag hackathon">Hackathon</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Winter Watch -->
-                <div class="project-card" data-tags="web hackathon">
-                    <a href="https://github.com/EthanCratchley/winter-watch" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/wwlogo.png" alt="Winter Watch" class="project-image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://github.com/EthanCratchley/winter-watch" target="_blank">Winter Watch</a>
-                        </h3>
-                        <div class="project-date">Jan 2024</div>
-                        <p class="project-description">Ensures safety before going out in the winter. (Winter Hacks Hackathon Best Pitch)</p>
-                        <div class="project-tags">
-                            <span class="tag web">Web</span>
-                            <span class="tag hackathon">Hackathon</span>
-                        </div>
+                    
+                    <div class="archive-item">
+                        <a href="https://github.com/EthanCratchley/winter-watch" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/EthanCratchley/winter-watch" target="_blank" class="archive-title">Winter Watch</a>
+                        <span class="archive-date">Jan 2024</span>
                     </div>
                 </div>
             </div>
@@ -547,6 +488,52 @@
             <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
         </div>
     </footer>
+
+    <!-- Search Toggle Button -->
+    <button
+      id="search-toggle"
+      class="search-toggle-btn"
+      aria-label="Search"
+      title="Search (⌘K)"
+    >
+      <span class="search-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle theme">
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-input" hidden>
+      <div class="search-backdrop"></div>
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-input-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search for projects, writing..."
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Search"
+          />
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div class="search-footer">
+          <span>↑↓ Navigate</span>
+          <span>↵ Select</span>
+          <span>ESC Close</span>
+        </div>
+      </div>
+    </div>
 
     <script src="../scripts/script.js"></script>
 </body>

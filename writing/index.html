@@ -1,196 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ethan Cratchley - Writing</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-Q0VMMDZE5J');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q0VMMDZE5J");
     </script>
+    <script src="../scripts/searchIndex.js"></script>
     <style>
-        /* Make writing items clickable */
-        .writing-item {
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .writing-item:hover {
-            background-color: #f8f8f8;
-        }
-        
-        .writing-item-link {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        /* Ensure date is still visible and clickable */
-        .writing-date {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Ensure title is still visible */
-        .writing-title {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Category styling */
-        .category-section {
-            margin-bottom: 3rem;
-        }
-        
-        .category-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #f0f0f0;
-            color: #333;
-        }
-        
-        .category-section .writing-item {
-            margin-left: 1rem;
-            margin-bottom: 1rem;
-        }
+      /* Make writing items clickable */
+      .writing-item {
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        padding: 1rem 1rem;
+        border-radius: 6px;
+        margin-left: 0 !important;
+        margin-bottom: 0.5rem !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .writing-item:hover {
+        background-color: var(--bg-tertiary);
+      }
+
+      .writing-item-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      /* Ensure date is still visible and clickable */
+      .writing-date {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        line-height: 1.5;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* Ensure title is still visible */
+      .writing-title {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        line-height: 1.5;
+        display: inline-block;
+        flex-grow: 1;
+      }
+
+      /* Category styling */
+      .category-section {
+        margin-bottom: 3rem;
+      }
+
+      .category-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-secondary);
+        color: var(--text-primary);
+      }
+
+      .category-section .writing-item {
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Archive Section Styling */
+      .archive-section {
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        opacity: 0.7;
+      }
+
+      .archive-section .category-title {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--text-tertiary);
+        border-bottom: 1px solid var(--border-secondary);
+      }
+
+      .archive-section .writing-item {
+        margin-left: 1rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .archive-section .writing-title {
+        font-size: 0.95em;
+        color: var(--text-tertiary);
+      }
+
+      .archive-section .writing-date {
+        font-size: 0.85em;
+        color: var(--text-light);
+      }
+
+      .archive-section .writing-item:hover {
+        background-color: var(--bg-secondary);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Left-Side Navigation -->
     <header>
-        <nav>
-            <ul class="legend">
-                <li><a href="/">Home</a></li>
-                <li><a href="../writing/" class="active">Writing</a></li>
-                <li><a href="../experience/">Experience</a></li>
-                <li><a href="../projects/">Projects</a></li>
-                <li><a href="../resources/">Contact</a></li>
-            </ul>
-        </nav>
-    </header>    
+      <nav>
+        <ul class="legend">
+          <li><a href="/">Home</a></li>
+          <li><a href="../writing/" class="active">Writing</a></li>
+          <li><a href="../experience/">Experience</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="../contact/">Contact</a></li>
+          <li><a href="../garden/" style="font-style: italic">Garden</a></li>
+        </ul>
+      </nav>
+    </header>
     <!-- Main Content -->
     <main>
-        <!-- Writing Section -->
-        <section id="writing" class="fade-in">
-            <div class="bio-header">
-                <h1>Ethan Cratchley - Writing</h1>
+      <!-- Writing Section -->
+      <section id="writing" class="fade-in">
+        <div class="bio-header">
+          <h1>Ethan Cratchley - Writing</h1>
+        </div>
+        <div class="art-container">
+          <canvas id="artCanvas"></canvas>
+        </div>
+        <div class="writing-list">
+          <!-- AI & Technology -->
+          <div class="category-section">
+            <h2 class="category-title">Technical</h2>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/instafeed.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/instafeed.html" class="writing-title"
+                >Instagram Feed System Design</a
+              >
+              <span class="writing-date">October 2025</span>
             </div>
-            <div class="art-container">
-                <canvas id="artCanvas"></canvas>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/kaggle.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/kaggle.html" class="writing-title"
+                >Meta Kaggle Hackathon</a
+              >
+              <span class="writing-date">June 2025</span>
             </div>
-            <div class="writing-list">
-                <!-- AI & Technology -->
-                <div class="category-section">
-                    <h2 class="category-title">Technical</h2>
-                    <div class="writing-item">
-                        <a href="microblogFiles/kaggle.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/kaggle.html" class="writing-title">Meta Kaggle Hackathon</a>
-                        <span class="writing-date">June 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/llm-quality.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/llm-quality.html" class="writing-title">Forgetful Middles in LLMs</a>
-                        <span class="writing-date">June 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/llm.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/llm.html" class="writing-title">Language Model from Scratch</a>
-                        <span class="writing-date">March 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/nn.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/nn.html" class="writing-title">The Human Brain as a Neural Network</a>
-                        <span class="writing-date">March 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/bandit.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/bandit.html" class="writing-title">Bandit Wargame Walkthrough</a>
-                        <span class="writing-date">January 2025</span>
-                    </div>
-                </div>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/llm-quality.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/llm-quality.html" class="writing-title"
+                >Forgetful Middles in LLMs</a
+              >
+              <span class="writing-date">June 2025</span>
+            </div>
+            <div class="writing-item">
+              <a href="microblogFiles/nn.html" class="writing-item-link"></a>
+              <a href="microblogFiles/nn.html" class="writing-title"
+                >The Human Brain as a Neural Network</a
+              >
+              <span class="writing-date">March 2025</span>
+            </div>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/bandit.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/bandit.html" class="writing-title"
+                >Bandit Wargame Walkthrough</a
+              >
+              <span class="writing-date">January 2025</span>
+            </div>
+          </div>
 
-                <!-- Business & Society -->
-                <div class="category-section">
-                    <h2 class="category-title">Business and Economics</h2>
-                    <div class="writing-item">
-                        <a href="microblogFiles/state.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/state.html" class="writing-title">Turn to State Capitalism</a>
-                        <span class="writing-date">August 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/gap.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/gap.html" class="writing-title">Is This Just How It Works?</a>
-                        <span class="writing-date">May 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/brandfirst.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/brandfirst.html" class="writing-title">Brand First</a>
-                        <span class="writing-date">June 2024</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/value.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/value.html" class="writing-title">Value</a>
-                        <span class="writing-date">February 2024</span>
-                    </div>
-                </div>
-
-                <!-- Philosophy & Psychology -->
-                <div class="category-section">
-                    <h2 class="category-title">Reflections/Abstract</h2>
-                    <div class="writing-item">
-                        <a href="microblogFiles/tech.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/tech.html" class="writing-title">Is Technology Neutral?</a>
-                        <span class="writing-date">August 2025</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/whocares.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/whocares.html" class="writing-title">Date/Time? Who Cares</a>
-                        <span class="writing-date">April 2024</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/cause.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/cause.html" class="writing-title">Cause and Effect</a>
-                        <span class="writing-date">December 2024</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/20.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/20.html" class="writing-title">20</a>
-                        <span class="writing-date">July 2024</span>
-                    </div>
-                    <div class="writing-item">
-                        <a href="microblogFiles/complexity.html" class="writing-item-link"></a>
-                        <a href="microblogFiles/complexity.html" class="writing-title">Complexity</a>
-                        <span class="writing-date">December 2023</span>
-                    </div>
-                </div>
+          <!-- Business & Society -->
+          <div class="category-section">
+            <h2 class="category-title">Business and Economics</h2>
+            <div class="writing-item">
+              <a href="microblogFiles/state.html" class="writing-item-link"></a>
+              <a href="microblogFiles/state.html" class="writing-title"
+                >Turn to State Capitalism</a
+              >
+              <span class="writing-date">August 2025</span>
             </div>
-        </section>
+            <div class="writing-item">
+              <a href="microblogFiles/value.html" class="writing-item-link"></a>
+              <a href="microblogFiles/value.html" class="writing-title"
+                >Value</a
+              >
+              <span class="writing-date">February 2024</span>
+            </div>
+          </div>
+
+          <!-- Philosophy & Psychology -->
+          <div class="category-section">
+            <h2 class="category-title">Reflections/Abstract</h2>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/future1.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/future1.html" class="writing-title"
+                >The Future We Want and How We Get There</a
+              >
+              <span class="writing-date">November 2025</span>
+            </div>
+
+            <div class="writing-item">
+              <a href="microblogFiles/tech.html" class="writing-item-link"></a>
+              <a href="microblogFiles/tech.html" class="writing-title"
+                >Is Technology Neutral?</a
+              >
+              <span class="writing-date">August 2025</span>
+            </div>
+            <div class="writing-item">
+              <a href="microblogFiles/cause.html" class="writing-item-link"></a>
+              <a href="microblogFiles/cause.html" class="writing-title"
+                >Cause and Effect</a
+              >
+              <span class="writing-date">December 2024</span>
+            </div>
+            <div class="writing-item">
+              <a href="microblogFiles/20.html" class="writing-item-link"></a>
+              <a href="microblogFiles/20.html" class="writing-title">20</a>
+              <span class="writing-date">July 2024</span>
+            </div>
+          </div>
+
+          <!-- Archive -->
+          <div class="category-section archive-section">
+            <h2 class="category-title">Archive & Editing</h2>
+            <div class="writing-item">
+              <a href="microblogFiles/gap.html" class="writing-item-link"></a>
+              <a href="microblogFiles/gap.html" class="writing-title"
+                >Is This Just How It Works?</a
+              >
+              <span class="writing-date">May 2025</span>
+            </div>
+            <div class="writing-item">
+              <a href="microblogFiles/llm.html" class="writing-item-link"></a>
+              <a href="microblogFiles/llm.html" class="writing-title"
+                >Language Model from Scratch</a
+              >
+              <span class="writing-date">March 2025</span>
+            </div>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/whocares.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/whocares.html" class="writing-title"
+                >Date/Time? Who Cares</a
+              >
+              <span class="writing-date">April 2024</span>
+            </div>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/brandfirst.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/brandfirst.html" class="writing-title"
+                >Brand First</a
+              >
+              <span class="writing-date">February 2024</span>
+            </div>
+            <div class="writing-item">
+              <a
+                href="microblogFiles/complexity.html"
+                class="writing-item-link"
+              ></a>
+              <a href="microblogFiles/complexity.html" class="writing-title"
+                >Complexity</a
+              >
+              <span class="writing-date">December 2023</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- Footer -->
     <footer>
-        <div class="footer-info">
-            <div>LinkedIn <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank">@Ethan Cratchley</a></div>
-            <div>GitHub <a href="https://github.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
-            <div>X <a href="https://x.com/EthanCratchley" target="_blank">@EthanCratchley</a></div>
-            <div>Email <a href="mailto:ethankcratchley@gmail.com">ethankcratchley@gmail.com</a></div>
+      <div class="footer-info">
+        <div>
+          LinkedIn
+          <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank"
+            >@Ethan Cratchley</a
+          >
         </div>
+        <div>
+          GitHub
+          <a href="https://github.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          X
+          <a href="https://x.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          Email
+          <a href="mailto:ethankcratchley@gmail.com"
+            >ethankcratchley@gmail.com</a
+          >
+        </div>
+      </div>
     </footer>
+
+    <!-- Search Toggle Button -->
+    <button
+      id="search-toggle"
+      class="search-toggle-btn"
+      aria-label="Search"
+      title="Search (⌘K)"
+    >
+      <span class="search-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      class="theme-toggle-btn"
+      aria-label="Toggle dark mode"
+      title="Toggle theme"
+    >
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Search Modal -->
+    <div
+      id="search-modal"
+      class="search-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="search-input"
+      hidden
+    >
+      <div class="search-backdrop"></div>
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-input-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search for projects, writing..."
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Search"
+          />
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div class="search-footer">
+          <span>↑↓ Navigate</span>
+          <span>↵ Select</span>
+          <span>ESC Close</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Smooth Scrolling and Fade-In Animations -->
     <script src="../scripts/script.js"></script>
-</body>
+  </body>
 </html>
