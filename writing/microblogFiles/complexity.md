@@ -41,13 +41,22 @@ I don't believe that this is being bestowed upon our society with some evil inte
 
 # How do we get rid of Complexity?
 
-Getting rid of complexity is not hard. We need to approach every addition to our lives, companies, systems with caution. Add based on necessity, or even better when you think you need to add something, try and come up with a solution first.
+You don’t remove complexity by trying harder, planning more, or becoming more organized.
+You remove it by refusing to add things without a clear reason.
+
+Every addition should have to answer a simple question:
+
+`What constraint does this remove?`
+
+If the answer is unclear, the addition is almost certainly noise.
+
+For systems already in place, the same rule applies in reverse: if a component doesn’t directly enable progress toward the core objective, it should be questioned, reduced, or removed.
 
 ## Excess notes and examples on Complexity
 
 When you want to be **productive** don't watch a video on how to do so, or download an app to help you. When you want to **start a company** don't look to hire a bunch of people and add a bunch of things. Once you are **rich** don't buy a bunch of stupid expensive cars, clothes, etc. focus on your product and the future.
 
-All these things are complexities and clutter. They are exactly what is going to keep you from doing the exact thing you set out to do.
+All these are complexities and clutter. They're exactly what is going to keep you from doing the exact thing you set out to do.
 
 ---
 
