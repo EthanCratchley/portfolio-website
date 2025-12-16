@@ -1,4 +1,4 @@
-# 🏆📚 Exploring the Winning Libraries of Kaggle 
+# 🏆📚 Exploring the Winning Libraries of Kaggle
 
 ![library](../../assets/l.png)
 
@@ -33,6 +33,7 @@ from itertools import combinations
 from collections import Counter
 import networkx as nx
 ```
+
 </details>
 
 <details>
@@ -40,22 +41,22 @@ import networkx as nx
 
 ```python
 # Define color palette
-COLOR_MINT     = "#BDFCC9"  # Mint green
-COLOR_LAVENDER = "#CBAACB"  # Lavender purple
-COLOR_SLATE    = "#708090"  # Slate gray (neutral accent)
+COLOR_MINT     = "#BDFCC9"
+COLOR_LAVENDER = "#CBAACB"
+COLOR_SLATE    = "#708090"
 COLOR_LIST     = [COLOR_MINT, COLOR_LAVENDER, COLOR_SLATE]
 
 # Global matplotlib settings
 plt.rcParams.update({
     # Font
-    "font.family": "DejaVu Sans",   # or try "Arial"
+    "font.family": "DejaVu Sans",
     "font.size": 11,
 
     # Axes & Labels
     "axes.titlesize": 14,
     "axes.labelsize": 12,
     "axes.edgecolor": "#333333",
-    "axes.facecolor": "#FFFFFF",     # clean white background
+    "axes.facecolor": "#FFFFFF",
     "axes.spines.top": False,
     "axes.spines.right": False,
 
@@ -70,7 +71,7 @@ plt.rcParams.update({
 
     # Figure
     "figure.figsize": (9, 5.5),
-    "figure.facecolor": "#FFFFFF",   # white figure background
+    "figure.facecolor": "#FFFFFF",
 
     # Legend
     "legend.fontsize": 10,
@@ -80,6 +81,7 @@ plt.rcParams.update({
     "savefig.facecolor": "#FFFFFF",
 })
 ```
+
 </details>
 
 <details>
@@ -93,13 +95,11 @@ CODE_PATH        = Path("/kaggle/input/meta-kaggle-code")
 # Output folder
 LOCAL_ART = Path("/kaggle/working/output/cache_parts")
 LOCAL_ART.mkdir(parents=True, exist_ok=True)
-ART = LOCAL_ART    # backward compat for cells 15–17
-META = META_KAGGLE_PATH          # alias for brevity
+ART = LOCAL_ART
+META = META_KAGGLE_PATH
 
-#print("META_KAGGLE_PATH:", META_KAGGLE_PATH.exists())
-#print("CODE_PATH       :", CODE_PATH.exists())
-#print("LOCAL_ART        created at:", LOCAL_ART)
 ```
+
 </details>
 
 ## 📊 Dataset & Pipeline
@@ -125,7 +125,7 @@ Our goal was to move beyond raw usage counts and answer the question: **“Which
 
 To compute this at scale, we separated our pipeline into two phases. First, a **massive one-time parsing step** streams through hundreds of thousands of notebook files, extracts top-level `import` statements via a lightweight regex, and normalizes package names (e.g. `sklearn` → `scikit-learn`, dropping all standard library modules). This work is cached in Parquet shards so that judges and readers never have to rerun the heavy lifting code. In the second phase, we **merge in competition metadata** (kernel creation dates, medal awards, team counts) from the Meta Kaggle CSVs, compute the scaled impact scores, and drive the rapid interactive analysis—global leaderboards, domain-specific heat maps, temporal trends, and more.
 
-This **modular design** heavy preprocessing hidden away, fast, reproducible analysis front and center, ensures our notebook remains both **transparent** and **efficient**. Every chart can be regenerated in under two minutes on a CPU instance, and the full code and cached artifacts are bundled together, supporting end to end reproducibility without external dependencies or manual tweaks.  
+This **modular design** heavy preprocessing hidden away, fast, reproducible analysis front and center, ensures our notebook remains both **transparent** and **efficient**. Every chart can be regenerated in under two minutes on a CPU instance, and the full code and cached artifacts are bundled together, supporting end to end reproducibility without external dependencies or manual tweaks.
 
 ### Formula
 
@@ -138,7 +138,7 @@ This **modular design** heavy preprocessing hidden away, fast, reproducible anal
 # 1. Aliases you care about  (top-level import → canonical library)
 LIB_ALIASES = {
     "sklearn":    "scikit-learn",
-    "sklearnex":  "sklearnex",          
+    "sklearnex":  "sklearnex",
     "tf":         "tensorflow",
     "torch":      "pytorch",
     "cv2":        "opencv",
@@ -180,6 +180,7 @@ def normalize_lib(raw_name: str | None) -> str | None:
     # apply alias mapping
     return LIB_ALIASES.get(pkg, pkg)
 ```
+
 </details>
 
 <details>
@@ -241,6 +242,7 @@ MAX_LOG = np.log1p(team_cnt.max())
 
 #print("Core tables loaded • max team count:", team_cnt.max())
 ```
+
 </details>
 
 <details>
@@ -264,7 +266,8 @@ def code_path_for_version(kv_id: int) -> Path | None:
         return ipynb_path
     return None
 ```
-</details> 
+
+</details>
 
 <details>
 <summary>Cell 7: Import Parser</summary>
@@ -289,7 +292,7 @@ def extract_imports(code_path: Path) -> set[str]:
             if cell.cell_type != "code":
                 continue
             src = cell.source
-            if not src:             
+            if not src:
                 continue
             if isinstance(src, list):
                 src = "".join(src)
@@ -300,16 +303,16 @@ def extract_imports(code_path: Path) -> set[str]:
 
     return imports
 ```
-</details> 
 
+</details>
 
 <details>
 <summary>Cell 8: Multiprocess parser with direct to output persistence</summary>
 
 ```python
 # Config
-CHUNK_SIZE = 1_000_000   # read 1M submission rows at a time
-BATCH_SIZE = 50_000      # flush every 50k parsed rows
+CHUNK_SIZE = 1_000_000
+BATCH_SIZE = 50_000
 N_WORKERS  = max(cpu_count() - 1, 1)
 
 # Local folder where we write each Parquet shard
@@ -355,7 +358,7 @@ def flush_batch(batch: list[dict], part_idx: int) -> int:
     batch.clear()
     return part_idx + 1
 
-# 4. Main loop: read Submissions.csv in chunks, parse new IDs 
+# 4. Main loop: read Submissions.csv in chunks, parse new IDs
 reader = pd.read_csv(
     META_KAGGLE_PATH / "Submissions.csv",
     usecols=["SourceKernelVersionId"],
@@ -391,10 +394,9 @@ part_idx = flush_batch(batch, part_idx)
 pool.close()
 pool.join()
 
-#print("Parsing finished • total KernelVersionIds cached:", f"{len(seen_kv):,}")
 ```
-</details> 
 
+</details>
 
 <details>
 <summary>Cell 9: Concatenate every imports_part_*.parquet we saved</summary>
@@ -411,18 +413,15 @@ imports_df = pd.concat(
     [pq.read_table(f).to_pandas() for f in parquet_files],
     ignore_index=True
 ).drop_duplicates("KernelVersionId")
-
-#print(f"imports_df rows: {len(imports_df):,}")
-#imports_df.head()
-
 ```
-</details> 
+
+</details>
 
 <details>
 <summary>Cell 10: Merge medals, year, team count, log-scaled weight</summary>
 
 ```python
-MEDAL_BASE = {"1": 3, "2": 2, "3": 1}   # gold / silver / bronze base scores
+MEDAL_BASE = {"1": 3, "2": 2, "3": 1}   # gold / silver / bronze - base scores
 
 imports_df = (
     imports_df
@@ -431,8 +430,8 @@ imports_df = (
       .merge(kernels[["Id","Medal"]],
              left_on="ScriptId", right_on="Id", how="left",
              suffixes=("", "_ker"))
-      .merge(kv_comp, on="KernelVersionId", how="left")     # CompetitionId
-      .merge(team_cnt, on="CompetitionId", how="left")      # TeamCount
+      .merge(kv_comp, on="KernelVersionId", how="left")
+      .merge(team_cnt, on="CompetitionId", how="left")
 )
 
 # fill missing counts with 1 (datasets / unknown comps)
@@ -451,8 +450,8 @@ imports_df["ScaledWeight"] = (
 
 imports_df["Year"] = imports_df["CreationDate"].dt.year.astype("float32")
 ```
-</details> 
 
+</details>
 
 <details>
 <summary>Cell 11: Add competition category for each notebook</summary>
@@ -570,7 +569,7 @@ kv_comp_cat = (
       .astype({"CompetitionId": "Int32"})
 )
 
-# 5. Bring (CompetitionId, Category) into imports_df – single, clean join
+# 5. Bring (CompetitionId, Category) into imports_df
 imports_df = (
     imports_df
       .drop(columns=[c for c in imports_df.columns if c.startswith("CompetitionId")],
@@ -579,18 +578,16 @@ imports_df = (
 )
 
 imports_df["Category"] = imports_df["Category"].fillna("unknown")
-#print(imports_df[["KernelVersionId", "CompetitionId", "Category"]].head())
-
 ```
-</details> 
 
+</details>
 
 <details>
 <summary>Cell 12: Global Medal-Weighted Impact (log-scaled)</summary>
 
 ```python
-GLOBAL_SUPPORT = 100   # min kernels
-MIN_COMPS      = 5     # min comps for headline figure
+GLOBAL_SUPPORT = 100
+MIN_COMPS      = 5
 
 tmp = (
     imports_df
@@ -598,7 +595,7 @@ tmp = (
       .dropna(subset=["Imports"])
       .assign(Library=lambda d: d["Imports"].map(normalize_lib))
       .dropna(subset=["Library"])
-      .drop_duplicates(["KernelVersionId", "Library"])   # one row per kernel-lib
+      .drop_duplicates(["KernelVersionId", "Library"])
 )
 
 # competition diversity
@@ -615,14 +612,11 @@ impact = (
        .query("Total >= @GLOBAL_SUPPORT and CompCount >= @MIN_COMPS")
 )
 
-impact["WeightedImpact"] = impact["WeightedWins"] / impact["Total"]   # still 0-3 range
+impact["WeightedImpact"] = impact["WeightedWins"] / impact["Total"]
 impact = impact.sort_values("WeightedImpact", ascending=False)
-
-#print(f"Global impact table: {impact.shape[0]} libraries after filtering")
-#display(impact.head(20))
 ```
-</details> 
 
+</details>
 
 <details>
 <summary>Cell 13: Bar plots of global impact</summary>
@@ -631,7 +625,7 @@ impact = impact.sort_values("WeightedImpact", ascending=False)
 TOP_N = 20
 
 # Horizontal bar: Top-N libraries
-topN = impact.head(TOP_N).iloc[::-1]   # reverse so highest is on top
+topN = impact.head(TOP_N).iloc[::-1]
 
 fig, ax = plt.subplots(figsize=(8, 0.35 * TOP_N + 1))
 
@@ -660,14 +654,14 @@ for idx, val in enumerate(topN["WeightedImpact"]):
         fontsize=10
     )
 
-# hide any remaining spines for a clean look
 for spine in ["top", "right"]:
     ax.spines[spine].set_visible(False)
 
 plt.tight_layout()
 plt.show()
 ```
-</details> 
+
+</details>
 
 ![plot 1](../../assets/2.png)
 
@@ -679,16 +673,15 @@ The char above displays the top 20 libraries globally sorted by this normalized 
 
 ### 📌 Key Observations
 
-**Small but Mighty:** Topping the chart is `prettytable`, a lightweight formatting library. Rarely used compared to heavyweights like `numpy`, its usage is highly correlated with winning kernels. Perhaps Kaggle Grandmasters have found more success with presentation, reporting, summaries etc. during competitions using  `prettytable` as opposed to others.
+**Small but Mighty:** Topping the chart is `prettytable`, a lightweight formatting library. Rarely used compared to heavyweights like `numpy`, its usage is highly correlated with winning kernels. Perhaps Kaggle Grandmasters have found more success with presentation, reporting, summaries etc. during competitions using `prettytable` as opposed to others.
 
 **Underdog Visualizers:** Tools like `sweetviz`, `autoviz`, and `ydata_profiling` score very high. Automated EDA libraries offer substantial time saving during early data exploration. These can be key in a time pressured and competitive competition like what we see here on Kaggle.
 
-**High Efficiency ML Libraries:** `sklearnex`, Intel's optimized `scikit-learn` ranks second overall. This supports the idea that even marginal speedups can significantly impact performance in compute-heavy competitions. `detectron2`, `catboost`, and `lightgbm` also make the cut, highlighting the ongoing dominance of boosting frameworks and CV backbones. 
+**High Efficiency ML Libraries:** `sklearnex`, Intel's optimized `scikit-learn` ranks second overall. This supports the idea that even marginal speedups can significantly impact performance in compute-heavy competitions. `detectron2`, `catboost`, and `lightgbm` also make the cut, highlighting the ongoing dominance of boosting frameworks and CV backbones.
 
 **Interpretability Matters:** Libraries like `shap` and `eli5` show up respectfuly, reinforcing the idea that explainability often required in competition notebooks boosts trust, clarity, and possibly final judging scores.
 
 **Specialized Libraries Shine in Specific Contexts:** `kaggle_environments` and `kaggle_secrets` appear high on the list, which aligns with their necessity in reinforcement learning and secure data competitions. Similarly, the presence of `umap` and `optuna` suggests that advanced dimensionality reduction and hyperparameter optimization are now standard tools in high performing workflows.
-
 
 Based on this first look at our top 20 libraries, we consistently see the importance of EDA and explainability. Perhaps this suggests that to win Kaggle Competitions it's not just about writing good algorithms, but rather having the deepest understanding of the data at hand.
 
@@ -764,8 +757,6 @@ LIB2SECTOR = {
     "kaggle_environments": "kaggle_api",
     "kaggle_secrets":      "kaggle_api",
     "kaggle_datasets":     "kaggle_api",
-
-    # anything not listed ends up in “other”
 }
 
 def lib_sector(lib: str) -> str:
@@ -806,13 +797,11 @@ ax.set_ylabel("Avg. Impact (0–3)", labelpad=8)
 ax.set_xticks(range(len(sector_summary)))
 ax.set_xticklabels(sector_summary.index, rotation=45, ha="right")
 
-# Remove grid (rcParams disables it already)
-# ax.grid(False)
-
 plt.tight_layout()
 plt.show()
 ```
-</details> 
+
+</details>
 
 <details>
 <summary>Cell 15: Medal-Weighted Impact by Competition Category</summary>
@@ -894,13 +883,14 @@ for spine in ["top", "right", "left", "bottom"]:
 plt.tight_layout()
 plt.show()
 ```
-</details> 
+
+</details>
 
 ![plot 2](../../assets/3.png)
 
 ![plot 3](../../assets/4.png)
 
-# 🗃️ Domain Leaders	
+# 🗃️ Domain Leaders
 
 Which types of libraries dominate Kaggle competitions and where do they shine most? To answer this, we zoom in on categorical level performance across two perspectives:
 
@@ -912,19 +902,19 @@ Which types of libraries dominate Kaggle competitions and where do they shine mo
 The first chart shows the average medal weighted impact by library sector. Once again, the Explainability and Visualization (viz) libraries come out on top, even ahead of core modeling tools. Libraries like `shap`, `eli5`, `seaborn`, and `plotly` seem to help competitors build clearer, more justifiable models that judges and teammates value.
 
 Other high performing sectors:
+
 - `kaggle_api`: Libraries like `kaggle_environments` and `kaggle_secrets` are used in simulation style or agent based comps where interacting with the Kaggle system is key.
 - `tabular_ml` and `gpu_rapids`: Traditional modeling pipelines and accelerated training frameworks hold strong, showing their importance in classic structured data competitions.
 - `audio` and `nlp`: While slightly lower in mean impact, they punch above their weight in niche domains like speech recognition and language modeling.
 
-
 Meanwhile, sectors like `cv_dl` and `tabular_ml` fall slightly behind likely due to the intense competition in CV tasks where libraries alone don't guarantee medals.
-
 
 ### 🏅 Top Libraries Across Competition Categories
 
 The heatmap dives deeper, tracking the top-30 libraries and their impact across 10 competition categories.
 
 Notable insights include:
+
 - `detectron2`, `MMCV`, and `EfficientNet` dominate in Computer Vision (cv) categories. These libraries support SOTA architectures and pipelines for object detection, segmentation, and image classification which is crucial for vision heavy comeptitions.
 
 - `sklearnex`, `optuna`, `catboost`, and `LightGBM` consistently perform well in Tabular competitions. Ther impact in the tabular and finance columns highlight their optimized pipelines, fast inference, and effective tuning.
@@ -937,15 +927,15 @@ Notable insights include:
 
 This heatmap showcases that library effectiveness is domain specific. Very few libraries perform uniformly across all competition types (mostly EDA). Instead, top Kaggle competitors seem to adapt their stack to the problem space, selecting specialized tools for maximum efficiency.
 
-In short: *it's not about using more libraries, it's about using the right ones for the job.*
+In short: _it's not about using more libraries, it's about using the right ones for the job._
 
 <details>
 <summary>Cell 16: Top impact library in each of the last 10 years</summary>
 
 ```python
-RECENT_YEARS = 10   # look-back window
+RECENT_YEARS = 10
 latest_year  = int(imports_df["Year"].max())
-year_cutoff  = latest_year - RECENT_YEARS + 1    # inclusive
+year_cutoff  = latest_year - RECENT_YEARS + 1
 
 top_by_year = (
     imports_df
@@ -963,7 +953,7 @@ top_by_year = (
       .query("Year >= @year_cutoff")
       .sort_values(["Year", "WeightedImpact"], ascending=[True, False])
       .groupby("Year")
-      .head(1)                                  # top library per year
+      .head(1)
       .reset_index(drop=True)
 )
 
@@ -1005,7 +995,8 @@ for spine in ["top", "right", "left", "bottom"]:
 plt.tight_layout()
 plt.show()
 ```
-</details> 
+
+</details>
 
 ![plot 3](../../assets/6.png)
 
@@ -1080,7 +1071,8 @@ for spine in ["top", "right"]:
 plt.tight_layout()
 plt.show()
 ```
-</details> 
+
+</details>
 
 ![plot 4](../../assets/7.png)
 
@@ -1123,7 +1115,7 @@ if "trend_all" not in globals():
 
 # 2. Plot with a distinct colormap
 import matplotlib.pyplot as plt
-cmap = plt.get_cmap("tab10")   # up to 10 distinct colors
+cmap = plt.get_cmap("tab10")
 
 fig, ax = plt.subplots(figsize=(9, 6), facecolor="#FFFFFF")
 
@@ -1137,7 +1129,7 @@ for i, lib in enumerate(libs_to_plot):
         marker="o",
         linewidth=2,
         label=lib,
-        color=cmap(i)            # unique color per library
+        color=cmap(i)
     )
 
 # Titles & labels
@@ -1157,21 +1149,22 @@ for spine in ["top", "right"]:
 plt.tight_layout()
 plt.show()
 ```
-</details> 
+
+</details>
 
 ![plot 5](../../assets/1.png)
 
 ## 📈 Library Trends Over the Years
 
-To look into how flagship tools have held their ground in their per-notebook impact, we tracked eight of the most familiar names: `numpy`, `pandas`, `scikit-learn`, `matplotlib`, `xgboost`, `lightgbm`, `tensorflow`, and `pytorch` from 2015 through 2025. 
+To look into how flagship tools have held their ground in their per-notebook impact, we tracked eight of the most familiar names: `numpy`, `pandas`, `scikit-learn`, `matplotlib`, `xgboost`, `lightgbm`, `tensorflow`, and `pytorch` from 2015 through 2025.
 
-Early on, between 2015–2017, the core data stack (numpy, pandas, matplotlib, scikit-learn) climbed steadily as Kagglers discovered the power of vectorized operations and clean API design. 
+Early on, between 2015–2017, the core data stack (numpy, pandas, matplotlib, scikit-learn) climbed steadily as Kagglers discovered the power of vectorized operations and clean API design.
 
-Around 2017–2019, boosting frameworks broke out: xgboost rose rapidly, peaking in impact as structured data competitions eclipsed pure CV/NLP. 
+Around 2017–2019, boosting frameworks broke out: xgboost rose rapidly, peaking in impact as structured data competitions eclipsed pure CV/NLP.
 
 By 2020, lightgbm surged even higher. Its 2022 peak near 1.0 dwarfs all others reflecting both algorithmic speedups and Hyperparameter tuning maturity.
 
-Meanwhile, deep-learning libraries tell a different story. tensorflow crept upward into 2021 before plateauing. In contrast, pytorch enjoyed a slower but steadier climb through 2022, only to taper off as many PyTorch based models became commoditized. Today, both frameworks converge around a moderate impact (~0.4–0.5), suggesting that while they remain essential, they no longer confer as dramatic an edge per notebook. 
+Meanwhile, deep-learning libraries tell a different story. tensorflow crept upward into 2021 before plateauing. In contrast, pytorch enjoyed a slower but steadier climb through 2022, only to taper off as many PyTorch based models became commoditized. Today, both frameworks converge around a moderate impact (~0.4–0.5), suggesting that while they remain essential, they no longer confer as dramatic an edge per notebook.
 
 In summary, specialized, high-performance tools (LightGBM, XGBoost) drove the golden era of tabular competitions, while deep-learning frameworks have matured into baseline utilities that are still vital, but less of a competitive differentiator on their own.
 
@@ -1238,4 +1231,5 @@ for df, name in [(impact, "global_impact"),
     df.to_csv(csv_path, index=False)
     print(f" • {csv_path.name:<20} {human_mb(csv_path.stat().st_size)}")
 ```
-</details> 
+
+</details>

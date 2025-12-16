@@ -2,22 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" type="x-icon" href="../../assets/ec.png" />
+    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brand First</title>
-    <link rel="stylesheet" href="../../styles/styles.css" />
+    <title>Ethan Cratchley - Contact</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"
     ></script>
-    <script src="../../scripts/searchIndex.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -26,7 +25,80 @@
       gtag("js", new Date());
       gtag("config", "G-Q0VMMDZE5J");
     </script>
-    <script src="../../scripts/searchIndex.js"></script>
+    <script src="../scripts/searchIndex.js"></script>
+    <style>
+      /* Contact page specific styles */
+      .contact-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .contact-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .contact-image {
+        max-width: 300px;
+        max-height: 400px;
+        width: auto;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+      }
+
+      .contact-info {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      .contact-info p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      /* Reduce space between main content and footer */
+      main {
+        margin-bottom: -65px;
+      }
+
+      footer {
+        margin-top: 0;
+        padding-top: 5px;
+      }
+
+      /* Footer fade-in styling */
+      footer.fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 3s ease-out, transform 3s ease-out;
+      }
+
+      footer.fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .contact-image {
+          max-width: 250px;
+          max-height: 300px;
+        }
+
+        .contact-info p {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Left-Side Navigation -->
@@ -34,29 +106,42 @@
       <nav>
         <ul class="legend">
           <li><a href="/">Home</a></li>
-          <li><a href="/writing/" class="active">Writing</a></li>
-          <li><a href="/experience/">Experience</a></li>
-          <li><a href="/projects/">Projects</a></li>
-          <li><a href="/contact/">Contact</a></li>
+          <li><a href="../writing/">Writing</a></li>
+          <li><a href="../experience/">Experience</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="../contact/" class="active">Contact</a></li>
+          <li><a href="../garden/" style="font-style: italic">Garden</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- Main Content -->
     <main>
-      <section id="writing-post" class="fade-in">
+      <section id="contact" class="fade-in">
         <div class="bio-header">
-          <h1>Brand First</h1>
+          <h1>Ethan Cratchley - Contact</h1>
         </div>
-        <div class="content-container">
-          <div id="markdownContent"></div>
+
+        <!-- Contact Content -->
+        <div class="contact-content">
+          <div class="contact-image-container">
+            <img
+              src="../assets/run.JPG"
+              alt="Ethan Cratchley"
+              class="contact-image"
+            />
+          </div>
+          <div class="contact-info">
+            <p>Feel free to reach out or checkout my work at the following:</p>
+          </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="fade-in">
       <div class="footer-info">
+        <div>Based In: Vancouver</div>
         <div>
           LinkedIn
           <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank"
@@ -83,30 +168,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Markdown Script -->
-    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
-    <script src="../../scripts/searchIndex.js"></script>
-    <script>
-      window.onload = function () {
-        var converter = new showdown.Converter();
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var htmlContent = converter.makeHtml(xhr.responseText);
-            document.getElementById("markdownContent").innerHTML = htmlContent;
-          } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            document.getElementById("markdownContent").innerHTML =
-              "Error loading content...";
-          }
-        };
-        xhr.open("GET", "brandfirst.md", true);
-        xhr.send();
-      };
-    </script>
-    <script src="../../scripts/searchIndex.js"></script>
-    <script src="../../scripts/script.js"></script>
-    <script src="../../scripts/searchIndex.js"></script>
 
     <!-- Search Toggle Button -->
     <button
@@ -172,5 +233,7 @@
         </div>
       </div>
     </div>
+
+    <script src="../scripts/script.js"></script>
   </body>
 </html>

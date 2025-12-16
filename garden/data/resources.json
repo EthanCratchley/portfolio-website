@@ -1,0 +1,1038 @@
+{
+  "websites": [
+    {
+      "id": "w1",
+      "title": "Paul Graham's Essays",
+      "url": "http://www.paulgraham.com/articles.html",
+      "description": "Collection of essays on startups, technology, and philosophy",
+      "category": "blog",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "w2",
+      "title": "Gwern.net",
+      "url": "https://gwern.net/",
+      "description": "Long-form essays on AI, statistics, biohacking, and more",
+      "category": "blog",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "w3",
+      "title": "OverTheWire Wargames",
+      "url": "https://overthewire.org/wargames/",
+      "description": "Learn scripting & security concepts through fun challenges",
+      "category": "tutorial",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "w4",
+      "title": "Nate Liason's Blog",
+      "url": "https://blog.nateliason.com/",
+      "description": "Essays on productivity, learning, and personal development",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w5",
+      "title": "Sam Altman's Blog",
+      "url": "https://blog.samaltman.com/",
+      "description": "Thoughts on startups, AI, and building the future",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w6",
+      "title": "Stephen Wolfram's Writings",
+      "url": "https://www.stephenwolfram.com/",
+      "description": "Essays on computation, science, and technology by the creator of Mathematica",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w7",
+      "title": "Slate Star Codex",
+      "url": "https://slatestarcodex.com/",
+      "description": "Rationalist blog covering psychology, philosophy, medicine, and politics",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w8",
+      "title": "Roon's AGI Futures",
+      "url": "https://roonscape.ai/p/agi-futures",
+      "description": "Analysis and predictions about artificial general intelligence (AGI)",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w9",
+      "title": "Vitalik Buterin's Blog",
+      "url": "https://vitalik.eth.limo/",
+      "description": "Ethereum co-founder's writings on blockchain, crypto, and technology",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w10",
+      "title": "Brian Chesky's Medium",
+      "url": "https://medium.com/@bchesky",
+      "description": "Airbnb co-founder and CEO on design, startups, and leadership",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w11",
+      "title": "Engineering Blogs",
+      "url": "https://www.engblogs.dev/",
+      "description": "Curated list of engineering blogs from tech companies",
+      "category": "resource",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w12",
+      "title": "Patrick Collison's Site",
+      "url": "https://patrickcollison.com/",
+      "description": "Stripe co-founder's collection of essays, books, and ideas",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w13",
+      "title": "Geohot's Site",
+      "url": "https://geohot.com/",
+      "description": "George Hotz on hacking, AI and more",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w14",
+      "title": "RVNS",
+      "url": "https://rvns.moe/",
+      "description": "Great reccomendations & technical blog",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w15",
+      "title": "Frontier Magazine",
+      "url": "https://www.frontiermag.net/",
+      "description": "Magazine on technology, science, and culture",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w16",
+      "title": "Dario Amodei's Site",
+      "url": "https://darioamodei.com",
+      "description": "Anthropic CEO's writings on AI safety and development",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w17",
+      "title": "Dwarkesh Patel - Questions About AI",
+      "url": "https://www.dwarkesh.com/p/questions-about-ai",
+      "description": "Key questions and analysis about artificial intelligence, geopolitcs & more",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w18",
+      "title": "Kalomaze's Blog",
+      "url": "https://kalomaze.bearblog.dev/",
+      "description": "Amazing technical blogs",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w19",
+      "title": "Eric Zhang's Projects",
+      "url": "https://www.ekzhang.com/projects",
+      "description": "Developer portfolio showcasing programming projects and tools",
+      "category": "portfolio",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w21",
+      "title": "Justin Math",
+      "url": "https://www.justinmath.com/",
+      "description": "Mathematics education and problem-solving resources",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w22",
+      "title": "Udara's Portfolio",
+      "url": "https://udara.io/",
+      "description": "Super cool projects & blog",
+      "category": "portfolio",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w23",
+      "title": "Mrinal's Blog",
+      "url": "https://mrinalxdev.github.io/mrinalxblogs/blogs/",
+      "description": "Technical blog post on Redis database & more",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w24",
+      "title": "The Feynman Lectures on Physics",
+      "url": "https://www.feynmanlectures.caltech.edu/",
+      "description": "Complete online edition of Richard Feynman's famous physics lectures",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w25",
+      "title": "Fast.ai",
+      "url": "https://www.fast.ai/",
+      "description": "Making neural nets uncool again - practical deep learning courses",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w26",
+      "title": "Physics Graph",
+      "url": "https://physicsgraph.com/",
+      "description": "Interactive visualization of physics concepts and relationships",
+      "category": "resource",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w27",
+      "title": "USACO Guide",
+      "url": "https://usaco.guide/dashboard",
+      "description": "Free collection of resources for competitive programming",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w28",
+      "title": "Figma Mobbin",
+      "url": "https://mobbin.com/",
+      "description": "Design reference library of mobile and web app screenshots",
+      "category": "resource",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w29",
+      "title": "JAX Scaling Book - GPUs",
+      "url": "https://jax-ml.github.io/scaling-book/gpus/",
+      "description": "Guide to scaling machine learning workloads on GPUs with JAX",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w30",
+      "title": "System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "description": "Learn how to design large-scale systems and prep for system design interviews",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w31",
+      "title": "ByteByteGo",
+      "url": "https://bytebytego.com/",
+      "description": "System design and software architecture educational content",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w32",
+      "title": "Deep-ML",
+      "url": "https://www.deep-ml.com/",
+      "description": "Machine learning problems and practice platform",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w33",
+      "title": "Ground Zero AI",
+      "url": "https://www.groundzeroai.in/",
+      "description": "AI and machine learning educational resources",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w34",
+      "title": "Tensor Tonic",
+      "url": "https://www.tensortonic.com/",
+      "description": "ML practice problems",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w35",
+      "title": "Chalk.ist",
+      "url": "https://chalk.ist/",
+      "description": "Good for terminal/code screenshots",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w36",
+      "title": "Carbon",
+      "url": "https://carbon.now.sh/",
+      "description": "Create and share beautiful images of your source code",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w37",
+      "title": "Deep Learning Course by Adam Maj",
+      "url": "https://github.com/adam-maj/deep-learning",
+      "description": "Open source deep learning course and resources",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w38",
+      "title": "Anna's Archive",
+      "url": "https://annas-archive.se/",
+      "description": "Free access to books, papers, and educational resources",
+      "category": "resource",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w39",
+      "title": "Plastic List",
+      "url": "https://www.plasticlist.org/",
+      "description": "Amount of microplastics in items",
+      "category": "resource",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w40",
+      "title": "Calculating Empires",
+      "url": "https://calculatingempires.net/?pos=17070.66%2C8725.00%2C12.8983",
+      "description": "Interactive timeline of technology and power relationships",
+      "category": "resource",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w41",
+      "title": "Making Software",
+      "url": "https://www.makingsoftware.co/",
+      "description": "Super interesting and in-depth posts on software/hardware",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w42",
+      "title": "Math Academy",
+      "url": "https://www.mathacademy.com/",
+      "description": "The best mathematics learning platform",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w43",
+      "title": "Dan Luu's Blog",
+      "url": "https://danluu.com/",
+      "description": "Essays on programming, performance, and technology",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w44",
+      "title": "Matiks",
+      "url": "https://www.matiks.in/streaks/streak-info",
+      "description": "Mental math competitions & games",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w45",
+      "title": "Superwhisper",
+      "url": "https://superwhisper.com/",
+      "description": "Voice-to-text transcription tool for macOS",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w46",
+      "title": "Chorus",
+      "url": "https://chorus.sh/",
+      "description": "Multi LLM running & screen capture",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w47",
+      "title": "Research App by UNMS",
+      "url": "https://un.ms/research",
+      "description": "Great tool for reading/interacting w/ research papers",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w48",
+      "title": "Papiers",
+      "url": "https://papiers.ai/",
+      "description": "Reference management and academic research tool",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w49",
+      "title": "alphaXiv",
+      "url": "https://www.alphaxiv.org/",
+      "description": "AI-powered research paper discovery and summarization",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w50",
+      "title": "Roo Code",
+      "url": "https://roocode.com/",
+      "description": "Favorite AI coding assistant",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w51",
+      "title": "OpenRouter",
+      "url": "https://openrouter.ai/",
+      "description": "Unified API for accessing multiple LLMs",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w52",
+      "title": "OpenCode",
+      "url": "https://opencode.ai/",
+      "description": "Best cli code assistant (OS, all models)",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w53",
+      "title": "Zed",
+      "url": "https://zed.dev/",
+      "description": "High-performance & minimalistic code editor",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w54",
+      "title": "Zen Browser",
+      "url": "https://zen-browser.app/",
+      "description": "OS Arc alternative",
+      "category": "tool",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w55",
+      "title": "Andrej Karpathy's Blog",
+      "url": "https://karpathy.github.io/",
+      "description": "AI researcher's blog on deep learning and neural networks",
+      "category": "blog",
+      "dateAdded": "2025-12-15"
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "title": "Neural Networks: Zero to Hero",
+      "url": "https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ",
+      "description": "Andrej Karpathy's course building neural networks from scratch",
+      "category": "tutorial",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "v2",
+      "title": "AlphaGo Documentary",
+      "url": "https://www.youtube.com/watch?v=WXuK6gekU1Y",
+      "description": "The story of AlphaGo defeating the world champion",
+      "category": "documentary",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "v3",
+      "title": "3Blue1Brown - Neural Networks",
+      "url": "https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi",
+      "description": "Visual intuition for math, neural nets & more",
+      "category": "tutorial",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "v4",
+      "title": "Kings & Generals",
+      "url": "https://www.youtube.com/@KingsandGenerals",
+      "description": "YouTube channel covering military history and strategy",
+      "category": "documentary",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v5",
+      "title": "Epic History",
+      "url": "https://www.youtube.com/@EpichistoryTv/videos",
+      "description": "YouTube channel on world history and historical events",
+      "category": "documentary",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v6",
+      "title": "Deep Learning With Yacine",
+      "url": "https://www.youtube.com/@deeplearningexplained",
+      "description": "YouTube channel on deep learning tutorials and concepts",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v7",
+      "title": "Buckminster Fuller Interview",
+      "url": "https://www.youtube.com/watch?v=AVwCYKH8DqQ&t=330s&pp=ygUSYnVja21pbnN0ZXIgZnVsbGVy",
+      "description": "Interview with visionary architect and systems theorist Buckminster Fuller",
+      "category": "interview",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v8",
+      "title": "Bertrand Russell Interview",
+      "url": "https://www.youtube.com/watch?v=xL_sMXfzzyA&pp=ygUQYmVydHJhbmQgcnVzc2VsbA%3D%3D",
+      "description": "Interview with philosopher and logician Bertrand Russell",
+      "category": "interview",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v9",
+      "title": "Big Biology Podcast",
+      "url": "https://www.bigbiology.org/",
+      "description": "Podcast exploring biology and life sciences",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v10",
+      "title": "Watt It Takes Podcast",
+      "url": "https://open.spotify.com/show/5QjcsAWkVCfjZJdTbrXc24",
+      "description": "Podcast on energy innovation and climate solutions",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v11",
+      "title": "Acquired Podcast",
+      "url": "https://www.acquired.fm/",
+      "description": "Deep dives into company histories and business stories",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v12",
+      "title": "Startup Therapy Podcast",
+      "url": "https://www.youtube.com/c/StartupTherapy",
+      "description": "Podcast for startup founders on entrepreneurship challenges",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v13",
+      "title": "Founders Podcast",
+      "url": "https://open.spotify.com/show/7txiovdzPARhjm18NwMUYj",
+      "description": "Lessons from history's greatest entrepreneurs",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v14",
+      "title": "Planetary Radio Podcast",
+      "url": "https://www.planetary.org/planetary-radio",
+      "description": "Space exploration and astronomy podcast",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v15",
+      "title": "Lee Kuan Yew Interview",
+      "url": "https://www.youtube.com/watch?v=66Hv7izRCxg&pp=ygUWbGVlIGt1YW4geWV3IGludGVydmlldw%3D%3D",
+      "description": "Interview with Singapore's founding father Lee Kuan Yew",
+      "category": "interview",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v16",
+      "title": "Isaac Arthur",
+      "url": "https://www.youtube.com/@isaacarthurSFIA",
+      "description": "YouTube channel on futurism, space, and technology",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v17",
+      "title": "Dwarkesh Patel Podcast",
+      "url": "https://www.dwarkesh.com/",
+      "description": "In-depth interviews with experts on AI, technology, and more",
+      "category": "podcast",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v18",
+      "title": "Jared Owen",
+      "url": "https://www.youtube.com/@JaredOwen/videos",
+      "description": "YouTube channel with 3D animations explaining how things work",
+      "category": "tutorial",
+      "dateAdded": "2025-12-15"
+    }
+  ],
+  "books": [
+    {
+      "id": "b1",
+      "title": "The Intelligent Investor",
+      "author": "Benjamin Grahm",
+      "description": "The key to success in value investing",
+      "category": "finance",
+      "rating": 4,
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "b2",
+      "title": "University of Berkshire Hathaway",
+      "author": "Daniel Pecaut, Corey Wrenn",
+      "description": "Great financial advice and wisdom for life",
+      "category": "finance",
+      "rating": 5,
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "b3",
+      "title": "Venture Deals",
+      "author": "Brad Feld",
+      "description": "Venture Capital terminology, case studies and more",
+      "category": "finance",
+      "rating": 4,
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "b4",
+      "title": "Blitzscaling",
+      "author": "Reid Hoffman",
+      "description": "How to scale a startup fast",
+      "category": "startups",
+      "rating": 3,
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "b5",
+      "title": "The Hard Thing About Hard Things",
+      "author": "Ben Horowitz",
+      "description": "Building a business when there are no easy answers",
+      "category": "startups",
+      "rating": 4,
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "b6",
+      "title": "Python for Algo Trading",
+      "author": "Uves Hilpisch",
+      "description": "Python programming for algorithmic trading strategies",
+      "category": "finance",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b7",
+      "title": "A Practitioner's Guide to Algorithmic Trading",
+      "author": "Jeffrey M. Bacidore",
+      "description": "Practical guide to algorithmic trading implementation",
+      "category": "finance",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b8",
+      "title": "Algorithmic Trading, Winning Strategies and their Rationale",
+      "author": "Ernie Chan",
+      "description": "Algorithmic trading, startegies, etc.",
+      "category": "finance",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b100",
+      "title": "Trading and Exchanges: Market Microstructure for Practitioners",
+      "author": "Larry Harris",
+      "description": "In-depth on market microstructure and exchanges",
+      "category": "finance",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b9",
+      "title": "Principles of Corporate Finance",
+      "author": "Brealey Myers",
+      "description": "Comprehensive guide to corporate finance theory and practice",
+      "category": "finance",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b10",
+      "title": "Destined for War",
+      "author": "Graham Allison",
+      "description": "Can America and China escape Thucydides's Trap?",
+      "category": "geopolitics",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b11",
+      "title": "Empty Planet",
+      "author": "Darrell Bricker & John Ibbitson",
+      "description": "The shock of global population decline",
+      "category": "geopolitics",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b12",
+      "title": "Nuclear War",
+      "author": "Annie Jacobsen",
+      "description": "A scenario on nuclear warfare",
+      "category": "geopolitics",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b13",
+      "title": "Can't Hurt Me",
+      "author": "David Goggins",
+      "description": "Master your mind and defy the odds",
+      "category": "self-improvement",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b14",
+      "title": "Never Finished",
+      "author": "David Goggins",
+      "description": "Unshackle your mind and win the war within",
+      "category": "self-improvement",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b15",
+      "title": "Trump: The Art of the Deal",
+      "author": "Donald Trump",
+      "description": "Life & business lessons Donald Trump",
+      "category": "business",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b16",
+      "title": "Outliers",
+      "author": "Malcolm Gladwell",
+      "description": "The story of success and the 10,000 hour rule",
+      "category": "psychology",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b17",
+      "title": "The Power of Habit",
+      "author": "Charles Duhigg",
+      "description": "Why we do what we do in life and business",
+      "category": "psychology",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b18",
+      "title": "The Founders",
+      "author": "Jimmy Soni",
+      "description": "The story of PayPal and the entrepreneurs who shaped Silicon Valley",
+      "category": "biography",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b19",
+      "title": "The Lessons of History",
+      "author": "Will & Ariel Durant",
+      "description": "Distilled wisdom from studying civilization",
+      "category": "history",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b20",
+      "title": "Lee Kuan Yew",
+      "author": "Lee Kuan Yew",
+      "description": "Biography of Singapore's founding father",
+      "category": "biography",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b21",
+      "title": "Make It Stick",
+      "author": "Peter C. Brown",
+      "description": "The science of successful learning",
+      "category": "learning",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b22",
+      "title": "Ultralearning",
+      "author": "Scott Young",
+      "description": "Master hard skills, outsmart the competition, and accelerate your career",
+      "category": "learning",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b23",
+      "title": "A Mind for Numbers",
+      "author": "Barbara Oakley",
+      "description": "How to excel at math and science",
+      "category": "learning",
+      "rating": 2,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b24",
+      "title": "Man's Search for Meaning",
+      "author": "Viktor Frankl",
+      "description": "Finding purpose through suffering in Nazi concentration camps",
+      "category": "philosophy",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b25",
+      "title": "The Bitcoin Standard",
+      "author": "Saifedean Ammous",
+      "description": "The decentralized alternative to central banking",
+      "category": "finance",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b26",
+      "title": "Jony Ive",
+      "author": "Leander Kahney",
+      "description": "The genius behind Apple's greatest products",
+      "category": "biography",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b27",
+      "title": "Steve Jobs",
+      "author": "Walter Isaacson",
+      "description": "The authorized biography of Apple's co-founder",
+      "category": "biography",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b28",
+      "title": "Elon Musk",
+      "author": "Walter Isaacson",
+      "description": "Biography of the entrepreneur behind Tesla, SpaceX, and more",
+      "category": "biography",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b29",
+      "title": "The Story of Philosophy",
+      "author": "Will Durant",
+      "description": "The lives and opinions of the world's greatest philosophers",
+      "category": "philosophy",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b30",
+      "title": "The Pragmatic Programmer",
+      "author": "David Thomas & Andrew Hunt",
+      "description": "Your journey to mastery in software development",
+      "category": "programming",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b31",
+      "title": "The System Design Interview",
+      "author": "Alex Xu",
+      "description": "Comprehensive guide to system design interviews",
+      "category": "programming",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b32",
+      "title": "Software Engineering at Google",
+      "author": "Titus Winters, Tom Manshreck, Hyrum Wright",
+      "description": "Lessons learned from programming over time",
+      "category": "programming",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b33",
+      "title": "The Hundred-Page Machine Learning Book",
+      "author": "Andriy Burkov",
+      "description": "Concise overview of machine learning concepts",
+      "category": "programming",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b34",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "description": "A handbook of agile software craftsmanship",
+      "category": "programming",
+      "rating": 3,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b35",
+      "title": "Calculus",
+      "author": "James Stewart",
+      "description": "Comprehensive calculus textbook",
+      "category": "mathematics",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b36",
+      "title": "Notes from the Underground",
+      "author": "Fyodor Dostoevsky",
+      "description": "Philosophical novella on human consciousness and free will",
+      "category": "literature",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b37",
+      "title": "Cracking the Coding Interview",
+      "author": "Gayle Laakmann McDowell",
+      "description": "189 programming questions and solutions",
+      "category": "programming",
+      "rating": 4,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b38",
+      "title": "The Technological Republic",
+      "author": "Alex Karp & Nicholas W. Zamiska",
+      "description": "Geopolitics, defense, war, tech",
+      "category": "geopolitics",
+      "rating": 2,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "b39",
+      "title": "The 38 Letters from J.D. Rockefeller to His Son",
+      "author": "John D. Rockefeller",
+      "description": "Wisdom and advice from one of history's wealthiest men",
+      "category": "business",
+      "rating": 5,
+      "dateAdded": "2025-12-15"
+    }
+  ],
+  "papers": [
+    {
+      "id": "p1",
+      "title": "Attention Is All You Need",
+      "authors": "Vaswani et al.",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "description": "The transformer architecture paper that revolutionized NLP",
+      "category": "ai/ml",
+      "year": 2017,
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "p2",
+      "title": "Scaling Laws for Neural Language Models",
+      "authors": "Kaplan et al.",
+      "url": "https://arxiv.org/pdf/2001.08361",
+      "description": "Research on how model performance scales with size and data",
+      "category": "ai/ml",
+      "year": 2020,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "p3",
+      "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models",
+      "authors": "Wei et al.",
+      "url": "https://arxiv.org/pdf/2201.11903",
+      "description": "Improving LLM reasoning through step-by-step prompting",
+      "category": "ai/ml",
+      "year": 2022,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "p4",
+      "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "authors": "Wang et al.",
+      "url": "https://arxiv.org/pdf/2203.11171",
+      "description": "Enhancing reasoning by sampling multiple reasoning paths",
+      "category": "ai/ml",
+      "year": 2022,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "p5",
+      "title": "Deep Think with Confidence",
+      "authors": "Fu et al.",
+      "url": "https://arxiv.org/pdf/2508.15260",
+      "description": "Method that enhances reasoning efficiency and performance at test time",
+      "category": "ai/ml",
+      "year": 2025,
+      "dateAdded": "2025-12-15"
+    }
+  ],
+  "notes": [
+    {
+      "id": "n1",
+      "title": "DS&A, Problem Patterns, Problem Solutions",
+      "url": "https://github.com/EthanCratchley/technical-notes/tree/main/ds-a",
+      "description": "Notes on DS&A, Patterns, Leetcode & Codeforces Solutions",
+      "category": "personal",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "n2",
+      "title": "Productivity Workflow",
+      "url": "https://github.com/EthanCratchley/technical-notes/tree/main/workflows",
+      "description": "Productivity Workflow on Mac",
+      "category": "personal",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "n3",
+      "title": "Development Environment & Workflow",
+      "url": "https://github.com/EthanCratchley/technical-notes/tree/main/workflows",
+      "description": "Development Environment, Workflow and Homelab",
+      "category": "personal",
+      "dateAdded": "2025-12-14"
+    },
+    {
+      "id": "n4",
+      "title": "PicoCTF 2025 Notes",
+      "url": "https://github.com/EthanCratchley/technical-notes/tree/main/security",
+      "description": "Notes and writeups from PicoCTF 2025 competition",
+      "category": "security",
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "n5",
+      "title": "OWASP Notes",
+      "url": "https://github.com/EthanCratchley/technical-notes/tree/main/security",
+      "description": "Notes on OWASP security concepts and vulnerabilities",
+      "category": "security",
+      "dateAdded": "2025-12-15"
+    }
+  ]
+}
