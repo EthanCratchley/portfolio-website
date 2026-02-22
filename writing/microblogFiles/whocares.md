@@ -6,6 +6,6 @@ Personally, I’ve found date and time to be more of a distraction than anything
 
 Many species follow patterns like circadian rhythms and seasonal behaviors but no other species follows them so ritualistically. That makes me wonder: is this a strength or a weakness? Does it help us stay organized, or does it quietly chip away at productivity and even happiness?
 
-I’m not arguing that we should get rid of dates and time altogether. That would cause more problems than it would solve. But rather that we should value each minute more carefully — spend less time watching the clock, and more time actually doing.
+I’m not arguing that we should get rid of dates and time altogether. That would cause more problems than it would solve. But rather that we should ensure we are using time as an instrument for coordination and culture, not letting time use us.
 
 ![My Image] (time.png)
