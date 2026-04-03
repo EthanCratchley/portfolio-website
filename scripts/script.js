@@ -351,26 +351,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const charWidth = ctx.measureText("a").width;
     const lineHeight = 4;
 
-    // The drone tip is located at the rightmost non-space character
-    let tipX = 0;
-    let tipY = 0;
-    const tipSearchStartLine = 1; // First line with @ symbols
-    const tipSearchEndLine = 1; // Nose section
-
-    for (let i = tipSearchStartLine; i <= tipSearchEndLine; i++) {
-      const line = droneArt[i];
-      for (let j = line.length - 1; j >= 0; j--) {
-        if (line[j] === ".") {
-          // Specifically look for '@'
-          if (j > tipX / charWidth) {
-            // Compare character positions
-            tipX = j * charWidth;
-            tipY = i * lineHeight;
-          }
-          break; // Stop searching this line after rightmost '@'
-        }
-      }
-    }
+    // The drone tip is at the top-center of the ASCII art
+    const tipX = (maxLength / 2) * charWidth;
+    const tipY = 1 * lineHeight;
 
     // -----------------------------
     // 5. Drone Object
@@ -483,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
       constructor(x, y, angle) {
         this.x = x;
         this.y = y;
-        this.angle = angle * 7;
+        this.angle = angle;
         this.speed = 5;
         this.alpha = 1.0;
         this.segments = [];
@@ -523,31 +506,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // 9. Event Listeners for Laser Firing
     // -----------------------------
     canvas.addEventListener("click", (e) => {
-      // Calculate laser start position at drone tip
-      const laserX = drone.x;
-      const laserY = drone.y;
-
-      // Create new laser facing drone's direction
-      drone.lasers.push(new Laser(laserX, laserY, drone.angle));
+      // Laser fires from the drone tip in the direction it visually faces.
+      // The ASCII art tip points "up" (-π/2) when unrotated, so the
+      // actual facing direction is drone.angle - π/2.
+      const facingAngle = drone.angle - Math.PI / 2;
+      drone.lasers.push(new Laser(drone.x, drone.y, facingAngle));
     });
-
-    function animate() {
-      ctx.fillStyle = "#00000";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Update and draw lasers
-      drone.lasers = drone.lasers.filter((laser) => {
-        laser.update();
-        laser.draw(ctx);
-        return laser.alpha > 0;
-      });
-
-      updateParticles();
-      drawParticles();
-      drawDrone();
-
-      requestAnimationFrame(animate);
-    }
 
     // -----------------------------
     // 10. Spawn Background Particles (Stars)
