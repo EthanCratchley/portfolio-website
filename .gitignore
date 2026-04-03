@@ -1,6 +1,18 @@
+# OS
 .DS_Store
-blog-template.html
+Thumbs.db
+
+# Editors/IDEs
 .vscode
+.idea
+
+# Claude Code / Superpowers
 .claude
 .superpowers
 .conductor
+docs/
+
+# Misc
+blog-template.html
+node_modules
+*.log
