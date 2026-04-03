@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="../assets/ec.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things I Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111;
+            font-family: 'Baskervville', 'Baskerville', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        #grid {
+            column-count: 4;
+            column-gap: 3px;
+            padding: 3px;
+        }
+
+        .grid-item {
+            break-inside: avoid;
+            margin-bottom: 3px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .grid-item img,
+        .grid-item video {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Overlay backdrop */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            z-index: 100;
+            pointer-events: none;
+            transition: background 0.8s ease;
+        }
+
+        #overlay.active {
+            background: rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+        }
+
+        /* Ballooned item container */
+        #balloon {
+            position: fixed;
+            z-index: 101;
+            transition: all 0.35s ease;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        #balloon.active {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        #balloon img,
+        #balloon video {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Caption text box */
+        .caption-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.55);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .caption-box.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .caption-text {
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: center;
+            padding: 16px 24px;
+            white-space: pre-line;
+            max-width: 80%;
+        }
+
+        .caption-close {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+            transition: color 0.2s;
+        }
+
+        .caption-close:hover {
+            color: #fff;
+        }
+
+        /* Unmute button */
+        .unmute-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s;
+            z-index: 102;
+        }
+
+        .unmute-btn:hover {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            #grid {
+                column-count: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="grid"></div>
+    <div id="overlay"></div>
+    <div id="balloon"></div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -237,6 +237,18 @@ const SEARCH_INDEX = [
     breadcrumb: "Projects > Archive > Hackathon",
   },
 
+  // Projects - Personal
+  {
+    id: "project-things-i-love",
+    title: "Things I Love",
+    type: "project",
+    category: "Personal",
+    description: "A visual moodboard of favourite images, video clips, and moments",
+    tags: ["personal", "moodboard", "visual", "collection", "things i love"],
+    url: "/things-i-love/",
+    breadcrumb: "Projects > Personal",
+  },
+
   // Writing - Technical
   {
     id: "writing-instafeed",
