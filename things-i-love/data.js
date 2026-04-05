@@ -76,11 +76,6 @@ const ITEMS = [
   },
   { type: "image", src: "media/Casablanca.webp", caption: "Casablanca" },
   {
-    type: "video",
-    src: "media/lN8kTFPhQTo.mp4",
-    caption: "underground tournament",
-  },
-  {
     type: "image",
     src: "media/CrosbyGoldenGoal.jpg",
     caption: "Golden Goal",
