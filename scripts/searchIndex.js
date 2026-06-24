@@ -86,6 +86,25 @@ const SEARCH_INDEX = [
 
   // Projects - Featured
   {
+    id: "project-qscan",
+    title: "Qscan",
+    type: "project",
+    category: "Cybersecurity",
+    description:
+      "Static analysis tool that finds quantum-vulnerable cryptography in code, dependencies, and containers before Q-Day, with AI-powered triage",
+    tags: [
+      "cybersecurity",
+      "post-quantum",
+      "cryptography",
+      "pqc",
+      "static analysis",
+      "security",
+      "ai",
+    ],
+    url: "https://github.com/EthanCratchley/qscan",
+    breadcrumb: "Projects > Cybersecurity",
+  },
+  {
     id: "project-solaris",
     title: "Solar Energy Optimizer",
     type: "project",
@@ -135,11 +154,11 @@ const SEARCH_INDEX = [
   },
   {
     id: "project-kaggle",
-    title: "Kaggle and CTF Competitions",
+    title: "Kaggle Competitions & Writeups",
     type: "project",
     category: "AI, Cybersecurity",
     description:
-      "Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques",
+      "Kaggle Competitions using various ML, DL, and Cyber Security techniques",
     tags: [
       "ai",
       "cybersecurity",

@@ -146,6 +146,11 @@ section {
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 
+.currently-content a:hover {
+  color: var(--link-hover);
+  border-bottom-color: currentColor;
+}
+
 .currently-content {
   padding-left: 20px;
 }

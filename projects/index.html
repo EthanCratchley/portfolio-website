@@ -127,83 +127,6 @@
             text-overflow: ellipsis;
         }
 
-        .project-tags {
-            display: none; /* Hidden but still in code for filtering */
-        }
-
-        .tag {
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            background-color: var(--bg-tertiary);
-            border: 1px solid var(--border-primary);
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Add an indication that tags are toggleable */
-        .tag:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tag:hover:after {
-            opacity: 1;
-        }
-
-        /* Tag colors - apply immediately when active */
-        .tag.ai.active { background-color: #e1f5fe; border-color: #b3e5fc; }
-        .tag.cybersecurity.active { background-color: #f3e5f5; border-color: #e1bee7; }
-        .tag.electronics.active { background-color: #e8eaf6; border-color: #9575cd; }
-
-        /* Tag hover effects */
-        .tag.ai:hover { background-color: #e1f5fe; border-color: #b3e5fc; }
-        .tag.cybersecurity:hover { background-color: #f3e5f5; border-color: #e1bee7; }
-        .tag.electronics:hover { background-color: #e8eaf6; border-color: #9575cd; }
-
-        /* Simple toggle filter */
-        .filter-container {
-            margin: 0 auto 30px;
-            width: fit-content;
-            display: flex;
-            gap: 12px;
-        }
-
-        .filter-btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 6px;
-            background-color: transparent;
-            color: var(--text-quaternary);
-            cursor: pointer;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            font-weight: 500;
-            font-size: 0.85rem;
-        }
-
-        .filter-btn:hover {
-            color: var(--text-primary);
-            background-color: rgba(0, 0, 0, 0.08);
-        }
-
-        .filter-btn.active {
-            background-color: rgba(0, 0, 0, 0.15);
-            color: var(--text-primary);
-        }
-
-        .hidden {
-            display: none;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .project-card {
@@ -211,25 +134,14 @@
                 height: auto;
                 max-height: none;
             }
-            
+
             .project-image-container {
                 width: 100%;
                 height: 180px;
             }
-            
+
             .project-content {
                 padding: 15px;
-            }
-            
-            .filter-container {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-            }
-            
-            .filter-btn {
-                padding: 5px 10px;
-                font-size: 0.8rem;
             }
         }
 
@@ -335,14 +247,23 @@
                 <h1>Ethan Cratchley - Projects</h1>
             </div>
 
-            <div class="filter-container">
-                <button class="filter-btn" data-filter="ai">AI</button>
-                <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
-                <button class="filter-btn" data-filter="electronics">Electronics</button>
-            </div>
+                <!-- Qscan - Post-Quantum Cryptography Scanner -->
+                <div class="project-card">
+                    <a href="https://github.com/EthanCratchley/qscan" target="_blank" class="project-card-link"></a>
+                    <div class="project-image-container">
+                        <img src="../assets/Post-Quantum-Cryptograpy-PQC-scaled.jpg" alt="Qscan — post-quantum cryptography scanner by Ethan Cratchley that finds quantum-vulnerable crypto in code, dependencies, and containers" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">
+                            <a href="https://github.com/EthanCratchley/qscan" target="_blank">Qscan</a>
+                        </h3>
+                        <div class="project-date">February 2026 - April 2026</div>
+                        <p class="project-description">Static analysis tool that finds quantum-vulnerable cryptography in code, dependencies, and containers before Q-Day, with AI-powered triage</p>
+                    </div>
+                </div>
 
                 <!-- Things I Love -->
-                <div class="project-card" data-tags="">
+                <div class="project-card">
                     <a href="../things-i-love/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/love.png" alt="Things I Love — a visual moodboard of favourite images and moments" class="project-image">
@@ -353,12 +274,11 @@
                         </h3>
                         <div class="project-date">2026</div>
                         <p class="project-description">think of it like a moodboard</p>
-                        <div class="project-tags"></div>
                     </div>
                 </div>
 
                 <!-- Solaris - Smart Renewable Energy Optimizer -->
-                <div class="project-card" data-tags="electronics">
+                <div class="project-card">
                     <a href="https://github.com/EthanCratchley/solaris" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/solaris.png" alt="Solaris — smart renewable energy optimizer built by Ethan Cratchley, demonstrating expertise in embedded systems and electronics engineering" class="project-image">
@@ -369,14 +289,11 @@
                         </h3>
                         <div class="project-date">July 2025</div>
                         <p class="project-description">Arduino based system that orients solar panels with servos and sensors for optimal energy</p>
-                        <div class="project-tags">
-                            <span class="tag electronics">Electronics</span>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Custorix - AI-Powered Security System -->
-                <div class="project-card" data-tags="ai cybersecurity electronics">
+                <div class="project-card">
                     <a href="https://github.com/EthanCratchley" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/custorix.png" alt="Custorix — private AI-powered security system by Ethan Cratchley, showcasing his unique combination of AI and cybersecurity engineering skills" class="project-image">
@@ -387,35 +304,26 @@
                         </h3>
                         <div class="project-date">June 2025</div>
                         <p class="project-description">Private, offline first, multimodal AI security system using Gemma 3n</p>
-                        <div class="project-tags">
-                            <span class="tag ai">AI</span>
-                            <span class="tag cybersecurity">Cybersecurity</span>
-                            <span class="tag electronics">Electronics</span>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Kaggle and CTF Competitions -->
-                <div class="project-card" data-tags="ai cybersecurity">
+                <!-- Kaggle Competitions & Writeups -->
+                <div class="project-card">
                     <a href="https://www.kaggle.com/ethancratchley" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
-                        <img src="../assets/kaggle.png" alt="Kaggle and CTF competition work by Ethan Cratchley, reflecting strong competitive performance in both machine learning and cybersecurity" class="project-image">
+                        <img src="../assets/kaggle.png" alt="Kaggle competition work by Ethan Cratchley, reflecting strong competitive performance in machine learning" class="project-image">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">
-                            <a href="https://www.kaggle.com/ethancratchley" target="_blank">Kaggle and CTF Competitions</a>
+                            <a href="https://www.kaggle.com/ethancratchley" target="_blank">Kaggle Competitions & Writeups</a>
                         </h3>
                         <div class="project-date">February 2025 - Present</div>
-                        <p class="project-description">Kaggle and CTF Competitions using various ML, DL, and Cyber Security techniques</p>
-                        <div class="project-tags">
-                            <span class="tag ai">AI</span>
-                            <span class="tag cybersecurity">Cybersecurity</span>
-                        </div>
+                        <p class="project-description">Kaggle Competitions using various ML, DL, and Cyber Security techniques</p>
                     </div>
                 </div>
 
                 <!-- Financial Fast Feed -->
-                <div class="project-card" data-tags="ai">
+                <div class="project-card">
                     <a href="https://www.financialfastfeed.com/" target="_blank" class="project-card-link"></a>
                     <div class="project-image-container">
                         <img src="../assets/fast.png" alt="Financial Fast Feed — AI-powered financial news platform built under Ethan Cratchley's engineering leadership" class="project-image">
@@ -426,35 +334,25 @@
                         </h3>
                         <div class="project-date">December 2023 - May 2025</div>
                         <p class="project-description">Summarizes and displays financial news from RSS feeds using OpenAI API</p>
-                        <div class="project-tags">
-                            <span class="tag ai">AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PhishSleuth -->
-                <div class="project-card" data-tags="ai cybersecurity">
-                    <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank" class="project-card-link"></a>
-                    <div class="project-image-container">
-                        <img src="../assets/phish3.png" alt="PhishSleuth — intelligent phishing detection system by Ethan Cratchley combining static analysis with AI for email security" class="project-image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank">PhishSleuth</a>
-                        </h3>
-                        <div class="project-date">March 2025 - April 2025</div>
-                        <p class="project-description">Lightweight Static Analysis and AI for Phishing and Attachment Detection in Email</p>
-                        <div class="project-tags">
-                            <span class="tag ai">AI</span>
-                            <span class="tag cybersecurity">Cybersecurity</span>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Archive Section -->
                 <div class="archive-section">
                     <h2 class="section-title">Archive</h2>
-                    
+
+                    <div class="archive-item">
+                        <a href="https://github.com/EthanCratchley/berkshire-agent-council" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/EthanCratchley/berkshire-agent-council" target="_blank" class="archive-title">Berkshire Agent Council</a>
+                        <span class="archive-date">Jan 2026 - Apr 2026</span>
+                    </div>
+
+                    <div class="archive-item">
+                        <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank" class="archive-item-link"></a>
+                        <a href="https://github.com/EthanCratchley/PhishSleuth" target="_blank" class="archive-title">PhishSleuth</a>
+                        <span class="archive-date">Mar 2025 - Apr 2025</span>
+                    </div>
+
                     <div class="archive-item">
                         <a href="https://autonommi.com/" target="_blank" class="archive-item-link"></a>
                         <a href="https://autonommi.com/" target="_blank" class="archive-title">Fine Tuning & RAG Development</a>
