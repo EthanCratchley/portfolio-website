@@ -23,5 +23,3 @@ Burry had thousands of investors money on the line and was down over 20% on his 
 If there’s one takeaway, it’s this it is that your opinion on the value of a company (or really, your opinion on anything) doesn’t matter much if nobody knows, cares, or agrees.
 
 That doesn’t mean we should go around shilling stocks or forcing beliefs onto others. But it also doesn’t mean abandoning conviction. It means recognizing that sentiment and coordination are real forces, and they matter.
-
-The point I am trying to get across can be summarized as follows: "In the short term, the stock market is a voting machine; in the long term, it's a weighing machine."

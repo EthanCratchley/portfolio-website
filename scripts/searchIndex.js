@@ -270,6 +270,25 @@ const SEARCH_INDEX = [
 
   // Writing - Technical
   {
+    id: "writing-paper",
+    title: "Do CoT Faithfulness Metrics Agree?",
+    type: "writing",
+    category: "Technical",
+    description:
+      "Research comparing three chain-of-thought faithfulness metrics across eight open-weight models",
+    tags: [
+      "technical",
+      "research",
+      "chain-of-thought",
+      "faithfulness",
+      "interpretability",
+      "ai safety",
+      "llm",
+    ],
+    url: "/writing/microblogFiles/paper.html",
+    breadcrumb: "Writing > Technical",
+  },
+  {
     id: "writing-instafeed",
     title: "Instagram Feed System Design",
     type: "writing",
@@ -324,12 +343,12 @@ const SEARCH_INDEX = [
     id: "writing-nn",
     title: "The Human Brain as a Neural Network",
     type: "writing",
-    category: "Technical",
+    category: "Archive",
     description:
       "Exploring parallels between biological and artificial neural networks",
-    tags: ["technical", "neural network", "brain", "ai", "neuroscience"],
+    tags: ["technical", "neural network", "brain", "ai", "neuroscience", "archive"],
     url: "/writing/microblogFiles/nn.html",
-    breadcrumb: "Writing > Technical",
+    breadcrumb: "Writing > Archive",
   },
   {
     id: "writing-bandit",
@@ -461,11 +480,11 @@ const SEARCH_INDEX = [
     id: "writing-complexity",
     title: "Complexity",
     type: "writing",
-    category: "Archive",
+    category: "Reflections",
     description: "Exploring complexity in systems and thinking",
-    tags: ["philosophy", "complexity", "systems", "reflection", "archive"],
+    tags: ["philosophy", "complexity", "systems", "reflection"],
     url: "/writing/microblogFiles/complexity.html",
-    breadcrumb: "Writing > Archive",
+    breadcrumb: "Writing > Reflections",
   },
 
   // Experience - Work

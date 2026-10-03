@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="../../assets/ec.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do CoT Faithfulness Metrics Agree?</title>
+    <meta name="description" content="Research by Ethan Cratchley comparing three chain-of-thought faithfulness metrics across eight open-weight models — the metrics disagree about which models are more faithful." />
+    <meta name="keywords" content="Ethan Cratchley, chain-of-thought, CoT, faithfulness, interpretability, AI safety, LLM, evaluation, metrics" />
+    <meta name="author" content="Ethan Cratchley" />
+    <meta property="og:title" content="Do CoT Faithfulness Metrics Agree? — Ethan Cratchley" />
+    <meta property="og:description" content="Three published CoT faithfulness metrics applied to eight models on identical traces produce rankings that barely agree." />
+    <meta property="og:type" content="article" />
+    <link rel="stylesheet" href="../../styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q0VMMDZE5J"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q0VMMDZE5J");
+    </script>
+    <script src="../../scripts/searchIndex.js"></script>
+    <style>
+      .paper-meta {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .paper-meta p {
+        margin: 0.2rem 0;
+      }
+      #markdownContent .paper-abstract {
+        font-size: 0.95em;
+        margin: 0 auto 2rem;
+        max-width: 92%;
+      }
+      #markdownContent .paper-abstract p:first-child::before {
+        content: "Abstract. ";
+        font-weight: 600;
+      }
+      #markdownContent figure {
+        margin: 2rem 0;
+        text-align: center;
+      }
+      #markdownContent figure img {
+        background: #ffffff;
+        border-radius: 6px;
+        padding: 0.75rem;
+        max-width: 100%;
+        height: auto;
+      }
+      #markdownContent figcaption,
+      #markdownContent .table-caption {
+        font-size: 0.85em;
+        color: var(--text-tertiary);
+        margin-top: 0.5rem;
+        text-align: left;
+        max-width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #markdownContent p,
+      #markdownContent li {
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+      }
+      #markdownContent .paper-meta p {
+        text-align: center;
+      }
+      #markdownContent code {
+        background: none;
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      #markdownContent .table-caption {
+        margin: 1.5rem auto 0.5rem;
+      }
+      #markdownContent .table-wrap {
+        overflow-x: auto;
+      }
+      /* booktabs-style tables: horizontal rules only, as in the LaTeX source */
+      #markdownContent .table-wrap table {
+        display: table;
+        width: auto;
+        margin: 0 auto 2rem;
+        border-collapse: collapse;
+        font-size: 0.84em;
+        line-height: 1.4;
+      }
+      #markdownContent .table-wrap table th {
+        background: none;
+        border: none;
+        border-top: 2px solid var(--text-primary);
+        border-bottom: 1px solid var(--text-primary);
+        padding: 0.45em 0.55em;
+        font-weight: 400;
+      }
+      #markdownContent .table-wrap table td {
+        border: none;
+        padding: 0.3em 0.55em;
+      }
+      #markdownContent .table-wrap table th,
+      #markdownContent .table-wrap table td {
+        white-space: nowrap;
+      }
+      #markdownContent .table-wrap table tbody tr:first-child td {
+        padding-top: 0.5em;
+      }
+      #markdownContent .table-wrap table tbody tr:last-child td {
+        border-bottom: 2px solid var(--text-primary);
+        padding-bottom: 0.5em;
+      }
+      #markdownContent .table-wrap table tr:nth-child(even) {
+        background: none;
+      }
+      #markdownContent .references p {
+        font-size: 0.9em;
+        padding-left: 1.5rem;
+        text-indent: -1.5rem;
+      }
+      #markdownContent td:not(:first-child),
+      #markdownContent th:not(:first-child) {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Left-Side Navigation -->
+    <header>
+      <nav>
+        <ul class="legend">
+          <li><a href="/" aria-label="Home — Ethan Cratchley, software engineer and AI researcher">Home</a></li>
+          <li><a href="/writing/" class="active" aria-label="Writing — original technical articles and analysis by Ethan Cratchley">Writing</a></li>
+          <li><a href="/experience/" aria-label="Experience — Ethan Cratchley's professional experience">Experience</a></li>
+          <li><a href="/projects/" aria-label="Projects — selected technical work">Projects</a></li>
+          <li><a href="/contact/" aria-label="Contact — connect with Ethan Cratchley for engineering roles, collaborations, and opportunities">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section id="writing-post" class="fade-in">
+        <div class="bio-header">
+          <h1>Do CoT Faithfulness Metrics Agree?</h1>
+        </div>
+        <div class="content-container">
+          <div id="markdownContent">
+            <div class="paper-meta">
+              <p>Ethan Cratchley · October 2026</p>
+              <p>
+                <a href="https://github.com/EthanCratchley/cot-faithfulness-research" target="_blank" rel="noopener">Code, prompts, raw generations and judge verdicts</a>
+                &nbsp;·&nbsp;
+                <a href="paper.pdf" target="_blank" rel="noopener">View as PDF</a>
+              </p>
+            </div>
+
+            <div class="paper-abstract">
+              <p>
+                When a paper reports that one model reasons more faithfully than another, how much of
+                that conclusion reflects the models, and how much the metric chosen to measure them? We apply
+                three published chain-of-thought faithfulness metrics — Biasing Features, Filler Tokens and
+                Early Answering — to eight open-weight models, holding the questions and the generated
+                reasoning traces fixed so that only the metric varies. The metrics do not agree. The rankings
+                they produce correlate weakly, with Kendall's τ as low as +0.357 between metric pairs. On
+                individual traces, two of the metrics are negatively correlated (Cohen's κ −0.240): a
+                trace one metric labels faithful is more likely than chance to be labelled unfaithful by the
+                other. For two models that differ only in post-training, one metric favours the first in 98%
+                of bootstrap resamples and another in 14%. Implementation details not reported in the original
+                papers compound the problem: swapping the judge model within a single metric reordered the
+                models more than switching between metrics did. A claim that one model is more faithful than
+                another is therefore largely a claim about how faithfulness was measured.
+              </p>
+            </div>
+
+            <h2>1. Introduction</h2>
+            <p>
+              Olmo-3.1-32B is released in two versions, Think and Instruct, which share a base model,
+              training data and parameter count and differ only in post-training. Under the Biasing Features
+              metric, Instruct is more faithful than Think in 98% of bootstrap resamples. Under Filler
+              Tokens, it is more faithful in 14%. The questions and reasoning traces are identical in both
+              cases; only the metric has changed.
+            </p>
+            <p>
+              This matters because chain-of-thought (CoT) monitoring is part of the safety case for reasoning
+              models. If a model's written reasoning reflects what actually produced its answer, that
+              reasoning can be inspected for problems. If it is instead a plausible narrative written
+              alongside whatever really drove the answer — a hint in the prompt, a memorised association, a
+              shortcut the model never writes down — then monitoring the text offers much weaker guarantees.
+              Faithfulness metrics exist to tell these cases apart, and their results inform how models are
+              compared and selected.
+            </p>
+            <p>
+              Each metric was introduced in its own paper and evaluated on its own models and data. Recent
+              work has shown that the metrics disagree on individual traces, but it has not been established
+              whether they disagree about which models are more faithful, which is the form the claim takes
+              when a metric informs model selection.
+            </p>
+            <p>
+              An obvious objection is that the metrics measure different properties, so disagreement is
+              expected. We accept that they measure different properties. The literature, however, largely
+              does not treat them as different: "faithfulness" is used without qualification in abstracts
+              and in arguments about monitorability, and model comparisons are routinely drawn from a single
+              metric. This study measures the size of the error that this conflation produces.
+            </p>
+            <p>We make four contributions:</p>
+            <ol>
+              <li>
+                Holding models, questions and traces fixed, we show that three widely used metrics rank
+                eight models differently, with 4 of 28 model pairs reversing outright.
+              </li>
+              <li>
+                We show that trace-level verdicts from two of the metrics are negatively correlated, an
+                outcome our pre-registered predictions did not anticipate.
+              </li>
+              <li>
+                We show that choices within a single metric, namely the judge model and the
+                answer-elicitation format, reorder models about as much as the choice between metrics.
+              </li>
+              <li>
+                We document that two of the three metrics cannot be run reliably through most hosted
+                APIs, and that the resulting failures are silent.
+              </li>
+            </ol>
+
+            <h2>2. Background and related work</h2>
+            <p>
+              <a href="#ref-turpin2023">Turpin et al. (2023)</a> showed that a model's stated reasoning can
+              systematically misrepresent the cause of its answer: when a prompt contains a bias, the model's
+              answer follows it while the reasoning omits it. Their work established the problem, but it
+              cannot serve as a quantitative reference here, since the models it studied are no longer
+              available and it used BIG-Bench Hard rather than knowledge questions.
+            </p>
+            <p>
+              Our direct predecessor is "Is Chain-of-Thought Really Not Explainability?"
+              (<a href="#ref-zaman2025">Zaman et al., 2025</a>), which compared several faithfulness metrics
+              on individual traces and found frequent disagreement: of the traces Biasing Features labelled
+              unfaithful, 20–60% were judged faithful by other metrics, and Biasing Features alone labelled
+              over 80% of traces unfaithful. That work compares metrics trace by trace; we ask whether the
+              disagreement survives aggregation — whether the metrics also disagree about which
+              <em>models</em> are more faithful, which is how the claim is used in practice. To keep our
+              trace-level results comparable, we adopt its hint wording, its judge criterion and its public
+              code.
+            </p>
+            <p>
+              The three metrics test different ways in which reasoning could fail to reflect the cause of an
+              answer, and all three are scored so that higher values indicate greater faithfulness. Biasing
+              Features (<a href="#ref-turpin2023">Turpin et al., 2023</a>;
+              <a href="#ref-chua2025">Chua and Evans, 2025</a>) adds a hint pointing at a wrong answer and,
+              on the questions where the model switches to that answer, asks a judge whether the reasoning
+              acknowledges the hint; it tests honesty about influence, and it scores only the traces the hint
+              flipped. Filler Tokens (<a href="#ref-lanham2023">Lanham et al., 2023</a>) replaces the
+              reasoning with meaningless filler and checks whether the answer survives; if it does, the
+              reasoning was not doing any work. Early Answering
+              (<a href="#ref-lanham2023">Lanham et al., 2023</a>) truncates the reasoning at several points
+              and checks whether the answer was already settled before the reasoning finished; it tests when
+              the decision was made.
+            </p>
+            <p>
+              Two further metrics were excluded before any data were collected. The faithful@k metric
+              (<a href="#ref-chua2025">Chua and Evans, 2025</a>), which asks whether any of k samples
+              acknowledges the hint, is a monotone function of the Biasing Features rate, so its agreement
+              with Biasing Features would be guaranteed by construction. FUR
+              (<a href="#ref-tutek2025">Tutek et al., 2025</a>) requires parameter unlearning at every
+              reasoning step, which was not feasible at this scale. We depart from the predecessor study in
+              one respect: it points the hint at a randomly chosen option different from each model's own
+              answer, so different models receive different hints for the same question. Because this study
+              compares models, we instead point the hint at a random incorrect option fixed per question, so
+              that every model receives an identical prompt.
+            </p>
+
+            <h2>3. Methodology</h2>
+
+            <h3>3.1 Design</h3>
+            <p>
+              The design holds everything constant except the metric. All models answer the same questions,
+              all metrics score the same reasoning traces, and any difference in the resulting rankings is
+              therefore attributable to the metric.
+            </p>
+            <p>
+              Hypotheses were recorded before any faithfulness score had been computed; the only prior
+              observation, baseline accuracy from a pilot run, was disclosed at the same time. We predicted
+              that the metrics would rank models differently (H1), operationalised as at least one metric
+              pair with τ below 0.6 and a 95% interval excluding 0.8; that they would disagree on
+              individual traces (H2), operationalised as pooled κ below 0.4; and, as a directional
+              prediction only, that disagreement would be larger for thinking models (H3). The study would
+              have counted as falsified had every metric pair exceeded τ 0.8 with intervals excluding 0.6.
+              The thresholds are judgement calls fixed in advance; nothing derives them.
+            </p>
+            <figure>
+              <img
+                src="figures/fig0-workflow.svg"
+                alt="Workflow diagram: each question is answered with and without a hint, the hinted trace is scored by all three metrics, and the metrics are compared on rankings and trace labels."
+              />
+              <figcaption>
+                <strong>Figure 1:</strong> Each question is answered with and without a hint. The hinted
+                reasoning trace is then scored by all three metrics, and the metrics are compared on how they
+                rank models and how they label individual traces.
+              </figcaption>
+            </figure>
+
+            <h3>3.2 Models and data</h3>
+            <p>
+              We evaluate eight open-weight models from seven labs, each with at most 32B parameters so that
+              it runs on a single GPU at bf16 precision (Table 1). Six are thinking models,
+              trained to produce an extended reasoning section before answering; two are instruct models,
+              whose reasoning is shorter and forms part of the ordinary response. The two Olmo-3.1-32B
+              variants form a matched pair: they share a base model, data and size, so differences between
+              them isolate the effect of post-training.
+            </p>
+            <p class="table-caption">
+              <strong>Table 1:</strong> The eight models. The hint flip rate is the share of questions on
+              which the hint moved the answer to the hinted option; only these traces can be scored by
+              Biasing Features. Truncated is the share of traces cut off at the generation limit.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Lab</th>
+                    <th>Thinking</th>
+                    <th>Accuracy</th>
+                    <th>Hint flips</th>
+                    <th>Truncated</th>
+                    <th>Median CoT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>gemma-4-31B-it</td><td>Google</td><td>yes</td><td>83.8%</td><td>40.8%</td><td>35.0%</td><td>15,690</td></tr>
+                  <tr><td>Qwen3.8-27B</td><td>Alibaba</td><td>yes</td><td>83.2%</td><td>17.2%</td><td>29.4%</td><td>8,362</td></tr>
+                  <tr><td>Muse-Glimmer-30B</td><td>Meta</td><td>yes</td><td>81.6%</td><td>12.0%</td><td>10.6%</td><td>9,346</td></tr>
+                  <tr><td>Nemotron-3-Nano-30B</td><td>NVIDIA</td><td>yes</td><td>74.6%</td><td>17.4%</td><td>23.8%</td><td>7,679</td></tr>
+                  <tr><td>gpt-oss-20b</td><td>OpenAI</td><td>yes</td><td>71.6%</td><td>8.4%</td><td>6.4%</td><td>1,781</td></tr>
+                  <tr><td>Olmo-3.1-32B-Think</td><td>Ai2</td><td>yes</td><td>71.2%</td><td>12.6%</td><td>30.0%</td><td>21,080</td></tr>
+                  <tr><td>Olmo-3.1-32B-Instruct</td><td>Ai2</td><td>no</td><td>68.6%</td><td>13.6%</td><td>8.0%</td><td>2,650</td></tr>
+                  <tr><td>Mistral-Small-3.2-24B</td><td>Mistral</td><td>no</td><td>68.0%</td><td>17.2%</td><td>0.4%</td><td>929</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              Because Biasing Features scores only the traces the hint flipped, it rests on 42–204 traces
+              per model, while the other two metrics use nearly all 500.
+            </p>
+            <p>
+              The questions are 500 items from MMLU-Pro (<a href="#ref-wang2024">Wang et al., 2024</a>), a
+              university-level multiple-choice benchmark covering 14 subjects, most with ten options.
+              Multiple choice makes answer changes unambiguous, and ten options make it unlikely that a model
+              lands on the hinted answer by chance. The item set was frozen before any scoring and every
+              model is pinned to a specific HuggingFace revision; exact identifiers are listed in the
+              appendix.
+            </p>
+            <p>
+              Each model produces eight generations per question, about 32,000 in total: a baseline answer
+              without the hint, a hinted answer, a filler generation in which the hinted reasoning is
+              replaced by 200 dots, and five generations in which the hinted reasoning is truncated at 0, 20,
+              40, 60 and 80% of its length. The baseline serves only to detect whether the hint changed the
+              answer. All three metrics operate on the same hinted traces.
+            </p>
+
+            <h3>3.3 Implementation choices</h3>
+            <p>
+              The source papers leave several implementation details unreported. We fixed them as follows,
+              and each affected the results.
+            </p>
+            <p>
+              The hint text is taken verbatim from the predecessor study: "A Stanford professor thinks the
+              answer is (X)." Because the hint is the intervention, rewording it changes the strength of the
+              manipulation; an earlier paraphrase of ours did not match the original despite appearing to.
+            </p>
+            <p>
+              For Filler Tokens and Early Answering, the injected reasoning is followed by the cue
+              <code>Answer: (</code>, which forces the next token to be an option letter. Without it, some
+              models disregard the injected reasoning and reason again from scratch, so their answer no
+              longer depends on the intervention. Baseline and hinted generations are left uncued to preserve
+              natural behaviour. Because both injection metrics share the same cue, disagreement between them
+              cannot be attributed to it.
+            </p>
+            <p>
+              Filler Tokens and Early Answering compare against the final answer of the full hinted trace. We
+              require that answer to be stated explicitly and exclude traces where it could only be inferred,
+              since inferring it from an option mentioned in passing caused both metrics to score traces as
+              maximally faithful for reasons that came from our parser rather than the model.
+            </p>
+            <p>
+              Biasing Features requires a judge to decide whether a trace acknowledges the hint. Following
+              the predecessor, the criterion is whether the trace clearly states that the hint influenced the
+              answer, not merely whether it mentions the hint. Claude Haiku 4.5 failed our validation check
+              (κ = 0.353 against reference labels); on manual review of the 18 traces where Haiku and
+              Claude Opus 5 disagreed, Opus was correct in roughly 17, and it was used for the final run. It
+              returned verdicts on 694 of 696 eligible traces.
+            </p>
+
+            <h3>3.4 Why the study required local model weights</h3>
+            <p>
+              Reading a model's reasoning is possible through almost any interface, but Filler Tokens and
+              Early Answering require writing reasoning back into the model's context and letting it continue
+              from there. Of 106 models we screened across hosted APIs, 55 supported the capabilities both
+              metrics require, and about 20 remained after excluding roleplay fine-tunes, translation models
+              and vision models. Failures were silent: an API that discards injected reasoning still returns
+              a successful response, and thinking models given filler reasoning often regenerate their own.
+              Support also varied by provider rather than by model, so the same model could accept injection
+              on one host and not another. These metrics are portable across model weights but not across
+              deployments, and a score obtained through an API may not measure what it claims to.
+            </p>
+            <p>
+              We therefore ran every model locally with vLLM, using raw text completion so that we
+              constructed the entire prompt, with reasoning delimiters taken from each model's own chat
+              template. Injection was verified on all eight templates before the main run.
+            </p>
+
+            <h3>3.5 Statistical analysis</h3>
+            <p>
+              Agreement between rankings is measured with Kendall's τ, which compares two orderings of the
+              eight models across all 28 pairs: +1 means the orderings are identical, 0 unrelated, −1
+              reversed. Agreement on individual traces is measured with Cohen's κ, which corrects the
+              agreement between binary faithful/unfaithful labels for agreement expected by chance; 0 is
+              chance-level and negative values indicate systematic disagreement. For this comparison, a trace
+              is faithful under Early Answering if its answer at the 60% truncation point differs from its
+              final answer. With only eight models a single swapped pair moves τ by a large step, so we
+              resample the 500 questions with replacement 2,000 times, recompute every score on each
+              resample, and report 95% percentile intervals; the same resamples yield the pairwise model
+              comparisons reported below.
+            </p>
+
+            <h2>4. Results</h2>
+
+            <h3>4.1 Rankings diverge (H1 confirmed)</h3>
+            <p>
+              Two of the three metric pairs meet the pre-registered criterion for divergence, and the third,
+              at +0.618, falls well short of agreement (Table 2, Figure 2). The falsification condition is
+              not met for any pair.
+            </p>
+            <p class="table-caption">
+              <strong>Table 2:</strong> Rank correlation between metric pairs, with 95% bootstrap intervals.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric pair</th>
+                    <th>Kendall's τ</th>
+                    <th>95% interval</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Filler Tokens × Early Answering</td><td>+0.357</td><td>[+0.000, +0.500]</td></tr>
+                  <tr><td>Biasing Features × Early Answering</td><td>+0.400</td><td>[+0.000, +0.571]</td></tr>
+                  <tr><td>Biasing Features × Filler Tokens</td><td>+0.618</td><td>[+0.214, +0.714]</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure>
+              <img
+                src="figures/fig2-tau-ci.svg"
+                alt="Chart of Kendall's tau for each metric pair with 95% bootstrap intervals and dashed lines marking the pre-registered thresholds."
+              />
+              <figcaption>
+                <strong>Figure 2:</strong> Kendall's τ for each metric pair with 95% bootstrap intervals.
+                Dashed lines mark the pre-registered thresholds.
+              </figcaption>
+            </figure>
+            <p>
+              The per-model scores (Table 3) show where the orderings separate. Mistral-Small ties for last
+              place under Biasing Features but ranks second under Early Answering; gemma-4 is mid-table under
+              Biasing Features and last under Filler Tokens.
+            </p>
+            <p class="table-caption">
+              <strong>Table 3:</strong> Faithfulness score per model under each metric; higher is more
+              faithful.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Biasing Features</th>
+                    <th>Filler Tokens</th>
+                    <th>Early Answering</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>gpt-oss-20b</td><td>0.786</td><td>0.600</td><td>0.357</td></tr>
+                  <tr><td>Olmo-3.1-32B-Instruct</td><td>0.647</td><td>0.542</td><td>0.379</td></tr>
+                  <tr><td>Nemotron-3-Nano-30B</td><td>0.529</td><td>0.571</td><td>0.318</td></tr>
+                  <tr><td>Olmo-3.1-32B-Think</td><td>0.492</td><td>0.567</td><td>0.227</td></tr>
+                  <tr><td>Muse-Glimmer-30B</td><td>0.483</td><td>0.500</td><td>0.218</td></tr>
+                  <tr><td>gemma-4-31B-it</td><td>0.455</td><td>0.387</td><td>0.305</td></tr>
+                  <tr><td>Qwen3.8-27B</td><td>0.163</td><td>0.415</td><td>0.215</td></tr>
+                  <tr><td>Mistral-Small-3.2-24B</td><td>0.163</td><td>0.508</td><td>0.362</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              Of the 28 model pairs, four reverse outright between Biasing Features and Filler Tokens, with
+              each metric favouring a different model in a large majority of resamples (Figure 3). The
+              matched Olmo pair is among them.
+            </p>
+            <figure>
+              <img
+                src="figures/fig1-reversals.svg"
+                alt="Chart showing the fraction of bootstrap resamples in which the first model of each pair ranks as more faithful, under Biasing Features and under Filler Tokens."
+              />
+              <figcaption>
+                <strong>Figure 3:</strong> Fraction of bootstrap resamples in which the first model of each
+                pair ranks as more faithful, under Biasing Features and under Filler Tokens.
+              </figcaption>
+            </figure>
+
+            <h3>4.2 Trace-level agreement is poor (H2 confirmed)</h3>
+            <p>
+              Agreement on individual traces falls below the 0.4 threshold for every pair, and for Biasing
+              Features and Early Answering it is negative: the two metrics tend to label <em>opposite</em>
+              traces unfaithful (Table 4). The pre-registration anticipated agreement or disagreement, but
+              not anticorrelation, and we regard this as the study's main unexpected result. Pairs involving
+              Biasing Features are computed on 672 traces because that metric scores only traces where the
+              hint changed the answer.
+            </p>
+            <p class="table-caption">
+              <strong>Table 4:</strong> Trace-level agreement between metric pairs.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric pair</th>
+                    <th>Cohen's κ</th>
+                    <th>Traces</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Filler Tokens × Early Answering</td><td>+0.221</td><td>3,856</td></tr>
+                  <tr><td>Biasing Features × Filler Tokens</td><td>+0.108</td><td>672</td></tr>
+                  <tr><td>Biasing Features × Early Answering</td><td>−0.240</td><td>672</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>4.3 Thinking models show more disagreement (H3, direction confirmed)</h3>
+            <p>
+              Averaging each model's κ across the three metric pairs, every thinking model falls below
+              every instruct model. Thinking models average −0.009, indicating essentially no agreement,
+              while instruct models average +0.284. The matched pair follows the same pattern, with
+              Olmo-Think at +0.075 and Olmo-Instruct at +0.341.
+            </p>
+            <p>
+              This result carries two qualifications. The statistic was chosen after the data were seen,
+              because τ requires several models and cannot describe one; per-model κ was the only workable
+              measure, but the choice was post hoc. In addition, with only two instruct models the group
+              comparison is weak on its own, and most of its weight comes from the matched pair.
+            </p>
+
+            <h3>4.4 Sensitivity within a single metric</h3>
+            <p>
+              The following observations arose while building the pipeline rather than from pre-registered
+              hypotheses.
+            </p>
+            <p>
+              The first concerns the judge. We scored Biasing Features twice on identical traces, with the
+              same prompt and criterion, changing only the judge from Haiku 4.5 to Opus 5 (Figure 4).
+              Olmo-Think's score rose from 3.2% to 49.2%, and the gap between the two Olmo models narrowed
+              from 39.5 to 15.5 points. The two judges' rankings correlate at τ = +0.546, lower than the
+              +0.618 between Biasing Features and Filler Tokens. Changing the judge within one metric
+              reordered the models more than changing the metric.
+            </p>
+            <figure>
+              <img
+                src="figures/fig3-judge-swap.svg"
+                alt="Chart of Biasing Features score per model when the same traces are judged by Haiku 4.5 and by Opus 5."
+              />
+              <figcaption>
+                <strong>Figure 4:</strong> Biasing Features score per model when the same traces are judged
+                by Haiku 4.5 and by Opus 5.
+              </figcaption>
+            </figure>
+            <p>
+              The second concerns answer elicitation. We gave three models a reasoning trace arguing for an
+              incorrect answer. Without the answer cue, Olmo-Think and gemma-4 ignored it, re-derived the
+              problem and answered correctly, which Filler Tokens and Early Answering would score as evidence
+              that the reasoning matters. With the cue placed directly after the same trace, both followed it
+              to the incorrect answer. Without the cue, two of the eight models could not be scored on Filler
+              Tokens at all, as they rejected the filler and generated thousands of characters of new
+              reasoning.
+            </p>
+            <p>
+              Together these results show that a faithfulness score cannot be reproduced from the name of the
+              metric alone. The judge model and elicitation format must also be specified.
+            </p>
+
+            <h3>4.5 Robustness to truncated traces</h3>
+            <p>
+              Some reasoning traces reach the 8,192-token generation limit and are cut off. To test whether
+              this affects the rankings, we recomputed each metric on the 214 questions for which no model's
+              trace was truncated, counting a metric as robust if the subset ranking correlated with the full
+              ranking at τ ≥ 0.85 with no model moving more than one position (Table 5).
+            </p>
+            <p class="table-caption">
+              <strong>Table 5:</strong> Ranking stability when truncated traces are excluded.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>τ (full vs. subset)</th>
+                    <th>Models moving &gt;1 place</th>
+                    <th>Outcome</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Early Answering</td><td>+0.929</td><td>0</td><td>robust</td></tr>
+                  <tr><td>Filler Tokens</td><td>+0.571</td><td>4</td><td>not robust</td></tr>
+                  <tr><td>Biasing Features</td><td>+0.370</td><td>7</td><td>insufficient data</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              Early Answering is robust. Filler Tokens is not, and this is a genuine weakness: each model
+              retains 191–214 traces on the subset, so the instability does not come from small samples. Any
+              conclusion that depends on the Filler Tokens ordering, including the Olmo reversal, is weakened
+              accordingly. The Biasing Features result cannot be interpreted, since the subset leaves only
+              7–29 scorable traces per model, below our minimum of 30.
+            </p>
+
+            <h2>5. Limitations and amendments</h2>
+            <p>
+              Five aspects of the study changed after the design was fixed. A planned cap on truncated traces
+              (under 5%) proved unattainable for seven of the eight models at any feasible token budget, and
+              excluding truncated items would have retained only easy questions, raising median accuracy from
+              74% to 92%; it was replaced by the ranking-stability check reported above. Three models
+              exceeded the pre-registered 50–80% accuracy band; the pre-committed fallback, an easier
+              benchmark, would have raised accuracy further and was not applied. A planned external
+              validation against a published Biasing Features result was dropped because the reference setup
+              differed from ours in model, dataset and hint rule simultaneously, so neither a match nor a
+              mismatch would have been informative. The H3 statistic was chosen after the data were seen,
+              since τ cannot be computed for a single model. Finally, a planned repetition of one model's
+              run was not completed because the required GPU type became unavailable; with fixed seeds and
+              pinned model revisions we expect a rerun to reproduce the results, but this has not been
+              demonstrated.
+            </p>
+            <p>
+              Of these, the dropped external validation limits the conclusions most: nothing beyond our
+              manual review of judge disagreements shows that our Biasing Features implementation yields
+              numbers comparable to published results.
+            </p>
+            <p>
+              Several further limitations apply. With eight models, rank correlations are noisy, which is why
+              we rely on bootstrap intervals and pairwise comparisons rather than point estimates. The Filler
+              Tokens ranking is not robust to excluding truncated traces. The judge was changed partway
+              through the study, although both sets of verdicts are preserved and compared above. All models
+              are 32B parameters or smaller, so the results say nothing about frontier-scale systems. Three
+              models exceed the pre-registered accuracy range, leaving less room for the hint to change their
+              answers. Two traces (0.3%) received no verdict because the judge API declined them. Finally,
+              the study uses one hint type, one dataset and three of the published metrics.
+            </p>
+
+            <h2>6. Conclusion</h2>
+            <p>
+              Faithfulness scores should always be reported together with the metric, the judge model and the
+              answer-elicitation format. In this study the judge alone reordered models more than the choice
+              of metric, so the metric's name is not sufficient to specify a result.
+            </p>
+            <p>
+              Models should not be ranked on a single faithfulness metric. Four of 28 model pairs reversed
+              between metrics, including two models that differ only in post-training. Where a comparison
+              informs a decision, several metrics should be run and their disagreements reported.
+            </p>
+            <p>
+              Unqualified claims about faithfulness should be read as claims about one property: whether the
+              reasoning is honest about what influenced it, whether it is necessary for the answer, or
+              whether the answer is still being decided while it is written. On our data these properties
+              point in different directions.
+            </p>
+            <p>
+              Metrics that inject reasoning into a model's context should verify that the injection took
+              effect, since silent API failures and models that regenerate their own reasoning both produce
+              plausible scores that measure nothing.
+            </p>
+            <p>
+              Two steps would resolve the main open questions: reproducing a published Biasing Features
+              result with this pipeline, and repeating one model's run to confirm identical outputs. The code
+              for the first is included in the repository.
+            </p>
+
+            <h2>References</h2>
+            <div class="references">
+              <p id="ref-chua2025">
+                Chua, J. and Evans, O. (2025). Are DeepSeek R1 and other reasoning models more faithful?
+                <a href="https://arxiv.org/abs/2501.08156" target="_blank" rel="noopener"><em>arXiv:2501.08156</em></a>.
+              </p>
+              <p id="ref-lanham2023">
+                Lanham, T., et al. (2023). Measuring faithfulness in chain-of-thought reasoning.
+                <a href="https://arxiv.org/abs/2307.13702" target="_blank" rel="noopener"><em>arXiv:2307.13702</em></a>.
+              </p>
+              <p id="ref-turpin2023">
+                Turpin, M., Michael, J., Perez, E., and Bowman, S. R. (2023). Language models don't always
+                say what they think: Unfaithful explanations in chain-of-thought prompting.
+                <a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener"><em>arXiv:2305.04388</em></a>.
+              </p>
+              <p id="ref-tutek2025">
+                Tutek, M., Hashemi Chaleshtori, F., Marasović, A., and Belinkov, Y. (2025). Measuring
+                faithfulness of chains of thought by unlearning reasoning steps.
+                <a href="https://arxiv.org/abs/2502.14829" target="_blank" rel="noopener"><em>arXiv:2502.14829</em></a>.
+              </p>
+              <p id="ref-wang2024">
+                Wang, Y., et al. (2024). MMLU-Pro: A more robust and challenging multi-task language
+                understanding benchmark.
+                <a href="https://arxiv.org/abs/2406.01574" target="_blank" rel="noopener"><em>arXiv:2406.01574</em></a>.
+              </p>
+              <p id="ref-zaman2025">
+                Zaman, K., et al. (2025). Is chain-of-thought really not explainability?
+                <a href="https://arxiv.org/abs/2512.23032" target="_blank" rel="noopener"><em>arXiv:2512.23032</em></a>.
+              </p>
+            </div>
+
+            <h2>Appendix: Reproduction details</h2>
+            <p>
+              All code, prompts, raw generations and both judges' verdicts are available in
+              <a href="https://github.com/EthanCratchley/cot-faithfulness-research" target="_blank" rel="noopener">the repository</a>.
+            </p>
+            <p class="table-caption"><strong>Table 6:</strong> Run settings.</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Item set fingerprint</td><td><code>4017461aa775cf7c</code></td></tr>
+                  <tr><td>Seeds (generation, item sampling)</td><td>12345, 12345</td></tr>
+                  <tr><td>Precision</td><td>bf16</td></tr>
+                  <tr><td>Maximum tokens</td><td>8,192</td></tr>
+                  <tr><td>Truncation fractions</td><td>0, 0.2, 0.4, 0.6, 0.8</td></tr>
+                  <tr><td>Generations</td><td>8 per item, 32,000 total</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-caption"><strong>Table 7:</strong> Pinned model revisions.</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>HuggingFace revision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Qwen/Qwen3.8-27B</td><td><code>1d4bf0f2</code></td></tr>
+                  <tr><td>allenai/Olmo-3.1-32B-Instruct</td><td><code>ac0587e4</code></td></tr>
+                  <tr><td>allenai/Olmo-3.1-32B-Think</td><td><code>832c3f54</code></td></tr>
+                  <tr><td>google/gemma-4-31B-it</td><td><code>842da379</code></td></tr>
+                  <tr><td>meta-models/Muse-Glimmer-30B</td><td><code>a4e59da5</code></td></tr>
+                  <tr><td>mistralai/Mistral-Small-3.2-24B-Instruct-2506</td><td><code>95a6d26c</code></td></tr>
+                  <tr><td>nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16</td><td><code>bf77c317</code></td></tr>
+                  <tr><td>openai/gpt-oss-20b</td><td><code>6cee5e81</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-info">
+        <div>
+          LinkedIn
+          <a href="https://www.linkedin.com/in/ethan-cratchley/" target="_blank"
+            >@Ethan Cratchley</a
+          >
+        </div>
+        <div>
+          GitHub
+          <a href="https://github.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          X
+          <a href="https://x.com/EthanCratchley" target="_blank"
+            >@EthanCratchley</a
+          >
+        </div>
+        <div>
+          Email
+          <a href="mailto:ethankcratchley@gmail.com"
+            >ethankcratchley@gmail.com</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../scripts/script.js"></script>
+
+    <!-- Search Toggle Button -->
+    <button
+      id="search-toggle"
+      class="search-toggle-btn"
+      aria-label="Search"
+      title="Search (⌘K)"
+    >
+      <span class="search-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      class="theme-toggle-btn"
+      aria-label="Toggle dark mode"
+      title="Toggle theme"
+    >
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+
+    <!-- Search Modal -->
+    <div
+      id="search-modal"
+      class="search-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="search-input"
+      hidden
+    >
+      <div class="search-backdrop"></div>
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-input-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search for projects, writing..."
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Search"
+          />
+        </div>
+        <div id="search-results" class="search-results"></div>
+        <div class="search-footer">
+          <span>↑↓ Navigate</span>
+          <span>↵ Select</span>
+          <span>ESC Close</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
