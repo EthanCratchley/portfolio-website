@@ -86,6 +86,24 @@ const SEARCH_INDEX = [
 
   // Projects - Featured
   {
+    id: "project-sfu-techmap",
+    title: "SFU Tech Map",
+    type: "project",
+    category: "Web Development",
+    description: "A free, public map of the SFU tech ecosystem",
+    tags: [
+      "sfu",
+      "tech map",
+      "startups",
+      "ecosystem",
+      "web development",
+      "postgres",
+      "map",
+    ],
+    url: "https://frv-campus-techmap.vercel.app/",
+    breadcrumb: "Projects > Web Development",
+  },
+  {
     id: "project-qscan",
     title: "Qscan",
     type: "project",
