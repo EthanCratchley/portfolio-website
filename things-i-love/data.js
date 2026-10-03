@@ -37,11 +37,6 @@ const ITEMS = [
   },
   { type: "image", src: "media/IMG_8755.jpg", caption: "dragon jerseys" },
   {
-    type: "video",
-    src: "media/RPReplay_Final1668641161.mov",
-    caption: "let go, revenge of the sith",
-  },
-  {
     type: "image",
     src: "media/IMG_9188.jpg",
     caption: "the sacrifice of horses",
