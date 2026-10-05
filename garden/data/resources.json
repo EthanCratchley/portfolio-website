@@ -662,17 +662,6 @@
       "cover": "venture-deals.jpg"
     },
     {
-      "id": "b4",
-      "title": "Blitzscaling",
-      "author": "Reid Hoffman",
-      "description": "How to scale a startup fast",
-      "category": "startups",
-      "rating": 3,
-      "dateAdded": "2025-12-14",
-      "notes": "",
-      "cover": "blitzscaling.jpg"
-    },
-    {
       "id": "b5",
       "title": "The Hard Thing About Hard Things",
       "author": "Ben Horowitz",
@@ -693,17 +682,6 @@
       "dateAdded": "2025-12-15",
       "notes": "",
       "cover": "python-for-algo-trading.jpg"
-    },
-    {
-      "id": "b7",
-      "title": "A Practitioner's Guide to Algorithmic Trading",
-      "author": "Jeffrey M. Bacidore",
-      "description": "Practical guide to algorithmic trading implementation",
-      "category": "finance",
-      "rating": 3,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "a-practitioner-s-guide-to-algorithmic-trading.jpg"
     },
     {
       "id": "b8",
@@ -881,17 +859,6 @@
       "cover": "ultralearning.jpg"
     },
     {
-      "id": "b23",
-      "title": "A Mind for Numbers",
-      "author": "Barbara Oakley",
-      "description": "How to excel at math and science",
-      "category": "learning",
-      "rating": 2,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "a-mind-for-numbers.jpg"
-    },
-    {
       "id": "b24",
       "title": "Man's Search for Meaning",
       "author": "Viktor Frankl",
@@ -901,17 +868,6 @@
       "dateAdded": "2025-12-15",
       "notes": "",
       "cover": "man-s-search-for-meaning.jpg"
-    },
-    {
-      "id": "b25",
-      "title": "The Bitcoin Standard",
-      "author": "Saifedean Ammous",
-      "description": "The decentralized alternative to central banking",
-      "category": "finance",
-      "rating": 3,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "the-bitcoin-standard.jpg"
     },
     {
       "id": "b26",
@@ -1002,17 +958,6 @@
       "cover": "the-hundred-page-machine-learning-book.jpg"
     },
     {
-      "id": "b34",
-      "title": "Clean Code",
-      "author": "Robert C. Martin",
-      "description": "A handbook of agile software craftsmanship",
-      "category": "programming",
-      "rating": 3,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "clean-code.jpg"
-    },
-    {
       "id": "b35",
       "title": "Calculus",
       "author": "James Stewart",
@@ -1033,17 +978,6 @@
       "dateAdded": "2025-12-15",
       "notes": "",
       "cover": "notes-from-the-underground.jpg"
-    },
-    {
-      "id": "b37",
-      "title": "Cracking the Coding Interview",
-      "author": "Gayle Laakmann McDowell",
-      "description": "189 programming questions and solutions",
-      "category": "programming",
-      "rating": 4,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "cracking-the-coding-interview.jpg"
     },
     {
       "id": "b38",
@@ -1143,6 +1077,17 @@
       "dateAdded": "2026-10-04",
       "notes": "",
       "cover": "gray-matter.jpg"
+    },
+    {
+      "id": "b47",
+      "title": "Parkinson's Law",
+      "author": "C. Northcote Parkinson",
+      "description": "Why work expands to fill the time available for its completion",
+      "category": "business",
+      "rating": 4,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "parkinsons-law.jpg"
     }
   ],
   "papers": [
