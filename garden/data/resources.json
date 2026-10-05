@@ -431,6 +431,30 @@
       "description": "AI researcher's blog on deep learning and neural networks",
       "category": "blog",
       "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w56",
+      "title": "Solve Everything",
+      "url": "https://www.solveeverything.org/",
+      "description": "Wissner-Gross and Diamandis's blueprint for achieving abundance by 2035",
+      "category": "blog",
+      "dateAdded": "2026-10-04"
+    },
+    {
+      "id": "w57",
+      "title": "Situational Awareness",
+      "url": "https://situational-awareness.ai/",
+      "description": "Leopold Aschenbrenner's essay series on the decade ahead in AI",
+      "category": "blog",
+      "dateAdded": "2026-10-04"
+    },
+    {
+      "id": "w58",
+      "title": "Contrary Research",
+      "url": "https://research.contrary.com/",
+      "description": "Deep research reports and memos on private tech companies",
+      "category": "resource",
+      "dateAdded": "2026-10-04"
     }
   ],
   "videos": [
@@ -577,6 +601,30 @@
       "description": "YouTube channel with 3D animations explaining how things work",
       "category": "tutorial",
       "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "v19",
+      "title": "The Existential Hope Podcast",
+      "url": "https://www.existentialhope.com/",
+      "description": "Foresight Institute conversations on positive high-tech futures",
+      "category": "podcast",
+      "dateAdded": "2026-10-04"
+    },
+    {
+      "id": "v20",
+      "title": "The Rest Is History",
+      "url": "https://therestishistory.com/",
+      "description": "Tom Holland and Dominic Sandbrook on history's greatest stories",
+      "category": "podcast",
+      "dateAdded": "2026-10-04"
+    },
+    {
+      "id": "v21",
+      "title": "Cheeky Pint",
+      "url": "https://cheekypint.transistor.fm/",
+      "description": "John Collison chats with founders and builders over a pint",
+      "category": "podcast",
+      "dateAdded": "2026-10-04"
     }
   ],
   "books": [
@@ -587,7 +635,9 @@
       "description": "The key to success in value investing",
       "category": "finance",
       "rating": 4,
-      "dateAdded": "2025-12-14"
+      "dateAdded": "2025-12-14",
+      "notes": "",
+      "cover": "the-intelligent-investor.jpg"
     },
     {
       "id": "b2",
@@ -596,7 +646,9 @@
       "description": "Great financial advice and wisdom for life",
       "category": "finance",
       "rating": 5,
-      "dateAdded": "2025-12-14"
+      "dateAdded": "2025-12-14",
+      "notes": "",
+      "cover": "university-of-berkshire-hathaway.jpg"
     },
     {
       "id": "b3",
@@ -605,7 +657,9 @@
       "description": "Venture Capital terminology, case studies and more",
       "category": "finance",
       "rating": 4,
-      "dateAdded": "2025-12-14"
+      "dateAdded": "2025-12-14",
+      "notes": "",
+      "cover": "venture-deals.jpg"
     },
     {
       "id": "b4",
@@ -614,7 +668,9 @@
       "description": "How to scale a startup fast",
       "category": "startups",
       "rating": 3,
-      "dateAdded": "2025-12-14"
+      "dateAdded": "2025-12-14",
+      "notes": "",
+      "cover": "blitzscaling.jpg"
     },
     {
       "id": "b5",
@@ -623,7 +679,9 @@
       "description": "Building a business when there are no easy answers",
       "category": "startups",
       "rating": 4,
-      "dateAdded": "2025-12-14"
+      "dateAdded": "2025-12-14",
+      "notes": "",
+      "cover": "the-hard-thing-about-hard-things.jpg"
     },
     {
       "id": "b6",
@@ -632,7 +690,9 @@
       "description": "Python programming for algorithmic trading strategies",
       "category": "finance",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "python-for-algo-trading.jpg"
     },
     {
       "id": "b7",
@@ -641,7 +701,9 @@
       "description": "Practical guide to algorithmic trading implementation",
       "category": "finance",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "a-practitioner-s-guide-to-algorithmic-trading.jpg"
     },
     {
       "id": "b8",
@@ -650,7 +712,8 @@
       "description": "Algorithmic trading, startegies, etc.",
       "category": "finance",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": ""
     },
     {
       "id": "b100",
@@ -659,7 +722,9 @@
       "description": "In-depth on market microstructure and exchanges",
       "category": "finance",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "trading-and-exchanges-market-microstructure-for-.jpg"
     },
     {
       "id": "b9",
@@ -668,7 +733,9 @@
       "description": "Comprehensive guide to corporate finance theory and practice",
       "category": "finance",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "principles-of-corporate-finance.jpg"
     },
     {
       "id": "b10",
@@ -677,7 +744,9 @@
       "description": "Can America and China escape Thucydides's Trap?",
       "category": "geopolitics",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "destined-for-war.jpg"
     },
     {
       "id": "b11",
@@ -686,7 +755,9 @@
       "description": "The shock of global population decline",
       "category": "geopolitics",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "empty-planet.jpg"
     },
     {
       "id": "b12",
@@ -695,7 +766,9 @@
       "description": "A scenario on nuclear warfare",
       "category": "geopolitics",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "nuclear-war.jpg"
     },
     {
       "id": "b13",
@@ -704,7 +777,9 @@
       "description": "Master your mind and defy the odds",
       "category": "self-improvement",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "can-t-hurt-me.jpg"
     },
     {
       "id": "b14",
@@ -713,7 +788,9 @@
       "description": "Unshackle your mind and win the war within",
       "category": "self-improvement",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "never-finished.jpg"
     },
     {
       "id": "b15",
@@ -722,7 +799,9 @@
       "description": "Life & business lessons Donald Trump",
       "category": "business",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "trump-the-art-of-the-deal.jpg"
     },
     {
       "id": "b16",
@@ -731,7 +810,9 @@
       "description": "The story of success and the 10,000 hour rule",
       "category": "psychology",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "outliers.jpg"
     },
     {
       "id": "b17",
@@ -740,7 +821,9 @@
       "description": "Why we do what we do in life and business",
       "category": "psychology",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-power-of-habit.jpg"
     },
     {
       "id": "b18",
@@ -749,7 +832,9 @@
       "description": "The story of PayPal and the entrepreneurs who shaped Silicon Valley",
       "category": "biography",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-founders.jpg"
     },
     {
       "id": "b19",
@@ -758,7 +843,9 @@
       "description": "Distilled wisdom from studying civilization",
       "category": "history",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-lessons-of-history.jpg"
     },
     {
       "id": "b20",
@@ -767,7 +854,9 @@
       "description": "Biography of Singapore's founding father",
       "category": "biography",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "lee-kuan-yew.jpg"
     },
     {
       "id": "b21",
@@ -776,7 +865,9 @@
       "description": "The science of successful learning",
       "category": "learning",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "make-it-stick.jpg"
     },
     {
       "id": "b22",
@@ -785,7 +876,9 @@
       "description": "Master hard skills, outsmart the competition, and accelerate your career",
       "category": "learning",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "ultralearning.jpg"
     },
     {
       "id": "b23",
@@ -794,7 +887,9 @@
       "description": "How to excel at math and science",
       "category": "learning",
       "rating": 2,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "a-mind-for-numbers.jpg"
     },
     {
       "id": "b24",
@@ -803,7 +898,9 @@
       "description": "Finding purpose through suffering in Nazi concentration camps",
       "category": "philosophy",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "man-s-search-for-meaning.jpg"
     },
     {
       "id": "b25",
@@ -812,7 +909,9 @@
       "description": "The decentralized alternative to central banking",
       "category": "finance",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-bitcoin-standard.jpg"
     },
     {
       "id": "b26",
@@ -821,7 +920,9 @@
       "description": "The genius behind Apple's greatest products",
       "category": "biography",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "jony-ive.jpg"
     },
     {
       "id": "b27",
@@ -830,7 +931,9 @@
       "description": "The authorized biography of Apple's co-founder",
       "category": "biography",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "steve-jobs.jpg"
     },
     {
       "id": "b28",
@@ -839,7 +942,9 @@
       "description": "Biography of the entrepreneur behind Tesla, SpaceX, and more",
       "category": "biography",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "elon-musk.jpg"
     },
     {
       "id": "b29",
@@ -848,7 +953,9 @@
       "description": "The lives and opinions of the world's greatest philosophers",
       "category": "philosophy",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-story-of-philosophy.jpg"
     },
     {
       "id": "b30",
@@ -857,7 +964,9 @@
       "description": "Your journey to mastery in software development",
       "category": "programming",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-pragmatic-programmer.jpg"
     },
     {
       "id": "b31",
@@ -866,7 +975,9 @@
       "description": "Comprehensive guide to system design interviews",
       "category": "programming",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-system-design-interview.jpg"
     },
     {
       "id": "b32",
@@ -875,7 +986,9 @@
       "description": "Lessons learned from programming over time",
       "category": "programming",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "software-engineering-at-google.jpg"
     },
     {
       "id": "b33",
@@ -884,7 +997,9 @@
       "description": "Concise overview of machine learning concepts",
       "category": "programming",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-hundred-page-machine-learning-book.jpg"
     },
     {
       "id": "b34",
@@ -893,7 +1008,9 @@
       "description": "A handbook of agile software craftsmanship",
       "category": "programming",
       "rating": 3,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "clean-code.jpg"
     },
     {
       "id": "b35",
@@ -902,7 +1019,9 @@
       "description": "Comprehensive calculus textbook",
       "category": "mathematics",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "calculus.jpg"
     },
     {
       "id": "b36",
@@ -911,7 +1030,9 @@
       "description": "Philosophical novella on human consciousness and free will",
       "category": "literature",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "notes-from-the-underground.jpg"
     },
     {
       "id": "b37",
@@ -920,7 +1041,9 @@
       "description": "189 programming questions and solutions",
       "category": "programming",
       "rating": 4,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "cracking-the-coding-interview.jpg"
     },
     {
       "id": "b38",
@@ -929,7 +1052,9 @@
       "description": "Geopolitics, defense, war, tech",
       "category": "geopolitics",
       "rating": 2,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-technological-republic.jpg"
     },
     {
       "id": "b39",
@@ -938,7 +1063,86 @@
       "description": "Wisdom and advice from one of history's wealthiest men",
       "category": "business",
       "rating": 5,
-      "dateAdded": "2025-12-15"
+      "dateAdded": "2025-12-15",
+      "notes": "",
+      "cover": "the-38-letters-from-j-d-rockefeller-to-his-son.jpg"
+    },
+    {
+      "id": "b40",
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "description": "A brief history of humankind",
+      "category": "history",
+      "rating": 3,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "sapiens.jpg"
+    },
+    {
+      "id": "b41",
+      "title": "The Iliad",
+      "author": "Homer",
+      "description": "Epic of rage, honor, and the Trojan War",
+      "category": "literature",
+      "rating": 5,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "the-iliad.jpg"
+    },
+    {
+      "id": "b42",
+      "title": "The Odyssey",
+      "author": "Homer",
+      "description": "Odysseus's long journey home from Troy",
+      "category": "literature",
+      "rating": 5,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "the-odyssey.jpg"
+    },
+    {
+      "id": "b43",
+      "title": "Oedipus the King",
+      "author": "Sophocles",
+      "description": "The tragedy of fate and self-discovery",
+      "category": "literature",
+      "rating": 5,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "oedipus-the-king.jpg"
+    },
+    {
+      "id": "b44",
+      "title": "Oil and Marble",
+      "author": "Stephanie Storey",
+      "description": "Novel of the rivalry between Leonardo and Michelangelo",
+      "category": "literature",
+      "rating": 5,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "oil-and-marble.jpg"
+    },
+    {
+      "id": "b45",
+      "title": "The Prince",
+      "author": "Niccolò Machiavelli",
+      "description": "The classic treatise on power and statecraft",
+      "category": "philosophy",
+      "rating": 5,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "the-prince.jpg"
+    },
+    {
+      "id": "b46",
+      "title": "Gray Matter",
+      "author": "David Levy",
+      "description": "A neurosurgeon on faith, prayer, and the operating room",
+      "category": "biography",
+      "rating": 4,
+      "dateAdded": "2026-10-04",
+      "notes": "",
+      "cover": "gray-matter.jpg"
     }
   ],
   "papers": [

@@ -28,56 +28,54 @@ class ThoughtStream {
   }
 
   /**
-   * Calculate positioning zones based on viewport
-   * Keeps thoughts strictly outside main content area and legend
-   * Uses absolute positioning relative to scroll
+   * Calculate positioning zones based on viewport.
+   * Zones sit strictly in the side margins — never over the content column,
+   * the legend, or beyond the page edges — and stay within the current
+   * viewport so bubbles never extend the page.
    */
   calculateZones() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     const scrollY = window.scrollY || window.pageYOffset;
+    const bubbleWidth = 310; // .thought-bubble max-width + padding
 
     // Main content area is centered with max-width: 700px + padding
     const mainContentWidth = Math.min(700, vw * 0.8);
     const mainContentLeft = (vw - mainContentWidth) / 2;
     const mainContentRight = mainContentLeft + mainContentWidth;
 
-    // Legend is at left: 100px, width: 150px, extends down the page
-    const legendRight = 280; // Safe margin beyond legend
+    const zones = {};
 
-    // Calculate safe zones
-    const leftMarginMax = Math.max(20, Math.min(80, mainContentLeft - 220));
-    const rightMarginMin = Math.max(mainContentRight + 40, vw - 300);
-
-    return {
-      leftMargin: {
-        weight: 0.3,
+    // Left margin: between page edge and content, below the legend
+    const leftMax = mainContentLeft - bubbleWidth - 30;
+    if (leftMax > 20) {
+      zones.leftMargin = {
+        weight: 0.4,
         bounds: {
           xMin: 20,
-          xMax: leftMarginMax,
-          yMin: scrollY + 400, // Well below legend start
-          yMax: scrollY + vh + 1000, // Extend below viewport
+          xMax: leftMax,
+          yMin: scrollY + 400,
+          yMax: scrollY + vh - 120,
         },
-      },
-      rightMargin: {
-        weight: 0.5,
+      };
+    }
+
+    // Right margin: between content and page edge
+    const rightMin = mainContentRight + 30;
+    const rightMax = vw - bubbleWidth - 20;
+    if (rightMax > rightMin) {
+      zones.rightMargin = {
+        weight: 0.6,
         bounds: {
-          xMin: rightMarginMin,
-          xMax: vw - 20,
-          yMin: scrollY + 250, // Below title area
-          yMax: scrollY + vh + 1000, // Extend below viewport
+          xMin: rightMin,
+          xMax: rightMax,
+          yMin: scrollY + 250,
+          yMax: scrollY + vh - 120,
         },
-      },
-      bottomArea: {
-        weight: 0.2,
-        bounds: {
-          xMin: mainContentLeft + 50,
-          xMax: mainContentRight - 200,
-          yMin: scrollY + vh - 150,
-          yMax: scrollY + vh + 800, // Extend way below viewport
-        },
-      },
-    };
+      };
+    }
+
+    return zones;
   }
 
   /**
@@ -165,6 +163,10 @@ class ThoughtStream {
    * Spawn a new thought
    */
   spawnThought() {
+    // Recompute zones so bubbles follow the current scroll position
+    this.config.zones = this.calculateZones();
+    if (Object.keys(this.config.zones).length === 0) return;
+
     // Get random thought
     const thought = this.getRandomThought();
     if (!thought) return;
@@ -303,8 +305,8 @@ class ThoughtStream {
       }
     }
 
-    // Fallback to right margin
-    return this.config.zones.rightMargin;
+    // Fallback to whichever zone exists
+    return Object.values(this.config.zones)[0];
   }
 
   /**
