@@ -743,7 +743,7 @@
       "author": "Annie Jacobsen",
       "description": "A scenario on nuclear warfare",
       "category": "geopolitics",
-      "rating": 5,
+      "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
       "cover": "nuclear-war.jpg"
@@ -1088,6 +1088,17 @@
       "dateAdded": "2026-10-04",
       "notes": "",
       "cover": "parkinsons-law.jpg"
+    },
+    {
+      "id": "b48",
+      "title": "Biological War",
+      "author": "Annie Jacobsen",
+      "description": "A scenario on biological warfare",
+      "category": "geopolitics",
+      "rating": 3,
+      "dateAdded": "2026-10-06",
+      "notes": "",
+      "cover": "biological-war.jpg"
     }
   ],
   "papers": [
