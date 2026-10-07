@@ -53,13 +53,13 @@ const SEARCH_INDEX = [
   },
   {
     id: "page-garden",
-    title: "Garden",
+    title: "Library",
     type: "page",
     category: "Navigation",
     description:
       "Ideas, resources, and fleeting thoughts - curated websites, videos, books, papers, and personal notes",
     tags: [
-      "garden",
+      "library",
       "resources",
       "thoughts",
       "ideas",
@@ -71,7 +71,7 @@ const SEARCH_INDEX = [
       "collection",
     ],
     url: "/garden/",
-    breadcrumb: "Garden",
+    breadcrumb: "Library",
   },
   {
     id: "page-contact",
