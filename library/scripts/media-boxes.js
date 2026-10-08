@@ -175,7 +175,7 @@
     });
   }
 
-  fetch("/garden/data/resources.json")
+  fetch("/library/data/resources.json")
     .then((r) => r.json())
     .then((data) => {
       resources = data;

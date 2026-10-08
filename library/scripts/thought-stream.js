@@ -1,5 +1,5 @@
 /**
- * Thought Stream - Ambient border animations for Garden page
+ * Thought Stream - Ambient border animations for Library page
  * Thoughts fade in/out around page margins at random positions
  */
 
@@ -383,7 +383,7 @@ if (document.readyState === "loading") {
 async function initThoughtStream() {
   try {
     // Load thoughts data
-    const response = await fetch("/garden/data/thoughts.json");
+    const response = await fetch("/library/data/thoughts.json");
     const thoughts = await response.json();
 
     // Initialize thought stream

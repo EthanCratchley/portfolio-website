@@ -52,7 +52,7 @@ const SEARCH_INDEX = [
     breadcrumb: "Projects",
   },
   {
-    id: "page-garden",
+    id: "page-library",
     title: "Library",
     type: "page",
     category: "Navigation",
@@ -70,7 +70,7 @@ const SEARCH_INDEX = [
       "learning",
       "collection",
     ],
-    url: "/garden/",
+    url: "/library/",
     breadcrumb: "Library",
   },
   {

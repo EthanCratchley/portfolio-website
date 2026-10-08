@@ -189,7 +189,7 @@
     window.addEventListener("resize", updateArrows);
   }
 
-  fetch("/garden/data/resources.json")
+  fetch("/library/data/resources.json")
     .then((r) => r.json())
     .then((data) => {
       render(data.books.slice().reverse()); // newest additions first
