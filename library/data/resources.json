@@ -673,27 +673,6 @@
       "cover": "the-hard-thing-about-hard-things.jpg"
     },
     {
-      "id": "b6",
-      "title": "Python for Algo Trading",
-      "author": "Uves Hilpisch",
-      "description": "Python programming for algorithmic trading strategies",
-      "category": "finance",
-      "rating": 3,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "python-for-algo-trading.jpg"
-    },
-    {
-      "id": "b8",
-      "title": "Algorithmic Trading, Winning Strategies and their Rationale",
-      "author": "Ernie Chan",
-      "description": "Algorithmic trading, startegies, etc.",
-      "category": "finance",
-      "rating": 3,
-      "dateAdded": "2025-12-15",
-      "notes": ""
-    },
-    {
       "id": "b100",
       "title": "Trading and Exchanges: Market Microstructure for Practitioners",
       "author": "Larry Harris",
@@ -703,17 +682,6 @@
       "dateAdded": "2025-12-15",
       "notes": "",
       "cover": "trading-and-exchanges-market-microstructure-for-.jpg"
-    },
-    {
-      "id": "b9",
-      "title": "Principles of Corporate Finance",
-      "author": "Brealey Myers",
-      "description": "Comprehensive guide to corporate finance theory and practice",
-      "category": "finance",
-      "rating": 4,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "principles-of-corporate-finance.jpg"
     },
     {
       "id": "b10",
@@ -967,17 +935,6 @@
       "dateAdded": "2025-12-15",
       "notes": "",
       "cover": "calculus.jpg"
-    },
-    {
-      "id": "b36",
-      "title": "Notes from the Underground",
-      "author": "Fyodor Dostoevsky",
-      "description": "Philosophical novella on human consciousness and free will",
-      "category": "literature",
-      "rating": 5,
-      "dateAdded": "2025-12-15",
-      "notes": "",
-      "cover": "notes-from-the-underground.jpg"
     },
     {
       "id": "b38",
