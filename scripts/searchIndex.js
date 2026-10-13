@@ -100,7 +100,7 @@ const SEARCH_INDEX = [
       "postgres",
       "map",
     ],
-    url: "https://github.com/EthanCratchley",
+    url: "https://sfu-techmap.vercel.app/",
     breadcrumb: "Projects > Web Development",
   },
   {
