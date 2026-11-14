@@ -88,6 +88,10 @@ class ThoughtStream {
     this.container.setAttribute("aria-live", "polite");
     this.container.setAttribute("aria-label", "Ambient thoughts");
     document.body.appendChild(this.container);
+    // Bubbles are placed in page coordinates (scrollY + offset). Without a positioned
+    // body the container is only one viewport tall and clips every bubble spawned
+    // after the reader scrolls past the first screen.
+    document.body.style.position = "relative";
 
     // Start spawning thoughts
     this.start();

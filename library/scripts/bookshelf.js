@@ -1,34 +1,35 @@
 /**
- * Bookshelf — scrollable shelf of 3D book spines (Stripe Press style).
- * Hover tilts a book out to reveal its cover; click opens a detail panel.
+ * Bookshelf — a compact shelf of covers with shelf filters and sorting.
+ * Shows two rows until expanded; clicking a cover opens its details beneath its row.
  */
 
 (function () {
   const shelf = document.getElementById("bookshelf");
-  const detail = document.getElementById("book-detail");
+  const shelves = document.getElementById("book-shelves");
+  const sorts = document.getElementById("book-sort");
+  const more = document.getElementById("shelf-more");
   if (!shelf) return;
 
-  // Muted spine palette; picked deterministically per book
-  const PALETTE = [
-    "#2d4a3e",
-    "#5d3a2e",
-    "#31436b",
-    "#4a4a58",
-    "#6b3254",
-    "#7a5c2e",
-    "#3c5a5e",
-    "#703a3a",
-    "#455130",
-    "#3f3d63",
+  const SHELVES = [
+    { key: "philosophy", label: "philosophy & the mind" },
+    { key: "history", label: "history & geopolitics" },
+    { key: "business", label: "business & money" },
+    { key: "lives", label: "lives & stories" },
+    { key: "science", label: "science & technology" },
   ];
+  const SORTS = [
+    { key: "recent", label: "recent", order: (a, b) => b.added - a.added },
+    { key: "rating", label: "rating", order: (a, b) => b.rating - a.rating || b.added - a.added },
+    { key: "title", label: "title", order: (a, b) => a.title.localeCompare(b.title) },
+  ];
+  const ROWS = 2;
 
-  function hash(str) {
-    let h = 0;
-    for (let i = 0; i < str.length; i++) {
-      h = (h * 31 + str.charCodeAt(i)) | 0;
-    }
-    return Math.abs(h);
-  }
+  let books = [];
+  let filter = null;
+  let sort = SORTS[0];
+  let expanded = false;
+  let open = null;
+  let cols = 0;
 
   function stars(rating) {
     const full = Math.floor(rating);
@@ -36,167 +37,150 @@
     return "★".repeat(full) + half + "☆".repeat(5 - full - (half ? 1 : 0));
   }
 
-  let openBook = null;
-
-  function closeDetail() {
-    openBook = null;
-    detail.hidden = true;
-    shelf
-      .querySelectorAll(".book.open")
-      .forEach((b) => b.classList.remove("open"));
+  function columns() {
+    return getComputedStyle(shelf).gridTemplateColumns.split(" ").length;
   }
 
-  function showDetail(book, el) {
-    if (openBook === book.id) {
-      closeDetail();
-      return;
+  function cover(book) {
+    const img = document.createElement("img");
+    img.src = "/assets/covers/" + book.cover;
+    img.alt = "";
+    img.loading = "lazy";
+    img.draggable = false;
+    return img;
+  }
+
+  function option(label, count, pressed, onClick) {
+    const btn = document.createElement("button");
+    btn.className = "media-filter";
+    btn.setAttribute("aria-pressed", String(pressed));
+    btn.textContent = label;
+    if (count !== null) {
+      const n = document.createElement("span");
+      n.className = "media-count";
+      n.textContent = count;
+      btn.appendChild(n);
     }
-    openBook = book.id;
-    shelf
-      .querySelectorAll(".book.open")
-      .forEach((b) => b.classList.remove("open"));
-    el.classList.add("open");
+    btn.addEventListener("click", onClick);
+    return btn;
+  }
 
-    detail.innerHTML = "";
+  function detail(book) {
+    const panel = document.createElement("div");
+    panel.className = "book-detail";
+    panel.id = "book-detail";
 
-    const coverCol = document.createElement("div");
-    coverCol.className = "book-detail-cover";
-    coverCol.appendChild(coverNode(book, true));
-    detail.appendChild(coverCol);
+    const img = cover(book);
+    img.className = "book-detail-cover";
+    img.alt = "Cover of " + book.title;
+    panel.appendChild(img);
 
     const info = document.createElement("div");
     info.className = "book-detail-info";
-
-    const title = document.createElement("h3");
-    title.textContent = book.title;
-    info.appendChild(title);
-
-    const author = document.createElement("p");
-    author.className = "book-detail-author";
-    author.textContent = book.author;
-    info.appendChild(author);
-
-    const meta = document.createElement("p");
-    meta.className = "book-detail-meta";
-    const rating = document.createElement("span");
-    rating.className = "book-detail-rating";
+    info.innerHTML =
+      '<h4></h4><p class="book-detail-author"></p>' +
+      '<p class="book-detail-rating"></p><p class="book-detail-notes"></p>';
+    info.querySelector("h4").textContent = book.title;
+    info.querySelector(".book-detail-author").textContent = book.author;
+    const rating = info.querySelector(".book-detail-rating");
     rating.innerHTML = stars(book.rating);
     rating.setAttribute("aria-label", book.rating + " out of 5 stars");
-    meta.appendChild(rating);
-    info.appendChild(meta);
-
-    const notes = document.createElement("p");
-    notes.className = "book-detail-notes";
-    notes.textContent = book.notes || book.description;
-    info.appendChild(notes);
+    info.querySelector(".book-detail-notes").textContent =
+      book.notes || book.description;
+    panel.appendChild(info);
 
     const close = document.createElement("button");
     close.className = "book-detail-close";
     close.setAttribute("aria-label", "Close book details");
     close.textContent = "×";
-    close.addEventListener("click", closeDetail);
-    detail.appendChild(info);
-    detail.appendChild(close);
-
-    detail.hidden = false;
+    close.addEventListener("click", () => select(book));
+    panel.appendChild(close);
+    return panel;
   }
 
-  function coverNode(book, large) {
-    if (book.cover) {
-      const img = document.createElement("img");
-      img.src = "/assets/covers/" + book.cover;
-      img.alt = large ? "Cover of " + book.title : "";
-      img.loading = "lazy";
-      img.draggable = false;
-      return img;
-    }
-    // Procedural cover for books without an image
-    const div = document.createElement("div");
-    div.className = "book-cover-generated";
-    div.style.backgroundColor = PALETTE[hash(book.title) % PALETTE.length];
-    const t = document.createElement("span");
-    t.className = "gen-title";
-    t.textContent = book.title;
-    const a = document.createElement("span");
-    a.className = "gen-author";
-    a.textContent = book.author;
-    div.appendChild(t);
-    div.appendChild(a);
-    return div;
+  function select(book) {
+    open = open === book ? null : book;
+    render();
+    shelf.querySelector(`[data-id="${book.id}"]`)?.focus({ preventScroll: true });
   }
 
-  function render(books) {
-    shelf.innerHTML = "";
-    books.forEach((book) => {
-      const h = hash(book.id + book.title);
-      const spineW = 34 + (h % 14); // 34–47px
-      const height = 196 + (h % 5) * 9; // 196–232px
-      const color = PALETTE[hash(book.title) % PALETTE.length];
-
-      const btn = document.createElement("button");
-      btn.className = "book";
-      btn.style.setProperty("--spine-w", spineW + "px");
-      btn.style.setProperty("--book-h", height + "px");
-      btn.setAttribute(
-        "aria-label",
-        book.title + " by " + book.author + " — details"
+  function controls() {
+    shelves.innerHTML = "";
+    shelves.appendChild(
+      option("all", books.length, !filter, () => {
+        filter = null;
+        expanded = false;
+        render();
+      })
+    );
+    SHELVES.forEach((s) => {
+      shelves.appendChild(
+        option(s.label, books.filter((b) => b.category === s.key).length, filter === s.key, () => {
+          filter = s.key;
+          expanded = false;
+          render();
+        })
       );
+    });
 
-      const inner = document.createElement("span");
-      inner.className = "book-3d";
-
-      const spine = document.createElement("span");
-      spine.className = "book-spine";
-      spine.style.backgroundColor = color;
-      const spineTitle = document.createElement("span");
-      spineTitle.className = "book-spine-title";
-      spineTitle.textContent = book.title;
-      spine.appendChild(spineTitle);
-
-      const cover = document.createElement("span");
-      cover.className = "book-cover";
-      cover.appendChild(coverNode(book, false));
-
-      const pages = document.createElement("span");
-      pages.className = "book-pages";
-
-      inner.appendChild(spine);
-      inner.appendChild(cover);
-      inner.appendChild(pages);
-      btn.appendChild(inner);
-
-      btn.addEventListener("click", () => showDetail(book, btn));
-      shelf.appendChild(btn);
+    sorts.innerHTML = "";
+    SORTS.forEach((s) => {
+      sorts.appendChild(
+        option(s.label, null, sort === s, () => {
+          sort = s;
+          render();
+        })
+      );
     });
   }
 
-  // Scroll arrows
-  const leftArrow = document.getElementById("shelf-left");
-  const rightArrow = document.getElementById("shelf-right");
+  function render() {
+    controls();
+    const list = books.filter((b) => !filter || b.category === filter).sort(sort.order);
+    cols = columns();
+    const visible = expanded ? list : list.slice(0, cols * ROWS);
+    if (!visible.includes(open)) open = null;
 
-  function updateArrows() {
-    if (!leftArrow || !rightArrow) return;
-    leftArrow.hidden = shelf.scrollLeft < 10;
-    rightArrow.hidden =
-      shelf.scrollLeft + shelf.clientWidth > shelf.scrollWidth - 10;
+    shelf.innerHTML = "";
+    visible.forEach((book) => {
+      const btn = document.createElement("button");
+      btn.className = "book";
+      btn.dataset.id = book.id;
+      btn.title = book.title;
+      btn.setAttribute("aria-label", book.title + " by " + book.author);
+      btn.setAttribute("aria-expanded", String(open === book));
+      if (open === book) btn.setAttribute("aria-controls", "book-detail");
+      btn.appendChild(cover(book));
+      btn.addEventListener("click", () => select(book));
+      shelf.appendChild(btn);
+    });
+
+    if (open) {
+      // The panel spans the full width, so it goes after the last book in the open book's row.
+      const i = visible.indexOf(open);
+      const end = Math.min(visible.length, (Math.floor(i / cols) + 1) * cols);
+      shelf.children[end - 1].after(detail(open));
+    }
+
+    more.hidden = list.length <= cols * ROWS;
+    more.textContent = expanded ? "Show fewer" : "Show all " + list.length;
   }
 
-  if (leftArrow && rightArrow) {
-    leftArrow.addEventListener("click", () =>
-      shelf.scrollBy({ left: -shelf.clientWidth * 0.7, behavior: "smooth" })
-    );
-    rightArrow.addEventListener("click", () =>
-      shelf.scrollBy({ left: shelf.clientWidth * 0.7, behavior: "smooth" })
-    );
-    shelf.addEventListener("scroll", updateArrows, { passive: true });
-    window.addEventListener("resize", updateArrows);
-  }
+  more.addEventListener("click", () => {
+    expanded = !expanded;
+    render();
+  });
+
+  new ResizeObserver(() => {
+    if (books.length && columns() !== cols) render();
+  }).observe(shelf);
 
   fetch("/library/data/resources.json")
     .then((r) => r.json())
     .then((data) => {
-      render(data.books.slice().reverse()); // newest additions first
-      updateArrows();
+      // File order is the order books were added; keep it as a sort key.
+      books = data.books.map((b, i) => ({ ...b, added: i }));
+      render();
     })
     .catch((err) => {
       console.error("Failed to load bookshelf:", err);

@@ -9,6 +9,8 @@
   const RADIUS = 70;
   const DURATION = 1400;
   const BAND = 0.08;
+  // Keep only the top of the photo: trims the arm's base, keeps both hands and the full fresco figure.
+  const KEEP = 0.85;
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const canvas = document.createElement("canvas");
@@ -30,12 +32,16 @@
   let target = 0;
   let last = 0;
 
+  function crop() {
+    return [0, 0, img.naturalWidth, img.naturalHeight * KEEP];
+  }
+
   function build() {
     const width = canvas.clientWidth;
     const dark = document.body.classList.contains("dark-mode");
     if (!width || built === `${width}:${dark}`) return;
     built = `${width}:${dark}`;
-    const height = Math.round((width * img.naturalHeight) / img.naturalWidth);
+    const height = Math.round((width * img.naturalHeight * KEEP) / img.naturalWidth);
     const dpr = window.devicePixelRatio || 1;
     canvas.style.height = `${height}px`;
     canvas.width = width * dpr;
@@ -54,7 +60,7 @@
     sample.width = cols;
     sample.height = rows;
     const sctx = sample.getContext("2d", { willReadFrequently: true });
-    sctx.drawImage(img, 0, 0, cols, rows);
+    sctx.drawImage(img, ...crop(), 0, 0, cols, rows);
     const data = sctx.getImageData(0, 0, cols, rows).data;
 
     // Dense characters should mark whatever contrasts with the page background.
@@ -97,7 +103,7 @@
       });
       ctx.clip();
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(img, 0, 0, cols * cw, rows * ch);
+      ctx.drawImage(img, ...crop(), 0, 0, cols * cw, rows * ch);
       ctx.restore();
     }
 

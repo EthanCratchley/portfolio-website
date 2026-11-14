@@ -454,3 +454,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } // End of search elements check
 });
+
+// Footer clock: local time in Vancouver, whatever the visitor's timezone
+(() => {
+  const clock = document.getElementById("footer-clock");
+  if (!clock) return;
+  const format = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Vancouver",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+  const tick = () => {
+    clock.textContent = format.format(new Date());
+  };
+  tick();
+  setInterval(tick, 10000);
+})();

@@ -105,22 +105,6 @@
       "dateAdded": "2025-12-15"
     },
     {
-      "id": "w14",
-      "title": "RVNS",
-      "url": "https://rvns.moe/",
-      "description": "Great reccomendations & technical blog",
-      "category": "blog",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w15",
-      "title": "Frontier Magazine",
-      "url": "https://www.frontiermag.net/",
-      "description": "Magazine on technology, science, and culture",
-      "category": "blog",
-      "dateAdded": "2025-12-15"
-    },
-    {
       "id": "w16",
       "title": "Dario Amodei's Site",
       "url": "https://darioamodei.com",
@@ -145,14 +129,6 @@
       "dateAdded": "2025-12-15"
     },
     {
-      "id": "w19",
-      "title": "Eric Zhang's Projects",
-      "url": "https://www.ekzhang.com/projects",
-      "description": "Developer portfolio showcasing programming projects and tools",
-      "category": "portfolio",
-      "dateAdded": "2025-12-15"
-    },
-    {
       "id": "w21",
       "title": "Justin Math",
       "url": "https://www.justinmath.com/",
@@ -166,14 +142,6 @@
       "url": "https://udara.io/",
       "description": "Super cool projects & blog",
       "category": "portfolio",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w23",
-      "title": "Mrinal's Blog",
-      "url": "https://mrinalxdev.github.io/mrinalxblogs/blogs/",
-      "description": "Technical blog post on Redis database & more",
-      "category": "blog",
       "dateAdded": "2025-12-15"
     },
     {
@@ -201,27 +169,11 @@
       "dateAdded": "2025-12-15"
     },
     {
-      "id": "w27",
-      "title": "USACO Guide",
-      "url": "https://usaco.guide/dashboard",
-      "description": "Free collection of resources for competitive programming",
-      "category": "tutorial",
-      "dateAdded": "2025-12-15"
-    },
-    {
       "id": "w28",
       "title": "Figma Mobbin",
       "url": "https://mobbin.com/",
       "description": "Design reference library of mobile and web app screenshots",
       "category": "resource",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w29",
-      "title": "JAX Scaling Book - GPUs",
-      "url": "https://jax-ml.github.io/scaling-book/gpus/",
-      "description": "Guide to scaling machine learning workloads on GPUs with JAX",
-      "category": "tutorial",
       "dateAdded": "2025-12-15"
     },
     {
@@ -249,51 +201,11 @@
       "dateAdded": "2025-12-15"
     },
     {
-      "id": "w33",
-      "title": "Ground Zero AI",
-      "url": "https://www.groundzeroai.in/",
-      "description": "AI and machine learning educational resources",
-      "category": "tutorial",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w34",
-      "title": "Tensor Tonic",
-      "url": "https://www.tensortonic.com/",
-      "description": "ML practice problems",
-      "category": "tutorial",
-      "dateAdded": "2025-12-15"
-    },
-    {
       "id": "w35",
       "title": "Chalk.ist",
       "url": "https://chalk.ist/",
       "description": "Good for terminal/code screenshots",
       "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w36",
-      "title": "Carbon",
-      "url": "https://carbon.now.sh/",
-      "description": "Create and share beautiful images of your source code",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w37",
-      "title": "Deep Learning Course by Adam Maj",
-      "url": "https://github.com/adam-maj/deep-learning",
-      "description": "Open source deep learning course and resources",
-      "category": "tutorial",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w38",
-      "title": "Anna's Archive",
-      "url": "https://annas-archive.se/",
-      "description": "Free access to books, papers, and educational resources",
-      "category": "resource",
       "dateAdded": "2025-12-15"
     },
     {
@@ -353,22 +265,6 @@
       "dateAdded": "2025-12-15"
     },
     {
-      "id": "w46",
-      "title": "Chorus",
-      "url": "https://chorus.sh/",
-      "description": "Multi LLM running & screen capture",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w47",
-      "title": "Research App by UNMS",
-      "url": "https://un.ms/research",
-      "description": "Great tool for reading/interacting w/ research papers",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
       "id": "w48",
       "title": "Papiers",
       "url": "https://papiers.ai/",
@@ -385,46 +281,6 @@
       "dateAdded": "2025-12-15"
     },
     {
-      "id": "w50",
-      "title": "Roo Code",
-      "url": "https://roocode.com/",
-      "description": "Favorite AI coding assistant",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w51",
-      "title": "OpenRouter",
-      "url": "https://openrouter.ai/",
-      "description": "Unified API for accessing multiple LLMs",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w52",
-      "title": "OpenCode",
-      "url": "https://opencode.ai/",
-      "description": "Best cli code assistant (OS, all models)",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w53",
-      "title": "Zed",
-      "url": "https://zed.dev/",
-      "description": "High-performance & minimalistic code editor",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
-      "id": "w54",
-      "title": "Zen Browser",
-      "url": "https://zen-browser.app/",
-      "description": "OS Arc alternative",
-      "category": "tool",
-      "dateAdded": "2025-12-15"
-    },
-    {
       "id": "w55",
       "title": "Andrej Karpathy's Blog",
       "url": "https://karpathy.github.io/",
@@ -437,14 +293,6 @@
       "title": "Solve Everything",
       "url": "https://www.solveeverything.org/",
       "description": "Wissner-Gross and Diamandis's blueprint for achieving abundance by 2035",
-      "category": "blog",
-      "dateAdded": "2026-10-04"
-    },
-    {
-      "id": "w57",
-      "title": "Situational Awareness",
-      "url": "https://situational-awareness.ai/",
-      "description": "Leopold Aschenbrenner's essay series on the decade ahead in AI",
       "category": "blog",
       "dateAdded": "2026-10-04"
     },
@@ -633,7 +481,7 @@
       "title": "The Intelligent Investor",
       "author": "Benjamin Grahm",
       "description": "The key to success in value investing",
-      "category": "finance",
+      "category": "business",
       "rating": 4,
       "dateAdded": "2025-12-14",
       "notes": "",
@@ -644,7 +492,7 @@
       "title": "University of Berkshire Hathaway",
       "author": "Daniel Pecaut, Corey Wrenn",
       "description": "Great financial advice and wisdom for life",
-      "category": "finance",
+      "category": "business",
       "rating": 5,
       "dateAdded": "2025-12-14",
       "notes": "",
@@ -655,7 +503,7 @@
       "title": "Venture Deals",
       "author": "Brad Feld",
       "description": "Venture Capital terminology, case studies and more",
-      "category": "finance",
+      "category": "business",
       "rating": 4,
       "dateAdded": "2025-12-14",
       "notes": "",
@@ -666,7 +514,7 @@
       "title": "The Hard Thing About Hard Things",
       "author": "Ben Horowitz",
       "description": "Building a business when there are no easy answers",
-      "category": "startups",
+      "category": "business",
       "rating": 4,
       "dateAdded": "2025-12-14",
       "notes": "",
@@ -677,7 +525,7 @@
       "title": "Trading and Exchanges: Market Microstructure for Practitioners",
       "author": "Larry Harris",
       "description": "In-depth on market microstructure and exchanges",
-      "category": "finance",
+      "category": "business",
       "rating": 4,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -688,7 +536,7 @@
       "title": "Destined for War",
       "author": "Graham Allison",
       "description": "Can America and China escape Thucydides's Trap?",
-      "category": "geopolitics",
+      "category": "history",
       "rating": 4,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -699,7 +547,7 @@
       "title": "Empty Planet",
       "author": "Darrell Bricker & John Ibbitson",
       "description": "The shock of global population decline",
-      "category": "geopolitics",
+      "category": "history",
       "rating": 5,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -710,7 +558,7 @@
       "title": "Nuclear War",
       "author": "Annie Jacobsen",
       "description": "A scenario on nuclear warfare",
-      "category": "geopolitics",
+      "category": "history",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -721,7 +569,7 @@
       "title": "Can't Hurt Me",
       "author": "David Goggins",
       "description": "Master your mind and defy the odds",
-      "category": "self-improvement",
+      "category": "philosophy",
       "rating": 5,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -732,7 +580,7 @@
       "title": "Never Finished",
       "author": "David Goggins",
       "description": "Unshackle your mind and win the war within",
-      "category": "self-improvement",
+      "category": "philosophy",
       "rating": 5,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -754,7 +602,7 @@
       "title": "Outliers",
       "author": "Malcolm Gladwell",
       "description": "The story of success and the 10,000 hour rule",
-      "category": "psychology",
+      "category": "philosophy",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -765,7 +613,7 @@
       "title": "The Power of Habit",
       "author": "Charles Duhigg",
       "description": "Why we do what we do in life and business",
-      "category": "psychology",
+      "category": "philosophy",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -776,7 +624,7 @@
       "title": "The Founders",
       "author": "Jimmy Soni",
       "description": "The story of PayPal and the entrepreneurs who shaped Silicon Valley",
-      "category": "biography",
+      "category": "lives",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -798,7 +646,7 @@
       "title": "Lee Kuan Yew",
       "author": "Lee Kuan Yew",
       "description": "Biography of Singapore's founding father",
-      "category": "biography",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -809,7 +657,7 @@
       "title": "Make It Stick",
       "author": "Peter C. Brown",
       "description": "The science of successful learning",
-      "category": "learning",
+      "category": "philosophy",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -820,7 +668,7 @@
       "title": "Ultralearning",
       "author": "Scott Young",
       "description": "Master hard skills, outsmart the competition, and accelerate your career",
-      "category": "learning",
+      "category": "philosophy",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -842,7 +690,7 @@
       "title": "Jony Ive",
       "author": "Leander Kahney",
       "description": "The genius behind Apple's greatest products",
-      "category": "biography",
+      "category": "lives",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -853,7 +701,7 @@
       "title": "Steve Jobs",
       "author": "Walter Isaacson",
       "description": "The authorized biography of Apple's co-founder",
-      "category": "biography",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -864,7 +712,7 @@
       "title": "Elon Musk",
       "author": "Walter Isaacson",
       "description": "Biography of the entrepreneur behind Tesla, SpaceX, and more",
-      "category": "biography",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -886,7 +734,7 @@
       "title": "The Pragmatic Programmer",
       "author": "David Thomas & Andrew Hunt",
       "description": "Your journey to mastery in software development",
-      "category": "programming",
+      "category": "science",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -897,7 +745,7 @@
       "title": "The System Design Interview",
       "author": "Alex Xu",
       "description": "Comprehensive guide to system design interviews",
-      "category": "programming",
+      "category": "science",
       "rating": 4,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -908,7 +756,7 @@
       "title": "Software Engineering at Google",
       "author": "Titus Winters, Tom Manshreck, Hyrum Wright",
       "description": "Lessons learned from programming over time",
-      "category": "programming",
+      "category": "science",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -919,7 +767,7 @@
       "title": "The Hundred-Page Machine Learning Book",
       "author": "Andriy Burkov",
       "description": "Concise overview of machine learning concepts",
-      "category": "programming",
+      "category": "science",
       "rating": 4,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -930,7 +778,7 @@
       "title": "Calculus",
       "author": "James Stewart",
       "description": "Comprehensive calculus textbook",
-      "category": "mathematics",
+      "category": "science",
       "rating": 4,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -941,7 +789,7 @@
       "title": "The Technological Republic",
       "author": "Alex Karp & Nicholas W. Zamiska",
       "description": "Geopolitics, defense, war, tech",
-      "category": "geopolitics",
+      "category": "history",
       "rating": 3,
       "dateAdded": "2025-12-15",
       "notes": "",
@@ -974,7 +822,7 @@
       "title": "The Iliad",
       "author": "Homer",
       "description": "Epic of rage, honor, and the Trojan War",
-      "category": "literature",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2026-10-04",
       "notes": "",
@@ -985,7 +833,7 @@
       "title": "The Odyssey",
       "author": "Homer",
       "description": "Odysseus's long journey home from Troy",
-      "category": "literature",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2026-10-04",
       "notes": "",
@@ -996,7 +844,7 @@
       "title": "Oedipus the King",
       "author": "Sophocles",
       "description": "The tragedy of fate and self-discovery",
-      "category": "literature",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2026-10-04",
       "notes": "",
@@ -1007,7 +855,7 @@
       "title": "Oil and Marble",
       "author": "Stephanie Storey",
       "description": "Novel of the rivalry between Leonardo and Michelangelo",
-      "category": "literature",
+      "category": "lives",
       "rating": 5,
       "dateAdded": "2026-10-04",
       "notes": "",
@@ -1026,14 +874,14 @@
     },
     {
       "id": "b46",
-      "title": "Gray Matter",
-      "author": "David Levy",
-      "description": "A neurosurgeon on faith, prayer, and the operating room",
-      "category": "biography",
+      "title": "Gray Matters",
+      "author": "Theodore H. Schwartz",
+      "description": "A history of brain surgery, from its pioneers to the modern operating room",
+      "category": "science",
       "rating": 4,
       "dateAdded": "2026-10-04",
       "notes": "",
-      "cover": "gray-matter.jpg"
+      "cover": "gray-matters.jpg"
     },
     {
       "id": "b47",
@@ -1051,7 +899,7 @@
       "title": "Biological War",
       "author": "Annie Jacobsen",
       "description": "A scenario on biological warfare",
-      "category": "geopolitics",
+      "category": "history",
       "rating": 3,
       "dateAdded": "2026-10-06",
       "notes": "",
@@ -1089,6 +937,17 @@
       "dateAdded": "2026-11-14",
       "notes": "",
       "cover": "collected-maxims.jpg"
+    },
+    {
+      "id": "b52",
+      "title": "Zero to One",
+      "author": "Peter Thiel",
+      "description": "Notes on startups, or how to build the future",
+      "category": "business",
+      "rating": 5,
+      "dateAdded": "2026-11-14",
+      "notes": "",
+      "cover": "zero-to-one.jpg"
     }
   ],
   "papers": [
