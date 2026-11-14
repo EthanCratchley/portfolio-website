@@ -32,16 +32,6 @@ const SEARCH_INDEX = [
     breadcrumb: "Writing",
   },
   {
-    id: "page-experience",
-    title: "Experience",
-    type: "page",
-    category: "Navigation",
-    description: "Work experience, education, and volunteer activities",
-    tags: ["experience", "work", "education", "resume", "cv"],
-    url: "/experience/",
-    breadcrumb: "Experience",
-  },
-  {
     id: "page-projects",
     title: "Projects",
     type: "page",
@@ -505,127 +495,8 @@ const SEARCH_INDEX = [
     breadcrumb: "Writing > Abstract",
   },
 
-  // Experience - Work
-  {
-    id: "exp-autonommi",
-    title: "Software Engineer at Autonommi",
-    type: "experience",
-    category: "Work",
-    description:
-      "Working with LLMs and RAG systems, contributing across applied AI, full-stack development, CI/CD, security, and deployment",
-    tags: [
-      "work",
-      "software engineer",
-      "autonommi",
-      "ai",
-      "llm",
-      "rag",
-      "fullstack",
-    ],
-    url: "/experience/",
-    breadcrumb: "Experience > Work",
-  },
-  {
-    id: "exp-wmb",
-    title: "Member of Technical Staff Intern at WMB",
-    type: "experience",
-    category: "Work",
-    description:
-      "Researched, developed, and deployed internal procedures and AI workflows",
-    tags: ["work", "intern", "wmb", "ai", "workflows", "research"],
-    url: "/experience/",
-    breadcrumb: "Experience > Work",
-  },
 
-  // Experience - Education
-  {
-    id: "exp-sfu",
-    title: "BASc/BBA Joint Major at SFU",
-    type: "experience",
-    category: "Education",
-    description:
-      "Computer Science and Business Joint Major with concentration in Artificial Intelligence at Simon Fraser University",
-    tags: [
-      "education",
-      "sfu",
-      "computer science",
-      "business",
-      "ai",
-      "university",
-    ],
-    url: "/experience/",
-    breadcrumb: "Experience > Education",
-  },
-  {
-    id: "exp-nus",
-    title: "Study Abroad at NUS",
-    type: "experience",
-    category: "Education",
-    description:
-      "Studying technology, history, and philosophy at National University of Singapore",
-    tags: [
-      "education",
-      "nus",
-      "singapore",
-      "study abroad",
-      "technology",
-      "philosophy",
-    ],
-    url: "/experience/",
-    breadcrumb: "Experience > Education",
-  },
 
-  // Experience - Volunteer
-  {
-    id: "exp-osdc",
-    title: "Lead Software Engineer at SFU Open Source Development Club",
-    type: "experience",
-    category: "Volunteer",
-    description:
-      "Leading a team of developers and designers in building Financial Fast Feed",
-    tags: [
-      "volunteer",
-      "sfu",
-      "open source",
-      "leadership",
-      "software engineer",
-    ],
-    url: "/experience/",
-    breadcrumb: "Experience > Volunteer",
-  },
-  {
-    id: "exp-sfic",
-    title: "Senior Equity Research Analyst at SFU Investment Club",
-    type: "experience",
-    category: "Volunteer",
-    description:
-      "Conducting equity research, competing in case competitions, stock pitches, and investment challenges",
-    tags: ["volunteer", "sfu", "investment", "finance", "equity research"],
-    url: "/experience/",
-    breadcrumb: "Experience > Volunteer",
-  },
-  {
-    id: "exp-enactus",
-    title: "Project Representative at Enactus Capilano",
-    type: "experience",
-    category: "Volunteer",
-    description:
-      "Coordinated events with over 100 participants, competed at Regional and National competitions",
-    tags: ["volunteer", "enactus", "leadership", "events", "competition"],
-    url: "/experience/",
-    breadcrumb: "Experience > Volunteer",
-  },
-  {
-    id: "exp-referee",
-    title: "Soccer Referee at St. Pius X School",
-    type: "experience",
-    category: "Volunteer",
-    description:
-      "Refereeing soccer games and giving back to elementary school community",
-    tags: ["volunteer", "soccer", "referee", "community", "sports"],
-    url: "/experience/",
-    breadcrumb: "Experience > Volunteer",
-  },
 ];
 
 // Export for use in other scripts

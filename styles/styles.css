@@ -131,6 +131,12 @@ section {
   padding-top: 30px;
 }
 
+.main-image.ascii-art {
+  padding: 0;
+  max-height: none;
+  touch-action: pan-y;
+}
+
 /* Currently Section */
 .currently-content p {
   margin-bottom: 20px;
@@ -240,54 +246,8 @@ section {
   color: var(--text-tertiary);
 }
 
-/* Experience Section */
-#experience {
-  margin-top: 10px;
-  padding: 0 20px;
-}
-
 .bio-header h1 {
   font-size: 2.5em;
-}
-
-#experience h2 {
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-.experience-item {
-  margin-bottom: 30px;
-}
-
-.experience-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 5px;
-}
-
-.position {
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-.company {
-  font-size: 1em;
-  color: var(--text-secondary);
-  margin-left: 10px;
-}
-
-.date {
-  font-size: 0.9em;
-  color: var(--text-quaternary);
-}
-
-.experience-item p {
-  margin-top: 10px;
-  font-size: 1em;
-  line-height: 1.5;
-  color: var(--text-primary);
-  text-align: left;
 }
 
 .project-link {
