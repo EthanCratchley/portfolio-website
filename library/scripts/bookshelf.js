@@ -31,7 +31,9 @@
   }
 
   function stars(rating) {
-    return "★".repeat(rating) + "☆".repeat(5 - rating);
+    const full = Math.floor(rating);
+    const half = rating % 1 ? '<span class="half-star">☆</span>' : "";
+    return "★".repeat(full) + half + "☆".repeat(5 - full - (half ? 1 : 0));
   }
 
   let openBook = null;
@@ -78,7 +80,8 @@
     meta.className = "book-detail-meta";
     const rating = document.createElement("span");
     rating.className = "book-detail-rating";
-    rating.textContent = stars(book.rating);
+    rating.innerHTML = stars(book.rating);
+    rating.setAttribute("aria-label", book.rating + " out of 5 stars");
     meta.appendChild(rating);
     info.appendChild(meta);
 

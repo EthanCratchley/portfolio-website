@@ -1056,6 +1056,39 @@
       "dateAdded": "2026-10-06",
       "notes": "",
       "cover": "biological-war.jpg"
+    },
+    {
+      "id": "b49",
+      "title": "The Complete Essays",
+      "author": "Michel de Montaigne",
+      "description": "Essays on how to live, written by a man studying himself",
+      "category": "philosophy",
+      "rating": 5,
+      "dateAdded": "2026-11-14",
+      "notes": "",
+      "cover": "montaigne-complete-essays.jpg"
+    },
+    {
+      "id": "b50",
+      "title": "The Pocket Oracle and Art of Prudence",
+      "author": "Baltasar Gracián",
+      "description": "300 aphorisms on worldly wisdom and getting on in life",
+      "category": "philosophy",
+      "rating": 3.5,
+      "dateAdded": "2026-11-14",
+      "notes": "",
+      "cover": "pocket-oracle.jpg"
+    },
+    {
+      "id": "b51",
+      "title": "Collected Maxims and Other Reflections",
+      "author": "François de La Rochefoucauld",
+      "description": "Maxims on self-interest, vanity, and human nature",
+      "category": "philosophy",
+      "rating": 3.5,
+      "dateAdded": "2026-11-14",
+      "notes": "",
+      "cover": "collected-maxims.jpg"
     }
   ],
   "papers": [
