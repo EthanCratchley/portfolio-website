@@ -29,51 +29,51 @@ class ThoughtStream {
 
   /**
    * Calculate positioning zones based on viewport.
-   * Zones sit strictly in the side margins — never over the content column,
-   * the legend, or beyond the page edges — and stay within the current
-   * viewport so bubbles never extend the page.
+   * Zones sit strictly in the side margins — never over the content column or
+   * beyond the page edges — and stay within the current viewport. Bubbles narrow
+   * to fit the margin, so quotes still appear on laptop-width windows.
    */
   calculateZones() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     const scrollY = window.scrollY || window.pageYOffset;
-    const bubbleWidth = 310; // .thought-bubble max-width + padding
+    const MAX_WIDTH = 300;
+    const MIN_WIDTH = 150;
+    const EDGE = 20; // gap to the window edge
+    const GUTTER = 30; // gap to the content column
 
     // Main content area is centered with max-width: 700px + padding
     const mainContentWidth = Math.min(700, vw * 0.8);
     const mainContentLeft = (vw - mainContentWidth) / 2;
     const mainContentRight = mainContentLeft + mainContentWidth;
+    const width = Math.min(MAX_WIDTH, mainContentLeft - EDGE - GUTTER);
 
     const zones = {};
+    if (width < MIN_WIDTH) return zones;
 
-    // Left margin: between page edge and content, below the legend
-    const leftMax = mainContentLeft - bubbleWidth - 30;
-    if (leftMax > 20) {
-      zones.leftMargin = {
-        weight: 0.4,
-        bounds: {
-          xMin: 20,
-          xMax: leftMax,
-          yMin: scrollY + 400,
-          yMax: scrollY + vh - 120,
-        },
-      };
-    }
+    // Left margin: below the legend
+    zones.leftMargin = {
+      weight: 0.4,
+      width,
+      bounds: {
+        xMin: EDGE,
+        xMax: mainContentLeft - GUTTER - width,
+        yMin: scrollY + 400,
+        yMax: scrollY + vh - 120,
+      },
+    };
 
     // Right margin: between content and page edge
-    const rightMin = mainContentRight + 30;
-    const rightMax = vw - bubbleWidth - 20;
-    if (rightMax > rightMin) {
-      zones.rightMargin = {
-        weight: 0.6,
-        bounds: {
-          xMin: rightMin,
-          xMax: rightMax,
-          yMin: scrollY + 250,
-          yMax: scrollY + vh - 120,
-        },
-      };
-    }
+    zones.rightMargin = {
+      weight: 0.6,
+      width,
+      bounds: {
+        xMin: mainContentRight + GUTTER,
+        xMax: vw - EDGE - width,
+        yMin: scrollY + 250,
+        yMax: scrollY + vh - 120,
+      },
+    };
 
     return zones;
   }
@@ -236,6 +236,7 @@ class ThoughtStream {
     element.className = "thought-bubble";
     element.style.left = `${position.x}px`;
     element.style.top = `${position.y}px`;
+    element.style.maxWidth = `${position.width}px`;
 
     // Add thought text
     const textElement = document.createElement("p");
@@ -320,6 +321,7 @@ class ThoughtStream {
     return {
       x: this.randomBetween(zone.bounds.xMin, zone.bounds.xMax),
       y: this.randomBetween(zone.bounds.yMin, zone.bounds.yMax),
+      width: zone.width,
     };
   }
 
