@@ -6,11 +6,11 @@ Are we entering a new age of consumer products and marketing where we will see p
 
 # Observations
 
-When you look at some of the most successful consumer products of the past couple of years, some that come to mind are Feastables, MrBeast Burgers, Prime, Skims, Yeezy, almost every makeup and skin care brand, and many more.
+When you look at some of the most successful consumer products of the past couple of years, some that come to mind are Feastables, MrBeast Burgers, Prime, Skims, Yeezy, almost every makeup and skin care brand, and many more.<span class="edit" tabindex="0">[A]<span class="edit-note">Two of these have aged poorly. Prime's sales collapsed after its 2023 peak, and Adidas had already ended its Yeezy partnership in late 2022 over Ye's comments. That doesn't discredit the argument so much as show the trade-off: with so much tied to one person's image, these brands are far more volatile. (2026)</span></span>
 
 These companies all have valuations over $100M, many even over $1B, not to mention they found this success in just a couple of years.
 
-These products are not fundamentally better than their competitors but despite having fewer resources they have found their way to the top of their respective industries. This success is largely due to the strong personal brands and viral marketing behind them.
+These products are not fundamentally better than their competitors, but despite having fewer resources, they have found their way to the top of their respective industries. This success is largely due to the strong personal brands and viral marketing behind them.
 
 Knowing this, I would be pretty confident in saying that it is very unlikely these products would have seen the same success without being able to put a face to the product.
 
@@ -20,15 +20,15 @@ It seems as though their revenue is not just from untapped markets but even more
 
 Marc Andreessen talks about a possible "great transition" in branding.
 
-He states “more aggressive argument that could be made—which is kind of where I am—is maybe the influencer/creator-branded, kind of individually-branded things, this might be the future of consumer products generally”.
+He states, “[The] more aggressive argument that could be made—which is kind of where I am—is maybe the influencer/creator-branded, kind of individually-branded things, this might be the future of consumer products generally”.
 
-I tend to agree with Marc, people seem to resonate much more with a product when it is tied directly to someone they feel connected to.
+I tend to agree with Marc; people seem to resonate much more with a product when it is tied directly to someone they feel connected to.
 
-Things aren't how they used to be where everyone just sat around the TV and watched the same things, saw the same advertisements. Today we have insanely complex algorithms that recommend things for you based on millions of parameters. Brands can no longer just slap a famous person in their videos or a catchy song to sell you their products. People want to feel a connection to the company.
+Things aren't how they used to be, when everyone sat around the TV, watched the same things, and saw the same advertisements. Today we have insanely complex algorithms that recommend things for you based on millions of parameters. Brands can no longer just slap a famous face or a catchy song into their ads to sell you their products. People want to feel a connection to the company.
 
-So how can legacy brands or startups that don't have a celebrity in their pocket to be the face adjust?
+So how can legacy brands, or startups without a celebrity in their pocket to be the face, adjust?
 
-I don't expect to see legacy brands begin to lose significant market share for at least another 20-30 years. Regardless, if they do want to survive the next wave I would recommend they shift their marketing/branding toward something that can easily benefit from social media and trends (a great example of this right now would be Stanley).
+I don't expect to see legacy brands begin to lose significant market share for at least another 20-30 years.<span class="edit" tabindex="0">[B]<span class="edit-note">20–30 years was far too conservative. I'd now say more like 3–5, and in many ways it's already happening. (2026)</span></span> Regardless, if they do want to survive the next wave, I would recommend they shift their marketing/branding toward something that can easily benefit from social media and trends (a great example of this right now would be Stanley).
 
 Option number two is to lean into the trend and hire a big name to be the face of a specific product or even the whole company.
 

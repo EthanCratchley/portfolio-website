@@ -63,16 +63,6 @@ const SEARCH_INDEX = [
     url: "/library/",
     breadcrumb: "Library",
   },
-  {
-    id: "page-contact",
-    title: "Contact",
-    type: "page",
-    category: "Navigation",
-    description: "Get in touch and connect on social platforms",
-    tags: ["contact", "email", "linkedin", "github", "social"],
-    url: "/contact/",
-    breadcrumb: "Contact",
-  },
 
   // Projects - Featured
   {
@@ -348,17 +338,6 @@ const SEARCH_INDEX = [
     breadcrumb: "Writing > Technical",
   },
   {
-    id: "writing-nn",
-    title: "The Human Brain as a Neural Network",
-    type: "writing",
-    category: "Archive",
-    description:
-      "Exploring parallels between biological and artificial neural networks",
-    tags: ["technical", "neural network", "brain", "ai", "neuroscience", "archive"],
-    url: "/writing/microblogFiles/nn.html",
-    breadcrumb: "Writing > Archive",
-  },
-  {
     id: "writing-bandit",
     title: "Bandit Wargame Walkthrough",
     type: "writing",
@@ -433,7 +412,6 @@ const SEARCH_INDEX = [
     breadcrumb: "Writing > Abstract",
   },
 
-  // Writing - Archive
   {
     id: "writing-state",
     title: "Turn to State Capitalism",
@@ -448,21 +426,11 @@ const SEARCH_INDEX = [
     id: "writing-gap",
     title: "Is This Just How It Works?",
     type: "writing",
-    category: "Archive",
+    category: "Business & Economics",
     description: "Questioning systemic patterns and norms",
-    tags: ["philosophy", "society", "systems", "reflection", "archive"],
+    tags: ["philosophy", "society", "systems", "reflection"],
     url: "/writing/microblogFiles/gap.html",
-    breadcrumb: "Writing > Archive",
-  },
-  {
-    id: "writing-llm-scratch",
-    title: "Language Model from Scratch",
-    type: "writing",
-    category: "Archive",
-    description: "Building a language model from first principles",
-    tags: ["technical", "llm", "ai", "machine learning", "tutorial", "archive"],
-    url: "/writing/microblogFiles/llm.html",
-    breadcrumb: "Writing > Archive",
+    breadcrumb: "Writing > Business & Economics",
   },
   {
     id: "writing-datetime",

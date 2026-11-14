@@ -2,7 +2,7 @@
 
 The Bandit wargame, hosted by OverTheWire, is an excellent introductory challenge for learning fundamental Linux CLI skills and basic security concepts. It presents a series of levels, each requiring you to exploit a specific vulnerability or use a particular command to retrieve a password for the next level. By navigating through the Bandit levels, you'll gain practical experience with file manipulation, SSH, permissions, and other aspects of the Linux environment, scripting, and cybersecurity.
 
-**_NOTE: if you have not completed or attempted bandit already the following below are spoilers. I highly recommend trying to complete the challenge on your own first, the notes below are simply a place to refer to after having completed and helped me in explaining the process as I moved through levels._**
+**_NOTE: if you have not already attempted Bandit, the notes below contain spoilers. I highly recommend trying to complete the challenge on your own first. These notes are simply a place to refer back to after completing a level, and writing them helped me explain the process to myself as I moved through the levels._**
 
 ---
 
@@ -134,13 +134,16 @@ mv data.txt hexdump_data
 xxd -r hexdump_data compressed_data
 ```
 
-3. Repeatedly decompress
+3. Repeatedly check the file type and decompress each layer accordingly
 
 ```
-bzip2, gzip, xdd, tar
+file compressed_data
+mv compressed_data data.gz && gzip -d data.gz     # gzip layer
+mv data data.bz2 && bzip2 -d data.bz2             # bzip2 layer
+tar -xf data.tar                                  # tar layer
 ```
 
-4. Final GZIP Decompression for Password
+4. Final gzip decompression for the password
 
 ```
 xxd data8.bin
@@ -208,13 +211,13 @@ openssl s_client -connect localhost:30001
 nmap -sV -T4 -p 31000-32000 localhost
 ```
 
-2. Connect to correct port and enter previous password to retreive RSA Private Key
+2. Connect to the correct port and enter the previous password to retrieve the RSA private key
 
 ```
 openssl s_client -connect localhost:31790
 ```
 
-3. Create a Temp Directory and private.key which you will use to access bandit17
+3. Create a temp directory and a private.key file, which you will use to access bandit17
 
 ```
 mkdir /tmp/rsa_key
@@ -224,7 +227,7 @@ nano private.key (enter RSA key)
 chmod 400 private.key
 ```
 
-4. Use private.key to acess bandit17
+4. Use private.key to access bandit17
 
 ```
 ssh -i private.key bandit17@localhost -p 2220
@@ -236,14 +239,14 @@ ssh -i private.key bandit17@localhost -p 2220
 cat /etc/bandit_pass/bandit17
 ```
 
-_Note: there is known to be some bugs with step 2, you may have to google for help_
+_Note: there are known to be some bugs with step 2, so you may have to search for help._
 
 ### **Bandit Level 17 → 18** _(02/15/25) - < 3 Minutes_
 
 **Solution:**
 
 1. Use diff to find the difference between the two files
-   1. the one from password.new is the correct password
+   1. The line from password.new is the correct password
 
 ```
 diff password.new password.old
@@ -311,10 +314,10 @@ ls -la /etc/cron.d
 cat /etc/cron.d/cronjob_bandit22
 ```
 
-2. Read output file
+2. Read the script the cron job runs
 
 ```
-cat /usr/bin/cronjob_bandit22.
+cat /usr/bin/cronjob_bandit22.sh
 ```
 
 3. Read password file
@@ -334,19 +337,19 @@ ls -la /etc/cron.d
 cat /etc/cron.d/cronjob_bandit23
 ```
 
-2. Read output file
+2. Read the script the cron job runs
 
 ```
-cat /usr/bin/cronjob_bandit23.
+cat /usr/bin/cronjob_bandit23.sh
 ```
 
-3. Echo command as bandit23 user
+3. Run the script's hashing command as the bandit23 user
 
 ```
 echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 ```
 
-4. Read tmp directory given
+4. Read the file in /tmp that the hash points to
 
 ```
 cat /tmp/8ca319486bfbbc3663ea0fbe81326349
@@ -362,34 +365,34 @@ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 ls /etc/cron.d/
 ```
 
-2. I then read the file and read the cron file being executed and went to the directory
+2. I then read the cron file, read the script it executes, and went to the directory
 
 ```
 cat /etc/cron.d/cronjob_bandit24
-cat /usr/bin/cronjob_bandit24.
+cat /usr/bin/cronjob_bandit24.sh
 cd /var/spool/bandit24/foo
 ```
 
-- After reading the executed cron job you can see the bash code is executing scripts by bandit23 and then deleting all files in the directory every minute
+- After reading the script, you can see that every minute it executes any scripts in the directory owned by bandit23 and then deletes all files in it
 
-1. I then made a directory in tmp and ensured correct permissions where we will send the password
+3. I then made a directory in /tmp, with the correct permissions, where we will send the password
 
 ```
 mkdir /tmp/b23
 chmod 777 /tmp/b23
 ```
 
-1. Next I build the bash script taht will be automatically executed by the cron job
+4. Next I built the bash script that will be automatically executed by the cron job
 
 ```
 nano get.sh
 chmod +x get.sh
 ```
 
-- Ensure you are using the correct bash version/location
+- Ensure you are using the correct bash location (check with `which bash`)
 
 ```
-!/usr/bin/bash
+#!/usr/bin/bash
 
 cat /etc/bandit_pass/bandit24 > /tmp/b23/pass.txt
 chmod 400 /tmp/b23/pass.txt
@@ -412,15 +415,15 @@ nc localhost 30002
 ```
 
 - The output will inform you that you need to enter the previous level password and a pin to get the next level password
-- The best way to go about about this for this level requiring a brute force is to create a for loop testing all pincodes with the password
-- There are multiple ways to do this, the one I use is among the more simple and maybe a little less efficient
+- Since this level requires a brute force, the best approach is a for loop that tests every pin code alongside the password
+- There are multiple ways to do this; the one I use is among the simpler and maybe a little less efficient
 
 2. Create directory and shell script
 
 ```
 mkdir /tmp/b24
 cd /tmp/b24
-touch get.
+touch get.sh
 ```
 
 3. Create brute force in shell script
@@ -433,19 +436,18 @@ nano get.sh
 ```
 #!/usr/bin/bash
 
-# bash command above depends on whcih bash output
+# the shebang above depends on the output of `which bash`
 
 BANDIT24_PASS="PASSWORD"
 
 for i in {0000..9999}; do # loop through all pincodes 0000-9999
-	echo "$BANDIT24_PASS $i" >> list.txt; # import them and the password in list.txt
+	echo "$BANDIT24_PASS $i" >> list.txt; # write the password and each pin to list.txt
 done
 ```
 
-- the | (Pipe) symbol takes theoutput of the command on the left and sends it as input to the command on its right
-  <br><br>
+- The | (pipe) symbol takes the output of the command on its left and sends it as input to the command on its right
 
-4. Run cat on list.txt testing it against the port until you receive the password
+4. Pipe list.txt into the port, testing each line until you receive the password
 
 ```
 cat list.txt | nc localhost 30002
@@ -455,14 +457,14 @@ cat list.txt | nc localhost 30002
 
 **Solution:**
 
-1. We run ls to see what were working with and we see were give the private key
+1. Run ls to see what we're working with, and we see we're given a private key
 
 ```
 ls -la
 cat bandit26.sshkey
 ```
 
-2. Similar to past solutions we will use this to enter bandit26
+2. Similar to past solutions, we will use this to enter bandit26
 
 ```
 mkdir /tmp/rsa_key
@@ -473,23 +475,23 @@ chmod 400 private.key
 ssh -i private.key bandit26@bandit.labs.overthewire.org -p 2220
 ```
 
-3. As you will see when you try to connect like this the connection will be immedietly closed, therefore we will have to look for another solution
+3. As you will see, when you try to connect like this the connection is immediately closed, so we will have to look for another solution
 
-- You can see from the old password folder all the information about each bandit user and here we can see the shell bandit26 is using as well as the shell command
+- /etc/passwd lists information about each bandit user, including the shell bandit26 uses, and we can then read what that shell runs
 
 ```
 cat /etc/passwd | grep bandit26
 cat /usr/bin/showtext
 ```
 
-4. We will now exploit the more function utilized in the shell command by making the terminal extremly small and connecting to bandit26
+4. We will now exploit the `more` command used by that shell by making the terminal extremely small and connecting to bandit26
 
 ```
 #shrink terminal
 ssh -i private.key bandit26@bandit.labs.overthewire.org -p 2220
 ```
 
-5. Now we will exploit more by entering vim, from vim you can execute shell commands using : as seen below to retrieve the password
+5. From `more`, press `v` to enter vim. From vim you can execute shell commands using `:` as seen below to retrieve the password
 
 ```
 :set shell? #shows what shell we are in
@@ -522,7 +524,7 @@ mkdir /tmp/b27
 cd /tmp/b27
 ```
 
-2. Clone repo on port 22220
+2. Clone the repo on port 2220
 
 ```
 git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
@@ -532,7 +534,6 @@ cd repo
 3. Find the password
 
 ```
-cd repo
 cat README
 ```
 
@@ -547,7 +548,7 @@ mkdir /tmp/b28
 cd /tmp/b28
 ```
 
-2. Clone repo on port 22220
+2. Clone the repo on port 2220
 
 ```
 git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
@@ -558,13 +559,13 @@ cd repo
 
 ```
 git log
-git checkout <has>
+git checkout <hash>
 ```
 
 4. Check README in the correct hash for password
 
 ```
-#checkout in correct hash
+# after checking out the correct hash
 cat README.md
 ```
 
@@ -575,14 +576,14 @@ cat README.md
 1. Make a tmp folder to clone repo into
 
 ```
-mkdir /tmp/b28
-cd /tmp/b28
+mkdir /tmp/b29
+cd /tmp/b29
 ```
 
-2. Clone repo on port 22220
+2. Clone the repo on port 2220
 
 ```
-git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
 cd repo
 ```
 
@@ -606,14 +607,14 @@ cat README.md
 1. Make a tmp folder to clone repo into
 
 ```
-mkdir /tmp/b28
-cd /tmp/b28
+mkdir /tmp/b30
+cd /tmp/b30
 ```
 
-2. Clone repo on port 22220
+2. Clone the repo on port 2220
 
 ```
-git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo
 cd repo
 ```
 
@@ -633,18 +634,18 @@ git show <hash>
 1. Make a tmp folder to clone repo into
 
 ```
-mkdir /tmp/b28
-cd /tmp/b28
+mkdir /tmp/b31
+cd /tmp/b31
 ```
 
-2. Clone repo on port 22220
+2. Clone the repo on port 2220
 
 ```
-git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
 cd repo
 ```
 
-3. ReadMe states we have to make a push
+3. The README states we have to make a push
 
 ```
 cat README.md
@@ -681,6 +682,6 @@ cat /etc/bandit_pass/bandit33
 
 ## **Review**
 
-The Bandit wargames from OverTheWire have been a super interesting challenge and I would highly recommend them to anyone looking to learn more about cybersecurity or even just general bash/scripting.
+The Bandit wargame from OverTheWire has been a super interesting challenge, and I would highly recommend it to anyone looking to learn more about cybersecurity or even just general bash/scripting.
 
 _Thank you to the devs and admins who built and maintain Bandit / OverTheWire._

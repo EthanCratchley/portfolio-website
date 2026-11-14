@@ -4,7 +4,7 @@
 
 ## Abstract
 
-This study aims to identify which Python libraries most effectively contribute to medal winning Kaggle notebooks by moving beyond raw usage counts to a normalized impact metric. We processed over 260,000 public notebooks (15 million total), extracting and normalizing imports, merging competition metadata (medals, team sizes), and computing a medal weighted impact score per library. Results reveal that niche utilities and specialized tools such as automated EDA and presentation libraries often outperform mainstream frameworks on a per-notebook basis, while widely used packages like NumPy and pandas, though foundational, show diluted impact. These findings imply that Kaggle competitors should prioritize strategic, context driven library selection and maintain lean, reproducible workflows. By sharing cached artifacts and clear methodologies, this work also encourages efficient experimentation and knowledge sharing within the community, helping participants focus on the most potent tools for their specific challenges.
+This study aims to identify which Python libraries most effectively contribute to medal winning Kaggle notebooks by moving beyond raw usage counts to a normalized impact metric. We processed over 260,000 public notebooks (15 million total), extracting and normalizing imports, merging notebook medals with competition metadata (team sizes), and computing a medal weighted impact score per library. Results reveal that niche utilities and specialized tools such as automated EDA and presentation libraries often outperform mainstream frameworks on a per-notebook basis, while widely used packages like NumPy and pandas, though foundational, show diluted impact. These findings imply that Kaggle notebook authors should prioritize strategic, context driven library selection and maintain lean, reproducible workflows. By sharing cached artifacts and clear methodologies, this work also encourages efficient experimentation and knowledge sharing within the community, helping participants focus on the most potent tools for their specific challenges.
 
 <details>
 <summary>Cell 1: Core Imports</summary>
@@ -121,7 +121,9 @@ Below is an overview of our end-to-end processing and analysis pipeline. We star
 
 ### 📖 Methodology & Design Rationale
 
-Our goal was to move beyond raw usage counts and answer the question: **“Which libraries truly drive podium finishes on Kaggle?”** To do this, we developed a **medal-weighted impact metric** that combines the prestige of each medal (gold=3, silver=2, bronze=1) with a logarithmic scaling of team size—so that a gold in a 5,000-team competition carries more weight than one in a 50-team event. By dividing this weighted score by the total number of notebooks that import a library, we get an **impact-per-notebook** measure on a 0–3 scale, making small but potent utilities (e.g. Sweetviz, PrettyTable) stand out against behemoths like NumPy or Pandas.
+Our goal was to move beyond raw usage counts and answer the question: **“Which libraries show up most in the notebooks Kaggle values most?”** To do this, we developed a **medal-weighted impact metric** that combines the prestige of each medal (gold=3, silver=2, bronze=1) with a logarithmic scaling of team size—so that a gold in a 5,000-team competition carries more weight than one in a 50-team event. By dividing this weighted score by the total number of notebooks that import a library, we get an **impact-per-notebook** measure on a 0–3 scale, making small but potent utilities (e.g. Sweetviz, PrettyTable) stand out against behemoths like NumPy or Pandas.
+
+_Note: the medals used here are **notebook** medals, which Kaggle awards based on community upvotes, not competition placements. This metric therefore captures which libraries appear in the notebooks the community finds most valuable, rather than which libraries win competitions._
 
 To compute this at scale, we separated our pipeline into two phases. First, a **massive one-time parsing step** streams through hundreds of thousands of notebook files, extracts top-level `import` statements via a lightweight regex, and normalizes package names (e.g. `sklearn` → `scikit-learn`, dropping all standard library modules). This work is cached in Parquet shards so that judges and readers never have to rerun the heavy lifting code. In the second phase, we **merge in competition metadata** (kernel creation dates, medal awards, team counts) from the Meta Kaggle CSVs, compute the scaled impact scores, and drive the rapid interactive analysis—global leaderboards, domain-specific heat maps, temporal trends, and more.
 
@@ -667,23 +669,23 @@ plt.show()
 
 ## 🌎 Global Library Impact
 
-To identify which Python libraries deliver the strongest performance on Kaggle, we ranked them by medal-weighted impact score, a customer metric that scales medal counts by competition size and adjusts for usage frequency.
+To identify which Python libraries are most associated with medal-winning notebooks, we ranked them by medal-weighted impact score, a custom metric that scales medal counts by competition size and adjusts for usage frequency.
 
-The char above displays the top 20 libraries globally sorted by this normalized impact score.
+The chart above displays the top 20 libraries globally sorted by this normalized impact score.
 
 ### 📌 Key Observations
 
-**Small but Mighty:** Topping the chart is `prettytable`, a lightweight formatting library. Rarely used compared to heavyweights like `numpy`, its usage is highly correlated with winning kernels. Perhaps Kaggle Grandmasters have found more success with presentation, reporting, summaries etc. during competitions using `prettytable` as opposed to others.
+**Small but Mighty:** Topping the chart is `prettytable`, a lightweight formatting library. Rarely used compared to heavyweights like `numpy`, its usage is highly correlated with medal-winning notebooks. Since notebook medals come from community upvotes, this makes sense: clean, well-presented tables make a notebook easier to read and more likely to be upvoted.
 
-**Underdog Visualizers:** Tools like `sweetviz`, `autoviz`, and `ydata_profiling` score very high. Automated EDA libraries offer substantial time saving during early data exploration. These can be key in a time pressured and competitive competition like what we see here on Kaggle.
+**Underdog Visualizers:** Tools like `sweetviz`, `autoviz`, and `ydata_profiling` score very high. Automated EDA libraries offer substantial time saving during early data exploration. They also produce the kind of rich visual analysis the community tends to reward.
 
-**High Efficiency ML Libraries:** `sklearnex`, Intel's optimized `scikit-learn` ranks second overall. This supports the idea that even marginal speedups can significantly impact performance in compute-heavy competitions. `detectron2`, `catboost`, and `lightgbm` also make the cut, highlighting the ongoing dominance of boosting frameworks and CV backbones.
+**High Efficiency ML Libraries:** `sklearnex`, Intel's optimized `scikit-learn` ranks second overall. This suggests that notebooks tackling compute-heavy competitions benefit from even marginal speedups. `detectron2`, `catboost`, and `lightgbm` also make the cut, highlighting the ongoing dominance of boosting frameworks and CV backbones.
 
-**Interpretability Matters:** Libraries like `shap` and `eli5` show up respectfuly, reinforcing the idea that explainability often required in competition notebooks boosts trust, clarity, and possibly final judging scores.
+**Interpretability Matters:** Libraries like `shap` and `eli5` show up respectably, reinforcing the idea that explainability boosts trust and clarity, which readers reward with upvotes.
 
 **Specialized Libraries Shine in Specific Contexts:** `kaggle_environments` and `kaggle_secrets` appear high on the list, which aligns with their necessity in reinforcement learning and secure data competitions. Similarly, the presence of `umap` and `optuna` suggests that advanced dimensionality reduction and hyperparameter optimization are now standard tools in high performing workflows.
 
-Based on this first look at our top 20 libraries, we consistently see the importance of EDA and explainability. Perhaps this suggests that to win Kaggle Competitions it's not just about writing good algorithms, but rather having the deepest understanding of the data at hand.
+Based on this first look at our top 20 libraries, we consistently see the importance of EDA and explainability. Perhaps this suggests that the notebooks the community values most aren't just about writing good algorithms, but about demonstrating the deepest understanding of the data at hand.
 
 <details>
 <summary>Cell 14: Assign high-level categories</summary>
@@ -899,7 +901,7 @@ Which types of libraries dominate Kaggle competitions and where do they shine mo
 
 ### 🧭 Sector Performance
 
-The first chart shows the average medal weighted impact by library sector. Once again, the Explainability and Visualization (viz) libraries come out on top, even ahead of core modeling tools. Libraries like `shap`, `eli5`, `seaborn`, and `plotly` seem to help competitors build clearer, more justifiable models that judges and teammates value.
+The first chart shows the average medal weighted impact by library sector. Once again, the Explainability and Visualization (viz) libraries come out on top, even ahead of core modeling tools. Libraries like `shap`, `eli5`, `seaborn`, and `plotly` seem to help authors build clearer, more justifiable models that readers and teammates value.
 
 Other high performing sectors:
 
@@ -907,7 +909,7 @@ Other high performing sectors:
 - `tabular_ml` and `gpu_rapids`: Traditional modeling pipelines and accelerated training frameworks hold strong, showing their importance in classic structured data competitions.
 - `audio` and `nlp`: While slightly lower in mean impact, they punch above their weight in niche domains like speech recognition and language modeling.
 
-Meanwhile, sectors like `cv_dl` and `tabular_ml` fall slightly behind likely due to the intense competition in CV tasks where libraries alone don't guarantee medals.
+Meanwhile, sectors like `cv_dl` fall slightly behind, likely due to the intense competition in CV tasks where libraries alone don't guarantee medals.
 
 ### 🏅 Top Libraries Across Competition Categories
 
@@ -1012,7 +1014,7 @@ This chart highlights the single most impactful library (by medal-weighted score
 
 - **2023–2024:** The presence of `regex` and `prody` is both surprising and not. Simple utility tools used in the right place (text cleaning, signal processing) can produce high returns.
 
-- **2025:** `nemo_skills`, a lesser-known NLP related tool, emerges as the current standout half way through the year, showcasing that domain specific models and toolkits for speech/NLP are key as competitons grow in size.
+- **2025:** `nemo_skills`, a lesser-known NLP related tool, emerges as the current standout half way through the year, showcasing that domain specific models and toolkits for speech/NLP are key as competitions grow in size.
 
 <details>
 <summary>Cell 17: Popularity vs Impact</summary>
@@ -1080,7 +1082,7 @@ plt.show()
 
 This scatter plot highlights the trade off between how widely used a library is (x-axis, log scale) and how effective it is in contributing to medal winning kernels (y-axis, impact score from 0–3). While popularity and impact often correlate loosely, many libraries don't follow the trend excelling at one but not necessarily the other.
 
-At the top left of the chart, we find hidden gems like `prettytable`, `sweetviz`, and `sklearnex.` These libraries may not appear in thousands of notebooks, but when they do, they often correlate with podium finishes, suggesting they provide targeted leverage in formatting, EDA, or model acceleration. Similarly, tools like `holidays` and `detectron2` show up as niche but potent, excelling in specific contexts like time based features or image detection.
+At the top left of the chart, we find hidden gems like `prettytable`, `sweetviz`, and `sklearnex.` These libraries may not appear in thousands of notebooks, but when they do, they often correlate with medal-winning notebooks, suggesting they provide targeted leverage in formatting, EDA, or model acceleration. Similarly, tools like `holidays` and `detectron2` show up as niche but potent, excelling in specific contexts like time based features or image detection.
 
 In contrast, the bottom right quadrant includes well known libraries like `numpy`, `pandas`, `scikit-learn`, and `pytorch`. These tools are essential for nearly every notebook, but their per-notebook impact is naturally diluted as they are foundational but not always decisive in driving medal outcomes. Libraries like `matplotlib` follow a similar pattern of being omnipresent, but not uniquely associated with winning solutions.
 
@@ -1162,27 +1164,27 @@ Early on, between 2015–2017, the core data stack (numpy, pandas, matplotlib, s
 
 Around 2017–2019, boosting frameworks broke out: xgboost rose rapidly, peaking in impact as structured data competitions eclipsed pure CV/NLP.
 
-By 2020, lightgbm surged even higher. Its 2022 peak near 1.0 dwarfs all others reflecting both algorithmic speedups and Hyperparameter tuning maturity.
+By 2020, lightgbm surged even higher. Its 2022 peak near 1.0 dwarfs all others reflecting both algorithmic speedups and hyperparameter tuning maturity.
 
 Meanwhile, deep-learning libraries tell a different story. tensorflow crept upward into 2021 before plateauing. In contrast, pytorch enjoyed a slower but steadier climb through 2022, only to taper off as many PyTorch based models became commoditized. Today, both frameworks converge around a moderate impact (~0.4–0.5), suggesting that while they remain essential, they no longer confer as dramatic an edge per notebook.
 
 In summary, specialized, high-performance tools (LightGBM, XGBoost) drove the golden era of tabular competitions, while deep-learning frameworks have matured into baseline utilities that are still vital, but less of a competitive differentiator on their own.
 
-## 🧑‍🤝‍🧑 Takeaways for Practioners
+## 🧑‍🤝‍🧑 Takeaways for Practitioners
 
-With Kaggle having grown to over **13M+ users**, in this section we will share what we've learned in working on this writeup and exploring this data. Our goal is to share what we've learned with the community in hopes that everyone can benefit and grown on their journey in Data Science and Machine Learning!
+With Kaggle having grown to over **13M+ users**, in this section we will share what we've learned in working on this writeup and exploring this data. Our goal is to share what we've learned with the community in hopes that everyone can benefit and grow on their journey in Data Science and Machine Learning!
 
 **Prioritize high-efficiency modeling tools.**
-`LightGBM`, `XGBoost` and `Optuna` consistently drive podium finishes in tabular competitions. Establish a baseline with `LightGBM`, then ensemble with `XGBoost`. Automate hyperparameter sweeps with `Optuna` (20–50 trials) and cache intermediate results to speed up iteration.
+`LightGBM`, `XGBoost` and `Optuna` consistently appear in medal-winning notebooks for tabular competitions. Establish a baseline with `LightGBM`, then ensemble with `XGBoost`. Automate hyperparameter sweeps with `Optuna` (20–50 trials) and cache intermediate results to speed up iteration.
 
 **Use lightweight EDA and presentation libraries.**
 `Sweetviz`, `Autoviz` and `PrettyTable` deliver outsized impact by automating exploratory analysis and formatting. Reserve a notebook section for automated EDA, then extract key visuals and tables into your narrative to make insights immediately clear.
 
 **Embed interpretability early.**
-`SHAP` and `ELI5` rank among the highest impact tools per use. Generate feature importance plots and force charts as part of your modeling pipeline to both debug and justify your choices in a way that judges and collaborators value.
+`SHAP` and `ELI5` rank among the highest impact tools per use. Generate feature importance plots and force charts as part of your modeling pipeline to both debug and justify your choices in a way that readers and collaborators value.
 
 **Match libraries to domain.**
-Review past winners in your competition category and adopt their specialist stack `Detectron2`/`MMCV` for vision, sentence transformers for NLP, holidays/Prophet for time series, etc. Domain specific libraries encapsulate best practices that generic tools often miss.
+Review top notebooks in your competition category and adopt their specialist stack `Detectron2`/`MMCV` for vision, sentence transformers for NLP, holidays/Prophet for time series, etc. Domain specific libraries encapsulate best practices that generic tools often miss.
 
 **Leverage GPU acceleration when warranted.**
 RAPIDS (`cudf`, `cuml`, `cupy`) and `NVTabular` offer significant speedups for large datasets. Benchmark against CPU workflows, and switch to GPU runtimes only when preprocessing or training times justify the overhead.
@@ -1192,7 +1194,7 @@ Tools like `mlflow_extend`, `nvtabular` or `nemo_skills` have briefly led the ye
 
 ## Conclusion & Reflection
 
-In our exploration of Kaggle’s library ecosystem, we uncovered that impact often lies in the less obvious choices. Niche utilities and specialized packages frequently outshine broadly used frameworks when measured by medal-weighted efficiency. Building and validating a scalable pipeline for parsing hundreds of thousands of notebooks not only reinforced the importance of reproducible, cache friendly workflows but also highlighted how exploratory data analysis tools and interpretability libraries play an outsized role in successful solutions. We were surprised by how often small or emerging tools such as presentation utilities, optimized extensions, or domain specific helpers appear disproportionately in winning notebooks.
+In our exploration of Kaggle’s library ecosystem, we uncovered that impact often lies in the less obvious choices. Niche utilities and specialized packages frequently outshine broadly used frameworks when measured by medal-weighted efficiency. Building and validating a scalable pipeline for parsing hundreds of thousands of notebooks not only reinforced the importance of reproducible, cache friendly workflows but also highlighted how exploratory data analysis tools and interpretability libraries play an outsized role in the notebooks the community values most. A natural next step would be to repeat this analysis using competition leaderboard results, to see which libraries actually drive podium finishes. We were surprised by how often small or emerging tools such as presentation utilities, optimized extensions, or domain specific helpers appear disproportionately in winning notebooks.
 
 This process reminded us that Kaggle’s strength lies in its community’s creativity and willingness to share insights. By combining rigorous analysis with transparency and sharing our methods openly, we hope to support a culture where every participant can learn, innovate, and contribute to the evolving landscape of data science.
 

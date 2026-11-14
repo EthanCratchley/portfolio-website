@@ -1726,7 +1726,7 @@ body.search-modal-open {
 
 .book-detail-info h3 {
   margin: 0 0 4px;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   color: var(--text-primary);
 }
 
@@ -2003,4 +2003,65 @@ body.search-modal-open {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Later edits on writing posts: hover (or tap) a [A] marker to read the note */
+.edit {
+  position: relative;
+  margin-left: 0.15em;
+  font-size: 0.75em;
+  vertical-align: super;
+  color: var(--highlight-blue);
+  cursor: help;
+}
+
+.edit-note {
+  position: absolute;
+  bottom: 1.6em;
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: min(300px, 80vw);
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  box-shadow: 0 2px 8px var(--shadow-medium);
+  color: var(--text-primary);
+  font-size: 1.2em;
+  font-style: italic;
+  line-height: 1.4;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+}
+
+.edit:hover .edit-note,
+.edit:focus .edit-note {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+/* On narrow screens, span the note across its paragraph so it can't run off-screen */
+@media (max-width: 600px) {
+  #markdownContent p:has(.edit) {
+    position: relative;
+  }
+
+  .edit {
+    position: static;
+  }
+
+  .edit-note,
+  .edit:hover .edit-note,
+  .edit:focus .edit-note {
+    left: 0;
+    bottom: 100%;
+    width: auto;
+    max-width: none;
+    transform: none;
+  }
 }

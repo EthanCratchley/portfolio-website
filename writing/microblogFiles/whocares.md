@@ -4,8 +4,8 @@ People make wishes at 11:11. We stare at the clock as it counts down to the New 
 
 Personally, I’ve found date and time to be more of a distraction than anything else. Have you ever caught yourself staring at the clock thinking, “I’ll get up and do X at Y time”? I know I have. And if I had just gotten up right away all those times, I’d probably be a lot more productive.
 
-Many species follow patterns like circadian rhythms and seasonal behaviors but no other species follows them so ritualistically. That makes me wonder: is this a strength or a weakness? Does it help us stay organized, or does it quietly chip away at productivity and even happiness?
+Many species follow patterns like circadian rhythms and seasonal behaviors, but no other species follows them so ritualistically. That makes me wonder: is this a strength or a weakness? Does it help us stay organized, or does it quietly chip away at productivity and even happiness?
 
-I’m not arguing that we should get rid of dates and time altogether. That would cause more problems than it would solve. But rather that we should ensure we are using time as an instrument for coordination and culture, not letting time use us.
+I’m not arguing that we should get rid of dates and time altogether. That would cause more problems than it would solve. Rather, we should make sure we are using time as an instrument for coordination and culture, not letting time use us.
 
 ![My Image] (time.png)

@@ -10,12 +10,12 @@ Throughout this post we'll explore:
 
 # History and Statistics of Inequality
 
-In general throughout history inequality has been the norm besides a few periods and exceptions. A study from _wid.world_ finds that over the last 7 centuries inequality in both wealth and income have increased with 2 major exceptions:
+In general throughout history inequality has been the norm besides a few periods and exceptions. A study from _wid.world_ finds that over the last 7 centuries inequality in both wealth and income has increased with 2 major exceptions:
 
 1. Century following The Black Plague (1400s)
 2. WW1 - Mid 1970s
 
-_Essentially, absent some of the largest shocks in human history inequality tends to grow. It is especially common to see inequality increase in periods of rapid growth ie. The Industrial Revolution._
+_Essentially, absent some of the largest shocks in human history, inequality tends to grow. It is especially common to see inequality increase in periods of rapid growth, e.g. the Industrial Revolution._
 
 ## The Great Compression
 
@@ -27,30 +27,28 @@ _Now by no means am I suggesting we rely on major world wars and economic shocks
 
 ## The Modern Reversal
 
-![thatcher and raegan](../../assets/thatcher.png)
-Since around 1980 inequality has taken off and hasn't looked back. This is far from random as this is when some of the most transformative policies in history took place with Ronald Reagan in the USA and Margaret Thatcher in the UK. Tax cuts for the wealthy, deregulation, weakened unions, and a broader embrace of market first policies all contributed to what was coined as **The Gilded Age**. Today the top 1% in the US now claim over 20% of income, levels not seen since the 1920s.
-
-While we’re on this timeline it's hard not to mention the earlier pivot of 1971.
+![thatcher and reagan](../../assets/thatcher.png)
+Since around 1980 inequality has taken off and hasn't looked back. This is far from random as this is when some of the most transformative policies in history took place with Ronald Reagan in the USA and Margaret Thatcher in the UK. Tax cuts for the wealthy, deregulation, weakened unions, and a broader embrace of market first policies all contributed to what some have called a **New Gilded Age** (a nod to the original Gilded Age of the late 1800s). Today the top 1% in the US claim over 20% of income, levels not seen since the 1920s.
 
 ## Domestic vs Global Inequality
 
-When we are talking about inequality it is important to recognize the difference between global and domestic inequality. There are various examples of countries domestic inequality shrinking meanwhile global continues to rise.
+When we are talking about inequality it is important to recognize the difference between global and domestic inequality. The two don't always move together: in recent decades, inequality within many countries has risen even as inequality between countries has fallen.
 
 - **Domestic (U.S.):** The Gini coefficient fell from ~0.45 to ~0.34 (1950–1975), then climbed back above ~0.41 since 1980.
 
 - **Global:** The global Gini (all individuals, all countries) eased slightly from ~0.72 in 2000 to ~0.67 in 2020—driven by rapid growth in China and India—but remains at levels seen during the early 20th-century imperial era.
 
-_The **Gini Coefficient** is a measure of inequality where 0 equals perfect and 1 equals max inequality._
+_The **Gini Coefficient** is a measure of inequality where 0 equals perfect equality and 1 equals maximum inequality._
 
 ## Inequality Today
 
 **Income Inequality**
 
-Today, the richest 10% of people worldwide capture about 52% of global income, while the poorest 50% share only 8.5%. That means half the world’s population (~4 billion people) subsist on less than 1/10 of all income earned. Even in advanced economies, the top 1% now take home around 20% of national income, up from about 10% in 1979.
+Today, the richest 10% of people worldwide capture about 52% of global income, while the poorest 50% share only 8.5%. That means half the world’s population (~4 billion people) subsist on less than 1/10 of all income earned. In the U.S., the top 1% now take home around 20% of national income, up from about 10% in 1979.
 
 **Wealth Inequality**
 
-Wealth is even more skewed: the bottom 50% of adults globally own just 2% of total household wealth, whereas the top 10% command around 76%. To put that in perspective, in 2021 the combined wealth of just ten billionaires exceeded the combined wealth of the poorest 5.1 billion people.
+Wealth is even more skewed: the bottom 50% of adults globally own just 2% of total household wealth, whereas the top 10% command around 76%. To put that in perspective, in 2021 the ten richest men owned more wealth than the poorest 3.1 billion people combined.
 
 ## Regional Differences
 
@@ -64,7 +62,7 @@ Inequality also varies by region:
 
 # Why Inequality Matters
 
-This section is the core of why I wrote this post. Everyone is well aware of inequality but many aren't aware of it's actual effcts. I thought that inequality may have existed but it didn't actually have all of the perceived negative impacts people thought it might.
+This section is the core of why I wrote this post. Everyone is aware of inequality, but many aren't aware of its actual effects. I assumed inequality existed but didn't actually have all of the negative impacts people claimed it did.
 
 I posed the question _"If everyone is wealthy but some people at the top are just substantially more wealthy, is that really a problem?"_ thinking maybe this is just an economic growth problem but that doesn't seem to be the case.
 
@@ -89,7 +87,7 @@ Unequal societies score lower on measures of social trust and community engageme
 - Higher rates of obesity, mental illness, and violent crime
 - Shorter life expectancy—even for the well-off
 
-**Motivation and Oppurtunity:**
+**Motivation and Opportunity:**
 
 High inequality often correlates with low intergenerational mobility. The “Great Gatsby Curve” illustrates this: countries with higher income gaps (high Gini) tend to have lower intergenerational mobility. In practical terms:
 
@@ -109,17 +107,17 @@ Before we can look into solutions for inequality we need to understand what is c
 
 ## Capital vs. Growth
 
-The fundamental cause of wealth/income inequality is that **wealth tends to reproduce itself** at scale. Economist Thomas Picketty famously summarized this with the following formula **r (rate of return on capital) > g (overall economic growth rate)**, meaning the rate of return on capital exeeds an economy's growth rate.
+The fundamental cause of wealth/income inequality is that **wealth tends to reproduce itself** at scale. Economist Thomas Piketty famously summarized this with the following formula **r (rate of return on capital) > g (overall economic growth rate)**, meaning the rate of return on capital exceeds an economy's growth rate.
 
 ```
-Annual Investment ROI avg: 4-5% (modern investments tend to be actually 8-10%+)
-Annual Economic ROI (GDP Growth): 1-2%
+Annual Return on Capital avg: 4-5% (stock market returns have historically been even higher, ~7-10%)
+Annual Economic Growth (GDP): 1-2%
 ```
 
 ![warren snowball](../../assets/snow.jpeg)
 **Snowball Effect:**
 
-_As Alice Schroeder describes in "The Snowball: Warren Buffett and the Business of Life", Buffett’s wealth grew like a snowball rolling downhill slow at first, then gathering size (and speed) as compounding stacked gains upon gains. The same dynamic applies at scale: those with capital see their fortunes snowball, while wage earners can’t keep up with the pace of compound returns._
+_As Alice Schroeder describes in "The Snowball: Warren Buffett and the Business of Life", Buffett’s wealth grew like a snowball rolling downhill, slow at first, then gathering size (and speed) as compounding stacked gains upon gains. The same dynamic applies at scale: those with capital see their fortunes snowball, while wage earners can’t keep up with the pace of compound returns._
 
 ## Policy, Technology & Globalization
 
@@ -141,26 +139,26 @@ Three interconnected forces of government policy, technological change, and glob
 
 # An Excerpt on Trickle Down Economics
 
-"Trickle Down Economics" is a popular term closely associated with supply side economics advocated for in the 1980s by Reagan and Thatcher. It's important to note that "Trickle Down Economics" isn't any form of real economic theory or something government used to describe their strategy but rather a name coined by people who advocated against it. The claim of so called "Trickle Down Economics" is that policies that are made to benefit the wealthy will "trickle down" to benefit everyone.
+"Trickle Down Economics" is a popular term closely associated with supply side economics advocated for in the 1980s by Reagan and Thatcher. It's important to note that "Trickle Down Economics" isn't a formal economic theory or a term governments used to describe their own strategy, but rather a label coined by its critics. The claim of so called "Trickle Down Economics" is that policies that are made to benefit the wealthy will "trickle down" to benefit everyone.
 
 ![boats](../../assets/boats.png)
 Summarized in the famous saying _"A rising tide lifts all boats."_
 
-This was the overarching idea of what Ronald Reagan called "Reaganomics", stating that _"if wealthy people and corporations keep more of their earnings, they will invest, expand, create jobs, etc.,benefitting all."_
+This was the overarching idea of what Ronald Reagan called "Reaganomics", the idea being that _if wealthy people and corporations keep more of their earnings, they will invest, expand, create jobs, etc., benefitting all._
 
 ## Results of Trickle Down Economics
 
-When supply side tax cuts first rolled out under Reagan in the 1980s, the economy did experience a sharp rebound from recession. GDP growth accelerated, unemployment fell, and inflation came under control. Yet much of that turnaround is now credited to the Federal Reserve’s aggressive interest rate cuts rather than the tax cuts themselves. Similar experiments under George W. Bush (2001–03) and Donald Trump (2017) produced more modest growth spurts, with real gains emerging only when the Fed again eased monetary policy to prop up demand. In each case, headline numbers looked good for a time but the engine powering the expansion was loose money, not trickle down incentives.
+When supply side tax cuts first rolled out under Reagan in the 1980s, the economy did experience a sharp rebound from recession. GDP growth accelerated, unemployment fell, and inflation came under control. Yet much of that turnaround is now credited to the Federal Reserve rather than the tax cuts themselves: Paul Volcker’s sharp interest rate hikes broke inflation, and the Fed’s rate cuts from 1982 onward fueled the recovery. Similar experiments under George W. Bush (2001–03) and Donald Trump (2017) produced more modest growth spurts, with monetary policy and the broader economic cycle doing much of the heavy lifting. In each case, headline numbers looked good for a time, but there is little evidence the trickle down incentives themselves were the engine powering the expansion.
 
 At the same time, every major round of top end tax cuts shrank government revenues and sent deficits soaring. Rather than unleashing a wave of new factories and jobs, wealthy individuals and corporations tended to park their tax savings in financial markets buying back shares or stacking cash while middle class wages remained largely unchanged. In other words, cutting taxes at the top did not “pay for itself” through business investment or hiring, it simply redistributed income upward.
 
-![raegan](../../assets/raegan.png)
+![reagan](../../assets/raegan.png)
 
 That said, some argue trickle down policies may produce qualitative or longer term benefits that are harder to capture in short-term data. These could include fostering a more competitive business climate, encouraging risk-taking, or attracting foreign investment. It's also possible that lower taxes improve incentives in subtle ways motivating founders, easing succession planning, or boosting confidence. While these effects are difficult to quantify, they’re worth acknowledging. Still, even if they exist, the overall evidence suggests they don’t outweigh the more direct and measurable downsides: higher deficits, rising inequality, and stagnant wages for the majority.
 
 # Potential Solutions to Inequality
 
-Before we talk about potential solutions for inequality, it's important to note that **not all inequality is inherently bad.** Some level of income and wealth differentiation is essetnial in any healthy economy to reward innovation, risk taking, hard work, and skill. A perfectly equal society where outcomes are identical regardless of contribution wouldn’t be functional or fair either.
+Before we talk about potential solutions for inequality, it's important to note that **not all inequality is inherently bad.** Some level of income and wealth differentiation is essential in any healthy economy to reward innovation, risk taking, hard work, and skill. A perfectly equal society where outcomes are identical regardless of contribution wouldn’t be functional or fair either.
 
 From what I can tell the goal isn’t to eliminate inequality completely, but to increase the chance a person from any given background can make it to the top. The most important thing we can do is aim for equality of opportunity, so that anyone regardless of their starting point, has the chance to grow with the economy.
 
@@ -168,11 +166,11 @@ From what I can tell the goal isn’t to eliminate inequality completely, but to
 
 1. Education and Training
 
-In my opinion perhaps the most important point is ensuring access to high quality education from early childhood to post secondary and vocational programs helps close the skills gap and unlock upward mobility. The more people in a economy that can reach their full potential the better **for everyone** in an economy.
+In my opinion perhaps the most important point is ensuring access to high quality education from early childhood to post secondary and vocational programs helps close the skills gap and unlock upward mobility. The more people in an economy that can reach their full potential the better **for everyone** in an economy.
 
 2. Progressive Taxation
 
-A more progressive tax system ensures that those with the greatest ability to contribute do so. This doesn’t mean punishing success, but rather recognizing diminishing marginal utility an extra dollar means less to someone making $10 million than to someone making $30,000.
+A more progressive tax system ensures that those with the greatest ability to contribute do so. This doesn’t mean punishing success, but rather recognizing diminishing marginal utility: an extra dollar means less to someone making $10 million than to someone making $30,000.
 
 3. Social Spending
 
@@ -182,16 +180,16 @@ Targeted social programs (e.g. healthcare, childcare, housing, income supports) 
 
 # Reflection and Conclusion
 
-When I started writing this my goal was largely to understand the impacts of inequality on a society. I assumed that like many problems, inequality was just something that could be solved by more growth. While this may parly be true, there is a lot more that can be done.
+When I started writing this my goal was largely to understand the impacts of inequality on a society. I assumed that like many problems, inequality was just something that could be solved by more growth. While this may partly be true, there is a lot more that can be done.
 
-If there's one key takeaway from this exploration, it's that wealth and income inequality negatively affect everyone, not just those at the bottom. Improving inequality means, innovation grows, health improves, economies stabilize, and trust rises. Reducing inequality doesn’t mean someone else has to lose, it means more people can win.
+If there's one key takeaway from this exploration, it's that wealth and income inequality negatively affect everyone, not just those at the bottom. Reducing inequality means innovation grows, health improves, economies stabilize, and trust rises. Reducing inequality doesn’t mean someone else has to lose, it means more people can win.
 
 Despite rising inequality, humans have made massive progress by almost every measure: poverty, quality of life, education, health, life expectancy, the list goes on. The arc of history has been bending toward better and we will continue to bend that arc.
 
 And not all equality is inherently good either. Mao’s China had almost no inequality but nearly everyone was poor. Meanwhile, countries like the U.S. or modern China have seen tremendous innovation and growth despite high inequality. Clearly, the goal isn’t simply to reduce inequality for its own sake, but to maximize growth while ensuring as many people as possible benefit from it, something modern China has done better than most.
 
-From what I can tell taxing the rich won’t work passed a certain extent, it causes capital flight and can discourage innovation as we see in the EU today. The truth is, wealthy individuals and corporations play a vital role in society if incentives are aligned in a way that benefits both them and the broader population.
+From what I can tell, there is also a limit to how far taxing the rich can go: push rates too high and you risk capital flight and discouraging innovation. That's why progressive taxation works best alongside education and opportunity, not as a replacement for them. The truth is, wealthy individuals and corporations play a vital role in society if incentives are aligned in a way that benefits both them and the broader population.
 
-Maybe the uncomfortable truth is that inequality is a feature, not a bug. This is just how it works and we aren't able to find this perfect balance we strive for. But giving in to that cynicism doesn’t help anyone. We’re better off striving for systems that reward effort while helping those at the bottom, even if it may seem impossible.
+Maybe the uncomfortable truth is that some inequality is a feature, not a bug. To an extent, this is just how it works, and we may never find the perfect balance we strive for. But giving in to that cynicism doesn’t help anyone. We’re better off striving for systems that reward effort while helping those at the bottom, even if it may seem impossible.
 
-_This post is by no means meant to be political or the endorsing of any ideaology, party, etc. Rather the goal of writing this was selfish in my hopes to understand and learn about the impacts of inequality and to share my findings whatever they may be. Feel free to reach out via email to share your own opinion, findings, or any errors within my post, I'm always open to new ideas._
+_This post is by no means meant to be political or to endorse any ideology, party, etc. Rather, my goal in writing this was selfish: to understand and learn about the impacts of inequality, and to share my findings, whatever they may be. Feel free to reach out via email to share your own opinion, findings, or any errors within my post, I'm always open to new ideas._
